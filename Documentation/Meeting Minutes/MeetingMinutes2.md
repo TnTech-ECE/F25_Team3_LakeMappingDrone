@@ -1,7 +1,7 @@
 
 # Capstone Team 3 meeting minutes 2
 ## Location:	Campus Library
-## Date:	9/10/2025
+## Date:	9/17/2025
 ### Time:	1:00 – 2:30
 ### Attendees:	Jackson Hamblin, Brady Nugent, Ryan Thomas, Ian Hanna, Nathan Norris
 ## Agenda items
