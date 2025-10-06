@@ -72,40 +72,40 @@ This section summarizes current approaches and products used to measure water de
 
 **1. Acoustic Doppler Current Profilers (ADCPs) for Flow/Discharge**
 
-ADCPs are the water-industry standard for measuring velocity profiles and computing discharge. U.S. Geological Survey (USGS) guidance details validated procedures for moving-boat ADCP measurements and associated QA/QC practices. [11]
+ADCPs are the water-industry standard for measuring velocity profiles and computing discharge. U.S. Geological Survey (USGS) guidance details validated procedures for moving-boat ADCP measurements and associated QA/QC practices. [3]
 **Representative systems**
-- **Teledyne RD Instruments (RDI) StreamPro** – portable ADCP designed for small streams; provides real-time discharge with built-in QA/QC workflows. Typical operating depths are on the order of decimeters to a few meters, targeting small channels. [3]
-- **SonTek (Xylem) RiverSurveyor RS5** – compact ADCP intended for discharge in rivers, streams, and canals; often paired with a small tow board or micro-USV and optional RTK positioning. [4]
+- **Teledyne RD Instruments (RDI) StreamPro** – portable ADCP designed for small streams; provides real-time discharge with built-in QA/QC workflows. Typical operating depths are on the order of decimeters to a few meters, targeting small channels. [4]
+- **SonTek (Xylem) RiverSurveyor RS5** – compact ADCP intended for discharge in rivers, streams, and canals; often paired with a small tow board or micro-USV and optional RTK positioning. [5]
   
 **Relevance to the project:**
- ADCPs offer high-fidelity flow/velocity data and well-established methods but increase cost, power draw, and integration complexity compared with simpler single-beam depth sensors. [11]
+ ADCPs offer high-fidelity flow/velocity data and well-established methods but increase cost, power draw, and integration complexity compared with simpler single-beam depth sensors. [3]
 
 **2. Echo Sounders for Depth/Bathymetry**
 
 Single-beam echo sounders provide vertical depth at a point; multibeam systems map swaths for faster coverage but at higher cost and integration requirements.
-- **Single-beam (e.g., Blue Robotics Ping/Ping2)** – low-cost echosounders (≈100 m range, ~25° beam) commonly used on small USVs for bathymetric point soundings and as altimeters; [5]
-- **Survey-grade single-beam (e.g., CEESCOPE with RTK GNSS)** – integrated echo sounder + GNSS/RTK receivers for centimeter-level bottom mapping in professional workflows. [6]
-- **Multibeam packages (case example)** – ASVs equipped with multibeam sonars and RTK-INS (e.g., SBG Ekinox-D) enable wide-swath mapping with precise positioning and motion compensation. SBG Systems
+- **Single-beam (e.g., Blue Robotics Ping/Ping2)** – low-cost echosounders (≈100 m range, ~25° beam) commonly used on small USVs for bathymetric point soundings and as altimeters; [6]
+- **Survey-grade single-beam (e.g., CEESCOPE with RTK GNSS)** – integrated echo sounder + GNSS/RTK receivers for centimeter-level bottom mapping in professional workflows. [7]
+- **Multibeam packages (case example)** – ASVs equipped with multibeam sonars and RTK-INS (e.g., SBG Ekinox-D) enable wide-swath mapping with precise positioning and motion compensation.
   
 **Relevance to the project:**
- A single-beam transducer is typically sufficient for channel profiling and proof-of-concept bathymetry; multibeam improves coverage but requires higher budget and more advanced navigation/attitude sensing. [5]
+ A single-beam transducer is typically sufficient for channel profiling and proof-of-concept bathymetry; multibeam improves coverage but requires higher budget and more advanced navigation/attitude sensing. [6]
 
 **3. Unmanned Surface Vessels (USVs) / Autonomous Survey Platforms**
 
 Commercial USVs integrate propulsion, navigation, and payload bays for sonar and GNSS/INS.
-- **Seafloor Systems EchoBoat-160** – purpose-built hydrographic USV supporting single-/multibeam payloads; marketed for efficient, crew-reduced surveys. [7]
-- **Tersus GNSS “TheDuck”** – compact USV with single-beam echo sounder aimed at bathymetric surveys. [8]
+- **Seafloor Systems EchoBoat-160** – purpose-built hydrographic USV supporting single-/multibeam payloads; marketed for efficient, crew-reduced surveys. [8]
+- **Tersus GNSS “TheDuck”** – compact USV with single-beam echo sounder aimed at bathymetric surveys. [9]
   
 **Relevance to the project:**
- Commercial USVs offer turn-key reliability but at significant cost. A student-built platform can tailor sensors and autonomy to the specific use case at lower price, with added integration effort. [7]
+ Commercial USVs offer turn-key reliability but at significant cost. A student-built platform can tailor sensors and autonomy to the specific use case at lower price, with added integration effort. [8]
 
 **4. Industry Practices and Alternative Flow Instruments**
 
-Beyond ADCPs, vendors such as OTT Hydromet offer mechanical and acoustic flow meters and fixed stations for long-term discharge monitoring; mobile Doppler systems like OTT Qliner2 have specified accuracy and profiling ranges for wading and boat deployments. [9]
+Beyond ADCPs, vendors such as OTT Hydromet offer mechanical and acoustic flow meters and fixed stations for long-term discharge monitoring; mobile Doppler systems like OTT Qliner2 have specified accuracy and profiling ranges for wading and boat deployments. [10]
 
 **5. Open-Source / Academic Efforts**
 
-Recent literature and maker ecosystems describe low-cost autonomous surface vehicles that integrate commodity echosounders, GNSS, and open autopilots for bathymetry/monitoring—highlighting feasibility for budget-constrained applications, albeit with varying levels of validation versus professional gear. [10]
+Recent literature and maker ecosystems describe low-cost autonomous surface vehicles that integrate commodity echosounders, GNSS, and open autopilots for bathymetry/monitoring—highlighting feasibility for budget-constrained applications, albeit with varying levels of validation versus professional gear. [11]
 
 ## Measures of Success
 
@@ -241,23 +241,24 @@ These implications emphasize the importance of designing our project within the 
 
 [2] F. Gerlotto, S. Gauthier, and B. Masse, “The application of multibeam sonar technology for quantitative estimates of fish density in shallow water acoustic surveys,” Aquatic Living Resources, vol. 13, no. 5, pp. 385–393, 2000. [Online]. Available: https://doi.org/10.1016/S0990-7440(00)01094-4
 
-[3] Teledyne Marine, “StreamPro ADCP,” Teledyne RD Instruments, 2023. [Online]. Available: https://www.teledynemarine.com  
+[3] U.S. Geological Survey, Use of Acoustic Doppler Current Profilers for Streamflow Measurements, U.S. Dept. of the Interior, Reston, VA, USA. [Online]. Available: https://pubs.usgs.gov 
 
-[4] SonTek, “RiverSurveyor RS5,” Xylem Inc., 2023. [Online]. Available: https://www.ysi.com/riversurveyor  
+[4] Teledyne Marine, “StreamPro ADCP,” Teledyne RD Instruments, 2023. [Online]. Available: https://www.teledynemarine.com  
 
-[5] Blue Robotics, “Ping2 Echosounder and Altimeter,” Blue Robotics Inc., 2023. [Online]. Available: https://bluerobotics.com/store/sensors-sonars-cameras/sonar/ping-sonar-r2-rp  
+[5] SonTek, “RiverSurveyor RS5,” Xylem Inc., 2023. [Online]. Available: https://www.ysi.com/riversurveyor  
 
-[6] CEESCOPE, “Integrated GNSS and single-beam echosounder for hydrographic surveys,” CEE Hydrosystems, 2023. [Online]. Available: https://www.ceehydrosystems.com 
+[6] Blue Robotics, “Ping2 Echosounder and Altimeter,” Blue Robotics Inc., 2023. [Online]. Available: https://bluerobotics.com/store/sensors-sonars-cameras/sonar/ping-sonar-r2-rp  
 
-[7] Seafloor Systems Inc., “EchoBoat-160 Autonomous Survey Vessel,” Seafloor Systems, 2023. [Online]. Available: https://www.seafloorsystems.com  
+[7] CEESCOPE, “Integrated GNSS and single-beam echosounder for hydrographic surveys,” CEE Hydrosystems, 2023. [Online]. Available: https://www.ceehydrosystems.com 
 
-[8] Tersus GNSS, “TheDuck Autonomous Survey Boat,” Tersus GNSS Inc., 2023. [Online]. Available: https://www.tersus-gnss.com   
+[8] Seafloor Systems Inc., “EchoBoat-160 Autonomous Survey Vessel,” Seafloor Systems, 2023. [Online]. Available: https://www.seafloorsystems.com  
 
-[9] OTT Hydromet, “Qliner2: Mobile Doppler system for discharge measurements,” OTT Hydromet GmbH, 2023. [Online]. Available: https://www.ott.com  
+[9] Tersus GNSS, “TheDuck Autonomous Survey Boat,” Tersus GNSS Inc., 2023. [Online]. Available: https://www.tersus-gnss.com   
 
-[10] ResearchGate, “Low-cost autonomous surface vehicles for inland water monitoring,” ResearchGate Publications, 2023. [Online]. Available: https://www.researchgate.net 
+[10] OTT Hydromet, “Qliner2: Mobile Doppler system for discharge measurements,” OTT Hydromet GmbH, 2023. [Online]. Available: https://www.ott.com  
 
-[11] U.S. Geological Survey, Use of Acoustic Doppler Current Profilers for Streamflow Measurements, U.S. Dept. of the Interior, Reston, VA, USA. [Online]. Available: https://pubs.usgs.gov 
+[11] ResearchGate, “Low-cost autonomous surface vehicles for inland water monitoring,” ResearchGate Publications, 2023. [Online]. Available: https://www.researchgate.net 
+
 
 
 ## Statement of Contributions
