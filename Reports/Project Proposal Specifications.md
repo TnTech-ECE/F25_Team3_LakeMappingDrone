@@ -4,7 +4,7 @@ Lake Mapping Drone
 
 Understanding the depth and terrain of lakes and other bodies of water is essential for environmental monitoring, infrastructure planning, and recreational management. The conventional method of underwater mapping relies on specialized boats, lots of manpower, and expensive sonar equipment. This makes it unattainable for smaller organizations and research groups. As a result, there is a growing need for affordable, autonomous systems capable of collecting and transmitting in-depth data to produce detailed underwater maps. 
 
-Our project proposes the design and development of an autonomous boat that will measure depth and send data to be able to generate a detailed map of a body of water. The system will incorporate low-cost sonar technology, autonomous navigation, and wireless data transmission. With this system, it will be user friendly and scalable. By taking away the need for constant human operation and cheaper equipment, the project’s focus is to make underwater mapping more practical and accessible to a vast variety of users.
+The project proposes the design and development of an autonomous boat that will measure depth and send data to be able to generate a detailed map of a body of water. The system will incorporate low-cost sonar technology, autonomous navigation, and wireless data transmission. With this system, it will be user friendly and scalable. By taking away the need for constant human operation and cheaper equipment, the project’s focus is to make underwater mapping more practical and accessible to a vast variety of users.
 
 This proposal will outline the background and motivation for the project, clearly define the problem, describe the system requirements, and present the proposed design approach. In addition, it will discuss anticipated challenges, testing methods, and the broader impact of the solution.
 
@@ -18,7 +18,7 @@ Effective depth mapping relies on sonar, GPS, and GIS technologies working toget
 
 Current commercial solutions often face limitations, including reduced accuracy in shallow environments, high cost, and lack of modularity for adapting to different research needs. These factors make them less accessible to smaller research groups and less versatile for studying properties beyond depth, such as stream flow.
 
-Our project addresses these challenges by developing a modular, low-cost, and user-friendly mapping platform. While its primary focus is lake bottom depth, the design emphasizes adaptability, enabling researchers to expand into diverse water applications without being restricted by cost or technical barriers. This project is specifically targeted at inland lakes/small rivers and small-scale research environments, rather than large-scale hydrographic surveys, thereby focusing its scope on cost-effective and adaptable solutions for academic and field research settings.
+The project addresses these challenges by developing a modular, low-cost, and user-friendly mapping platform. While its primary focus is lake bottom depth, the design emphasizes adaptability, enabling researchers to expand into diverse water applications without being restricted by cost or technical barriers. This project is specifically targeted at inland lakes/small rivers and small-scale research environments, rather than large-scale hydrographic surveys, thereby focusing its scope on cost-effective and adaptable solutions for academic and field research settings.
 
 ### Specifications and Constraints
 
@@ -37,13 +37,34 @@ Our project addresses these challenges by developing a modular, low-cost, and us
 
 #### Constraints
 
-- 	**UL 2054** – Household and Commercial Batteries – This standard applies to lithium-ion and rechargeable batteries, ensuring safe design, assembly, and protection from fire, explosion, and leakage. This applies to the project’s multiple battery systems.
-- 	**IEC 60529** – Ingress Protection (IP) Ratings – This standard specifies the protection level of electrical enclosures against dust and water, which applies to protecting boat electronics and sensors.
-- 	**CC 47 CFR Part 15** – Radio Frequency Devices – This standard applies to wireless transmitters and receivers used for RC control and autonomous communication systems.
-- 	 **SO 8383:1985** – Ships and Marine Technology: Small Craft Stability – This standard applies to design and testing considerations for small watercraft stability, relevant to the catamaran hull design.
-- 	 **Tennessee Wildlife Resources Agency (TWRA) Boating Regulations** – Local boating regulations govern safe operation of RC/autonomous surface vessels in Tennessee public waters.
-- 	 **TVA (Tennessee Valley Authority) Waterway Regulations** – If operated on TVA-managed lakes, additional navigation and use regulations apply.
-- 	 **EPA Clean Water Act Compliance** – Ensures the vessel does not discharge pollutants, chemicals, or fuels into waterways.
+1.	Battery Safety (UL 2054 – Household and Commercial Batteries) 
+
+- The vessel’s battery systems shall comply with UL 2054 to ensure safe design, assembly, and operation, providing protection against fire, explosion, and electrolyte leakage. 
+
+2.	Ingress Protection (IEC 60529 – IP Ratings) 
+
+- All electronic enclosures, sensors, and control modules shall meet an appropriate IEC 60529 IP rating to prevent ingress of dust and water under expected operating conditions 
+
+3. 	Radio Frequency Compliance (FCC 47 CFR Part 15 – Radio Frequency Devices) 
+
+- All wireless communication systems, including RC transmitters, receivers, and autonomous control modules, shall comply with FCC 47 CFR Part 15 to prevent harmful interference and ensure safe RF operation. 
+
+4.	 Hull Stability (ISO 8383:1985 – Ships and Marine Technology: Small Craft Stability) 
+
+- The vessel’s hull design shall conform to ISO 8383:1985 to ensure adequate stability, buoyancy, and safety during operation in various load and environmental conditions. 
+
+5.	 Boating Regulations (Tennessee Wildlife Resources Agency – TWRA) 
+
+- Operation of the vessel on public waterways shall comply with all applicable TWRA boating regulations, including safety, registration (if required), and operational conduct. 
+
+6.	 Waterway Use (Tennessee Valley Authority – TVA Waterway Regulations) 
+
+- When operating within TVA-managed waters, the vessel shall comply with TVA waterway navigation and use regulations to ensure lawful and safe operation. 
+
+7. 	 Environmental Protection (EPA Clean Water Act Compliance) 
+
+- The vessel shall comply with the EPA Clean Water Act, ensuring that no pollutants, fuels, or chemicals are discharged into waterways during operation, maintenance, or testing. 
+
 
 ## Survey of Existing Solutions
 
@@ -51,44 +72,76 @@ This section summarizes current approaches and products used to measure water de
 
 **1. Acoustic Doppler Current Profilers (ADCPs) for Flow/Discharge**
 
-ADCPs are the water-industry standard for measuring velocity profiles and computing discharge. U.S. Geological Survey (USGS) guidance details validated procedures for moving-boat ADCP measurements and associated QA/QC practices. U.S. Geological Survey Publications
+ADCPs are the water-industry standard for measuring velocity profiles and computing discharge. U.S. Geological Survey (USGS) guidance details validated procedures for moving-boat ADCP measurements and associated QA/QC practices. [11]
 **Representative systems**
-- **Teledyne RD Instruments (RDI) StreamPro** – portable ADCP designed for small streams; provides real-time discharge with built-in QA/QC workflows. Typical operating depths are on the order of decimeters to a few meters, targeting small channels. teledynemarine.com+1
-- **SonTek (Xylem) RiverSurveyor RS5** – compact ADCP intended for discharge in rivers, streams, and canals; often paired with a small tow board or micro-USV and optional RTK positioning. YSI+2YSI+2
+- **Teledyne RD Instruments (RDI) StreamPro** – portable ADCP designed for small streams; provides real-time discharge with built-in QA/QC workflows. Typical operating depths are on the order of decimeters to a few meters, targeting small channels. [3]
+- **SonTek (Xylem) RiverSurveyor RS5** – compact ADCP intended for discharge in rivers, streams, and canals; often paired with a small tow board or micro-USV and optional RTK positioning. [4]
+  
 **Relevance to the project:**
- ADCPs offer high-fidelity flow/velocity data and well-established methods but increase cost, power draw, and integration complexity compared with simpler single-beam depth sensors. U.S. Geological Survey Publications
+ ADCPs offer high-fidelity flow/velocity data and well-established methods but increase cost, power draw, and integration complexity compared with simpler single-beam depth sensors. [11]
 
 **2. Echo Sounders for Depth/Bathymetry**
 
 Single-beam echo sounders provide vertical depth at a point; multibeam systems map swaths for faster coverage but at higher cost and integration requirements.
-- **Single-beam (e.g., Blue Robotics Ping/Ping2)** – low-cost echosounders (≈100 m range, ~25° beam) commonly used on small USVs for bathymetric point soundings and as altimeters; open-source interfaces ease integration. Blue Robotics+2Blue Robotics+2
-- **Survey-grade single-beam (e.g., CEESCOPE with RTK GNSS)** – integrated echo sounder + GNSS/RTK receivers for centimeter-level bottom mapping in professional workflows. ceehydrosystems.com
+- **Single-beam (e.g., Blue Robotics Ping/Ping2)** – low-cost echosounders (≈100 m range, ~25° beam) commonly used on small USVs for bathymetric point soundings and as altimeters; [5]
+- **Survey-grade single-beam (e.g., CEESCOPE with RTK GNSS)** – integrated echo sounder + GNSS/RTK receivers for centimeter-level bottom mapping in professional workflows. [6]
 - **Multibeam packages (case example)** – ASVs equipped with multibeam sonars and RTK-INS (e.g., SBG Ekinox-D) enable wide-swath mapping with precise positioning and motion compensation. SBG Systems
+  
 **Relevance to the project:**
- A single-beam transducer is typically sufficient for channel profiling and proof-of-concept bathymetry; multibeam improves coverage but requires higher budget and more advanced navigation/attitude sensing. Blue Robotics+1
+ A single-beam transducer is typically sufficient for channel profiling and proof-of-concept bathymetry; multibeam improves coverage but requires higher budget and more advanced navigation/attitude sensing. [5]
 
 **3. Unmanned Surface Vessels (USVs) / Autonomous Survey Platforms**
 
 Commercial USVs integrate propulsion, navigation, and payload bays for sonar and GNSS/INS.
-- **Seafloor Systems EchoBoat-160** – purpose-built hydrographic USV supporting single-/multibeam payloads; marketed for efficient, crew-reduced surveys. Seafloor Systems Inc
-- **Tersus GNSS “TheDuck”** – compact USV with single-beam echo sounder aimed at bathymetric surveys. tersus-gnss.com
+- **Seafloor Systems EchoBoat-160** – purpose-built hydrographic USV supporting single-/multibeam payloads; marketed for efficient, crew-reduced surveys. [7]
+- **Tersus GNSS “TheDuck”** – compact USV with single-beam echo sounder aimed at bathymetric surveys. [8]
+  
 **Relevance to the project:**
- Commercial USVs offer turn-key reliability but at significant cost. A student-built platform can tailor sensors and autonomy to the specific use case at lower price, with added integration effort. Seafloor Systems Inc+1
+ Commercial USVs offer turn-key reliability but at significant cost. A student-built platform can tailor sensors and autonomy to the specific use case at lower price, with added integration effort. [7]
 
 **4. Industry Practices and Alternative Flow Instruments**
 
-Beyond ADCPs, vendors such as OTT Hydromet offer mechanical and acoustic flow meters and fixed stations for long-term discharge monitoring; mobile Doppler systems like OTT Qliner2 have specified accuracy and profiling ranges for wading and boat deployments. OTT+1
+Beyond ADCPs, vendors such as OTT Hydromet offer mechanical and acoustic flow meters and fixed stations for long-term discharge monitoring; mobile Doppler systems like OTT Qliner2 have specified accuracy and profiling ranges for wading and boat deployments. [9]
 
 **5. Open-Source / Academic Efforts**
 
-Recent literature and maker ecosystems describe low-cost autonomous surface vehicles that integrate commodity echosounders, GNSS, and open autopilots for bathymetry/monitoring—highlighting feasibility for budget-constrained applications, albeit with varying levels of validation versus professional gear. ResearchGate
+Recent literature and maker ecosystems describe low-cost autonomous surface vehicles that integrate commodity echosounders, GNSS, and open autopilots for bathymetry/monitoring—highlighting feasibility for budget-constrained applications, albeit with varying levels of validation versus professional gear. [10]
 
 ## Measures of Success
 
-To evaluate the accuracy and consistency of the system’s data, we will compare our collected measurements with reference data previously gathered and validated by professionals in the field. An error threshold will be established at the start of the project and gradually narrowed as development progresses, ensuring continuous improvement toward the final product.
-The vessel will use sonar to collect multiple depth measurements and sensors to monitor water flow. This data will be transmitted remotely to a processing program, which will perform real-time analysis by comparing the collected data against the reference dataset. The program will also generate charts and graphs to highlight deviations.
+To evaluate the accuracy and consistency of the system’s data, the collected measurements will be compared against reference datasets previously validated by professionals in the field. Success will be defined using measurable accuracy thresholds, as outlined below: 
 
-Based on these analyses, iterative adjustments will be made to both hardware and software designs to reduce deviations between the collected and reference data. Project success will be demonstrated by achieving accuracy levels within the defined error thresholds and maintaining consistent performance across varied testing conditions.
+**1. Depth Measurement (Sonar Data):**
+
+a. Each depth reading will be compared with reference measurements taken from surveyed points. 
+
+b. Project success will be defined as achieving depth readings within ±5 cm of the reference values across all test conditions. 
+
+c. During early stages of testing, a tolerance of ±15 cm will be permitted, and this threshold will be narrowed progressively until the final accuracy goal of ±5 cm is reached. 
+
+**2. Water Flow Measurement (Sensor Data):**
+
+a. Flow sensor readings will be compared against reference data obtained from calibrated flow meters. 
+
+b. Success will be defined as flow rate measurements deviating by no more than ±10% from the reference values. Initial testing will allow up to ±20% deviation, with a gradual reduction as the system is refined. 
+
+**3. Data Transmission and Processing:** 
+
+a. Collected data will be transmitted remotely and analyzed in real time. The analysis program will generate statistical summaries (mean error, standard deviation) and visual outputs (charts, deviation plots). 
+
+b. Success will be demonstrated by maintaining ≥ 95% uptime in transmission reliability and ensuring that processed data remains within the defined accuracy thresholds. 
+
+**4. System Consistency Across Conditions:**
+
+a. Testing will occur under varied conditions (calm vs. turbulent water, shallow vs. deep environments). 
+
+b. Success will be defined as maintaining accuracy thresholds (±5 cm for depth, ±10% for flow) with no more than a 5% degradation in performance across these conditions. 
+
+**5. Iterative Improvement:**
+
+a. Hardware and software adjustments will be guided by error analysis. 
+
+b. Success will be indicated by a measurable reduction in deviations from one testing phase to the next, converging toward the final accuracy goals. 
 
 ## Resources
 
@@ -141,12 +194,17 @@ Brady Nugent: C++, Power Systems, 3D modeling
 
 Ryan Thomas: Microcontrollers, C++, 3D printing, Fabrication and Design
 
+*Any skill gaps or lesser knowledge of subjects that come up during the project will be resolved by research and practice* 
+
 **Supervisor**
-Christopher Johnson
+Dr. Christopher Johnson - He is there to give advice and guide the project in the correct direction. 
+
+**Customer**
+Dr. Kalyanapu – Chosen because of his knowledge of autonomous boats and water research. The customer is meant to help create expectations that the project must meet. 
 
 ### Timeline
 
-[Timeline in Progress]
+<img width="2971" height="1233" alt="image" src="https://github.com/user-attachments/assets/c2c2c4ee-a456-4aee-9bc5-9cdb76bcea40" />
 
 
 ## Specific Implications
@@ -183,9 +241,23 @@ These implications emphasize the importance of designing our project within the 
 
 [2] F. Gerlotto, S. Gauthier, and B. Masse, “The application of multibeam sonar technology for quantitative estimates of fish density in shallow water acoustic surveys,” Aquatic Living Resources, vol. 13, no. 5, pp. 385–393, 2000. [Online]. Available: https://doi.org/10.1016/S0990-7440(00)01094-4
 
-[3] DIY sonar transducer
+[3] Teledyne Marine, “StreamPro ADCP,” Teledyne RD Instruments, 2023. [Online]. Available: https://www.teledynemarine.com  
 
-[4] How to Connect, Read, and Process Sensor Data on Microcontrollers – A Beginner's Guide
+[4] SonTek, “RiverSurveyor RS5,” Xylem Inc., 2023. [Online]. Available: https://www.ysi.com/riversurveyor  
+
+[5] Blue Robotics, “Ping2 Echosounder and Altimeter,” Blue Robotics Inc., 2023. [Online]. Available: https://bluerobotics.com/store/sensors-sonars-cameras/sonar/ping-sonar-r2-rp  
+
+[6] CEESCOPE, “Integrated GNSS and single-beam echosounder for hydrographic surveys,” CEE Hydrosystems, 2023. [Online]. Available: https://www.ceehydrosystems.com 
+
+[7] Seafloor Systems Inc., “EchoBoat-160 Autonomous Survey Vessel,” Seafloor Systems, 2023. [Online]. Available: https://www.seafloorsystems.com  
+
+[8] Tersus GNSS, “TheDuck Autonomous Survey Boat,” Tersus GNSS Inc., 2023. [Online]. Available: https://www.tersus-gnss.com   
+
+[9] OTT Hydromet, “Qliner2: Mobile Doppler system for discharge measurements,” OTT Hydromet GmbH, 2023. [Online]. Available: https://www.ott.com  
+
+[10] ResearchGate, “Low-cost autonomous surface vehicles for inland water monitoring,” ResearchGate Publications, 2023. [Online]. Available: https://www.researchgate.net 
+
+[11] U.S. Geological Survey, Use of Acoustic Doppler Current Profilers for Streamflow Measurements, U.S. Dept. of the Interior, Reston, VA, USA. [Online]. Available: https://pubs.usgs.gov 
 
 
 ## Statement of Contributions
@@ -194,7 +266,7 @@ Jackson Hamblin - Existing Solutions
 
 Ian Hanna - Background, Specific/Broader Implications
 
-Nathan Norris - Budget, Timeline 
+Nathan Norris - Resources, Budget, Timeline 
 
 Brady Nugent - Introduction, Formulating the Problem
 
