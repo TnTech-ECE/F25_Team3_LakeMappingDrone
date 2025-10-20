@@ -18,5 +18,5 @@
 ### Kristen Voyles Radar capstone 10 years ago
 ### https://ieeexplore.ieee.org/document/10881959
 ### https://ieeexplore.ieee.org/document/9791534
-### Tyler/ experience Autonomous/Data Communication
+### Tyler/ experience Autonomous, Data Communication
 ### Kristen / SW defined ratios, Wearable electrics, Human computer interactions, electronic/ telecom, radar, testing 
