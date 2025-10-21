@@ -1,4 +1,4 @@
-Lake Mapping Drone
+# Lake Mapping Drone
 
 ## Introduction
 
