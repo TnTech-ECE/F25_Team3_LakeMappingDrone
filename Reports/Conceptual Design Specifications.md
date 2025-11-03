@@ -78,11 +78,11 @@ The **Blue Robotics Ping2 single-beam sonar** offers the best balance for depth 
 The chosen configuration combines a **single-beam sonar transducer (Ping2 or equivalent)** for depth measurement with a **YF-S201 Hall-effect flow sensor** for current velocity monitoring. Together, these solutions maximize affordability, accuracy, and ease of integration. The sonar system achieves the project’s bathymetric goals within a reasonable budget, while the YF-S201 enables basic flow monitoring without requiring costly acoustic Doppler systems.
 This hybrid approach balances technical feasibility with project constraints and provides a scalable platform that can be expanded with more advanced sensors in the future.
 
-##**High-Level Solution**
+## **High-Level Solution**
 The autonomous lake-mapping vessel integrates multiple coordinated subsystems to efficiently meet all stakeholder goals and project requirements while remaining within design constraints. The system combines a durable fiberglass-reinforced 3D-printed hull, efficient power management, and reliable communication to deliver accurate bathymetric mapping and autonomous navigation. High-precision sonar and water velocity sensors collect depth and location data, which are processed and transmitted via a wireless link to an on-shore computer for real-time monitoring. The modular battery configuration and optional solar backup ensure power reliability, while onboard SD storage prevents data loss in the event of communication failure. Lightweight materials, optimized control algorithms, and energy-efficient components reduce power consumption and maximize operational endurance. The design emphasizes safety, maintainability, and cost-effectiveness, achieving a balance between performance and resource optimization to provide a robust, autonomous, and user-friendly data collection platform.
 
 
-### Hardware Block Diagram
+## Hardware Block Diagram
 
 
 ## Operational Flow Chart
@@ -91,12 +91,12 @@ The autonomous lake-mapping vessel integrates multiple coordinated subsystems to
 ## Atomic Subsystem Specifications
 ### Subsystem 1: (Hardware)
 
-Function:
+#### Function:
 
 The Hardware Subsystem serves as the structural and mechanical foundation of the autonomous vessel. It supports all other subsystems—power, propulsion, communication, and sensors—by providing buoyancy, stability, and mounting surfaces for equipment. The vessel features a catamaran-style hull to enhance stability and hydrodynamic performance. It is designed to accommodate a payload of approximately 40 to 50 pounds, including all electronic components, sensors, and power systems. The hull will be 3D printed in modular sections for ease of fabrication and assembly and then reinforced with a fiberglass coating to ensure durability, water resistance, and impact protection during operation.
 The subsystem also includes the primary onboard instruments, such as the Lowrance Elite-5 DSI depth finder and the main battery system, which together enable continuous operation and real-time data collection.
 
-Interfaces:
+#### Interfaces:
 
 **1. Structural Interface**
 - **Connection Type:** Mechanical assembly
@@ -105,24 +105,28 @@ Interfaces:
 - **Protocol:** N/A
 - **Data Exchanged:** N/A
 - **Description:** The 3D printed hull sections shall be mechanically fastened and sealed to form the catamaran-style body. Mounting brackets will interface with the propulsion, sensor, and control modules.
+
 **2. Depth Finder (Lowrance Elite-5 DSI)**
 - **Connection Type:** Wired connection to transducer and communication system
 - **Signal Type:** Digital data
 - **Direction:** Input/Output
 - **Protocol:** NMEA 2000
 - **Data Exchanged:** Sonar and GPS data transmitted to the onboard processing unit; system commands received as applicable
+
 **3. Battery System**
 - **Connection Type:** Wired
 - **Signal Type:** DC power
 - **Direction:** Output (to power subsystems)
 - **Protocol:** N/A
 - **Data Exchanged:** 12V or 24V regulated power distributed to all electronic components
+
 **4. Power Distribution Module**
 - **Connection Type:** Wired
 - **Signal Type:** DC power
 - **Direction:** Output to onboard systems
 - **Protocol:** N/A
 - **Data Exchanged:** Power flow to propulsion, sensors, and communication subsystems
+
 **5. Waterproof Enclosures and Wiring Interfaces**
 - **Connection Type:** Physical enclosure and wiring glands
 - **Signal Type:** Mixed (Power and Data)
@@ -130,7 +134,7 @@ Interfaces:
 - **Protocol:** Dependent on connected system (NMEA, SPI, UART)
 - **Data Exchanged:** Sensor and control signals routed between modules while maintaining environmental sealing
 
-Operation:
+#### Operation:
 
 The Hardware Subsystem operates as the physical base for all vessel systems.
 - The 3D printed catamaran hull provides stability and balance for smooth operation in variable water conditions.
@@ -141,7 +145,8 @@ The Hardware Subsystem operates as the physical base for all vessel systems.
 - The fiberglass coating ensures water resistance and enhances durability against environmental stress and minor impacts.
 This subsystem ensures the vessel maintains structural integrity, buoyancy, and reliability under all expected environmental conditions while supporting continuous data collection and transmission.
 
-Shall Statements:
+#### Shall Statements:
+
 - The vessel **shall** feature a catamaran-style hull to maximize stability and hydrodynamic efficiency.
 - The vessel **shall** support a total payload capacity of 40–50 pounds, including all electronics, sensors, and batteries.
 - The hull **shall** be 3D printed in modular sections for ease of fabrication and assembled prior to fiberglass reinforcement.
@@ -156,16 +161,17 @@ Shall Statements:
 
 ### Subsystem 2: (Power)
 
-Function:
+#### Function:
 
 The Power Subsystem supplies, regulates, and distributes electrical power to all onboard components, including the propulsion motors, sensors, communication module, and control electronics. It ensures stable operation across all environmental and load conditions while incorporating safety mechanisms to prevent overcurrent, overvoltage, and thermal damage. The subsystem also manages power input from external charging sources such as AC adapters or solar panels when applicable.
 
-Power Supply Components:
+#### Power Supply Components:
 
 Main Battery System
 - **Type:** 12V Deep Cycle Marine Battery or Lithium Ion Battery encased in waterproof container
 - **Function:** Provides the primary power source for all onboard systems, offering high energy density and resistance to vibration and moisture.
 - **Capacity:** Sized to support a minimum of 2–4 hours of continuous operation under full load.
+
 Voltage Regulation Module
 - **Function:** Steps down or regulates power to required voltage levels for various subsystems (e.g., 12V → 5V for microcontrollers and sensors).
 - **Components:** Includes DC-DC buck converters and voltage regulators with thermal protection and efficiency >85%.
