@@ -14,25 +14,25 @@ The project requires reliable sensing for both lake bottom depth mapping and **w
 
 ### **Depth Measurement Solutions (Sonar and Transducers)**
 
-- **1. Consumer Fish Finder/Depth Finder Transducers**
+**1. Consumer Fish Finder/Depth Finder Transducers**
  These systems are widely available, often costing under $500, and provide basic point depth readings. While inexpensive and easy to operate, they lack research-quality accuracy, real-time mapping integration, and compatibility with GIS platforms.
 
 <img width="152" height="229" alt="image" src="https://github.com/user-attachments/assets/9dfb326e-636b-459f-9f45-c1f6cd724837" />
 
 
-- **2. Single-Beam Echo Sounder with Transducer (e.g., Blue Robotics Ping2)**
+**2. Single-Beam Echo Sounder with Transducer (e.g., Blue Robotics Ping2)**
  Costing approximately $400–$600, these sonar units deliver ±5–15 cm accuracy and support open-source integration with Raspberry Pi and autopilot modules. They are well-suited for proof-of-concept mapping, offering the best balance of affordability, accuracy, and adaptability.
 
 <img width="153" height="192" alt="image" src="https://github.com/user-attachments/assets/69a171ef-f707-49f9-99a8-1368420c9afd" />
 
 
-- **3. Survey-Grade Single-Beam Echo Sounders (e.g., CEESCOPE with RTK GNSS)**
+**3. Survey-Grade Single-Beam Echo Sounders (e.g., CEESCOPE with RTK GNSS)**
  These professional systems achieve ±2–5 cm accuracy and integrate seamlessly into commercial hydrographic workflows. However, their cost exceeds $10,000, making them impractical for a budget-constrained student project.
 
 <img width="186" height="186" alt="image" src="https://github.com/user-attachments/assets/0bf1edf6-9356-4631-b518-15340b7d9377" />
 
 
-- **4. Multibeam Sonar Systems**
+**4. Multibeam Sonar Systems**
  Industry-standard for hydrography, multibeam systems provide swath coverage with ±1–2 cm precision. Yet, costs ($50,000–$100,000+) and required RTK-INS navigation systems render them infeasible for this project.
 
 
@@ -751,6 +751,7 @@ All sensors and modules are interconnected through the Arduino Uno, forming a un
 |  | Hypack License (Survey Software) | 1 | $0.00 |
 |  | QGIS License (GIS Software) | 1 | $0.00 |
 |  | ArcGIS Pro License (GIS Software) | 1 | $100.00 |
+| **TOTAL** |  |  | **$636.00 – $1,379.00** |
 
 
 
