@@ -10,41 +10,66 @@ This problem affects environmental and local governments who need accurate lakes
 
 ## Comparative Analysis of Potential Solutions
 
-The project requires reliable sensing for both **lake bottom depth mapping** and **water current flow measurement**. Selecting the proper technologies for sonar-based depth sensing and flow monitoring is essential to balance affordability, accuracy, integration complexity, and long-term adaptability.
+The project requires reliable sensing for both lake bottom depth mapping and **water current flow measurement**. Selecting the proper technologies for sonar-based depth sensing and flow monitoring is essential to balance affordability, accuracy, integration complexity, and long-term adaptability.
 
 ### **Depth Measurement Solutions (Sonar and Transducers)**
 
 - **1. Consumer Fish Finder/Depth Finder Transducers**
  These systems are widely available, often costing under $500, and provide basic point depth readings. While inexpensive and easy to operate, they lack research-quality accuracy, real-time mapping integration, and compatibility with GIS platforms.
 
+<img width="152" height="229" alt="image" src="https://github.com/user-attachments/assets/9dfb326e-636b-459f-9f45-c1f6cd724837" />
+
+
 - **2. Single-Beam Echo Sounder with Transducer (e.g., Blue Robotics Ping2)**
  Costing approximately $400–$600, these sonar units deliver ±5–15 cm accuracy and support open-source integration with Raspberry Pi and autopilot modules. They are well-suited for proof-of-concept mapping, offering the best balance of affordability, accuracy, and adaptability.
 
+<img width="153" height="192" alt="image" src="https://github.com/user-attachments/assets/69a171ef-f707-49f9-99a8-1368420c9afd" />
+
+
 - **3. Survey-Grade Single-Beam Echo Sounders (e.g., CEESCOPE with RTK GNSS)**
  These professional systems achieve ±2–5 cm accuracy and integrate seamlessly into commercial hydrographic workflows. However, their cost exceeds $10,000, making them impractical for a budget-constrained student project.
+
+<img width="186" height="186" alt="image" src="https://github.com/user-attachments/assets/0bf1edf6-9356-4631-b518-15340b7d9377" />
+
 
 - **4. Multibeam Sonar Systems**
  Industry-standard for hydrography, multibeam systems provide swath coverage with ±1–2 cm precision. Yet, costs ($50,000–$100,000+) and required RTK-INS navigation systems render them infeasible for this project.
 
 
-### **Flow Measurement Solutions (Including YF-S201 Sensor)**
+### Flow Measurement Solutions (Including YF-S201 Sensor)
 
-- **1. YF-S201 Hall-Effect Flow Sensor**
+1. YF-S201 Hall-Effect Flow Sensor: 
  The YF-S201 is a low-cost (~$10–$20) sensor that uses a turbine and Hall-effect sensor to measure flow rate. It outputs digital pulses proportional to the water velocity. While not as precise as acoustic methods, it is extremely affordable, lightweight, and easy to integrate with microcontrollers such as Arduino or Raspberry Pi. Its accuracy is typically within ±10% after calibration, making it suitable for small-scale, student-built systems.
 
-- **2. Acoustic Doppler Current Profilers (ADCPs)**
- ADCPs represent the professional standard for water flow measurement, providing full velocity profiles and discharge calculations. They offer high accuracy and reliability but are expensive ($15,000–$30,000+) and require significant power and integration effort.
+<img width="214" height="143" alt="image" src="https://github.com/user-attachments/assets/2030f3d8-07c6-4a10-a374-97cbc60a4b11" />
 
-- **3. Mechanical and Acoustic Flow Meters (e.g., OTT ****Hydromet****)**
- Commercial mechanical and acoustic meters provide accurate point-based velocity measurements. However, they are costly ($5,000–$15,000) and less adaptable for integration into an autonomous platform.
 
-### **Non-Starters**
+### Vessel Propulsion and Turning Solutions:
 
-- **Multibeam sonar** and **survey-grade single-beam** systems are eliminated due to prohibitive costs.
-  
-- **ADCPs and commercial flow meters** provide excellent accuracy but exceed budgetary and integration constraints.
-  
-- **Consumer fish finders** lack the precision and data interoperability required for research applications.
+1.	HPI SF‑50WP Servomotor
+The HPI SF‑50WP is a waterproof servo motor designed for wet environments, capable of providing precise rotational control with moderate torque suitable for small autonomous vessels. In a propulsion application, the servo can be mechanically coupled to a rotor or propeller shaft to generate forward and reverse thrust. When controlled via standard PWM signals from a microcontroller or autopilot system, the pulse width determines the servo shaft’s rotation, which drives the propeller to propel the vessel. For improved maneuverability, two servos mounted on opposite sides of a catamaran hull can operate differentially, spinning in opposing directions or modulating speed to enable turning without a traditional rudder. The servo’s integrated electronics simplify interfacing with onboard control systems, while its waterproof design ensures reliable operation in wet or splashing conditions. This setup provides a compact, low-cost, and easily controllable propulsion and steering solution for lightweight autonomous boats.
+
+<img width="204" height="163" alt="image" src="https://github.com/user-attachments/assets/8d39f1f4-2166-4bfb-ab3c-3663c35432d5" />
+
+
+### Power Systems Solutions:
+
+1. 12 V Deep-Cycle Marine Battery
+The 12 V deep-cycle marine battery serves as a robust primary power source for the vessel, providing sustained energy for propulsion, sensors, and control electronics. Designed to handle repeated deep discharges, it delivers consistent voltage under load and is well-suited for marine environments due to its sealed, spill-resistant construction. Power is drawn from the battery via the distribution system to all subsystems, and its capacity ensures several hours of continuous operation before recharge is required.
+
+<img width="120" height="79" alt="image" src="https://github.com/user-attachments/assets/6022f2b9-43d4-42c2-a418-2d7e65ce5e98" />
+
+
+2. 14.8 V Lithium-Ion Battery Encased in Waterproof Container
+ The 14.8 V lithium-ion battery provides a higher energy density alternative for extended mission duration while maintaining a lightweight form factor. Encased in a waterproof container, it is protected from splashes and accidental immersion. The battery supplies regulated DC power to propulsion, navigation, and sensor systems, while integrated protection circuitry prevents overvoltage, overcurrent, and thermal issues, ensuring safe operation in varying environmental conditions.
+
+<img width="220" height="220" alt="image" src="https://github.com/user-attachments/assets/8792f29b-2838-4075-ba41-eb9b3fddcae5" />
+
+
+3. Solar Backup Integration (ECO-WORTHY 130 Watt 12BB Flexible Solar Panel)
+ The solar backup integration supplements the main battery system by trickling the onboard battery through a solar panel and charge controller. The controller regulates incoming energy to prevent overcharging or reverse current flow, ensuring safe and efficient energy transfer. During operation, the solar panel can extend mission endurance or provide emergency power in case of battery depletion, enabling longer deployments without external charging.
+
+<img width="256" height="256" alt="image" src="https://github.com/user-attachments/assets/21d0d77c-8664-47e2-9410-9654d6876bac" />
 
 
 ### **Benefits vs. Costs**
@@ -58,14 +83,54 @@ The **Blue Robotics Ping2 single-beam sonar** offers the best balance for depth 
 The chosen configuration combines a **single-beam sonar transducer (Ping2 or equivalent)** for depth measurement with a **YF-S201 Hall-effect flow sensor** for current velocity monitoring. Together, these solutions maximize affordability, accuracy, and ease of integration. The sonar system achieves the project’s bathymetric goals within a reasonable budget, while the YF-S201 enables basic flow monitoring without requiring costly acoustic Doppler systems.
 This hybrid approach balances technical feasibility with project constraints and provides a scalable platform that can be expanded with more advanced sensors in the future.
 
+### Navigation Subsystem Solutions (Including GPS and Autopilot Options)
+
+1. u-blox NEO-M8N GPS Module 
+ 
+The NEO-M8N is a cost-effective (~$20–$80) GNSS receiver that provides position accuracy within 2–5 meters under open-sky conditions. It communicates using standard serial (UART) NMEA or UBX protocols, making it easy to interface with Arduino, Raspberry Pi, or Pixhawk controllers. While not RTK-capable, it is lightweight, power-efficient, and widely supported by the ArduPilot and PX4 ecosystems. This makes it ideal for student-level autonomous boats requiring basic waypoint navigation and mapping.
+
+<img width="209" height="149" alt="image" src="https://github.com/user-attachments/assets/297cba03-1134-4448-884d-1b8b819682a6" />
+
+
+2. u-blox ZED-F9P RTK GNSS Receiver
+ 
+The ZED-F9P offers high-precision dual-band GNSS positioning with centimeter-level accuracy when paired with RTK correction data. Typical cost ranges from $170–$300, with ready-to-use evaluation boards such as the SparkFun GPS-RTK2 or simpleRTK2B. It supports UART, I2C, and USB interfaces and can act as either a base or rover in RTK configurations. This module is well-suited for research or capstone-level autonomous boats requiring precise mapping and navigation performance.
+
+<img width="229" height="174" alt="image" src="https://github.com/user-attachments/assets/5e209067-cf9d-484b-ae02-406f0b714442" />
+
+3. Pixhawk Autopilot Controller
+ 
+Pixhawk autopilots (~$120–$300) are open-source flight controllers compatible with ArduPilot and PX4 firmware. They include onboard IMUs, magnetometers, barometers, and multiple serial ports for GPS and telemetry integration. When configured with “Rover/Boat” firmware, Pixhawk can handle waypoint missions, motor control, and path-following surface vehicles. It is a proven, reliable option for small autonomous boats and integrates seamlessly with u-blox GPS modules.
+
+<img width="198" height="183" alt="image" src="https://github.com/user-attachments/assets/8d49b93e-ec82-482d-80fa-a991f5886ddb" />
+
+4. Navio2 (Raspberry Pi-Based Autopilots)
+ 
+The Navio2 (~$199) can expand Raspberry Pi boards into full-featured autopilots with integrated IMUs, GPS interfaces, and PWM outputs. They allow for more flexible software control using Linux and companion programs like BlueOS or ROS. These solutions are excellent for teams wanting real-time data processing, networking, and camera or sensor integration alongside navigation. 
+
+<img width="192" height="160" alt="image" src="https://github.com/user-attachments/assets/39c6406b-dca6-4db4-8590-be5d908cbde8" />
+
+
+#### Benefits vs. Costs
+
+The u-blox NEO-M8N GNSS receiver and Navio2 Raspberry Pi-based autopilot together offer the best balance between affordability, functionality, and navigation performance. The NEO-M8N provides reliable, meter-level positioning accuracy (2–5 m CEP) under open-sky conditions for only $20–$80, making it ideal for student or capstone-level autonomous boats. It consumes minimal power and integrates easily via UART, simplifying setup and reducing total system cost. The Navio2 expands a Raspberry Pi into a full-featured autopilot capable of running ArduPilot Rover/Boat firmware, handling motor control, waypoint navigation, and onboard sensor fusion. Although more expensive (~$199 plus Raspberry Pi), it offers significant long-term value through software flexibility, real-time processing, and compatibility with additional sensors such as cameras, LiDAR, or RTK GPS modules. Combined, these components deliver a high-performing navigation subsystem for approximately $250 total, far less than comparable Pixhawk + ZED-F9P configurations while still meeting project accuracy and functionality requirements.
+
+#### Most Likely to Succeed
+
+The selected configuration integrates the NEO-M8N GPS module with the Navio2 autopilot, leveraging each system’s strengths to ensure reliable, cost-effective navigation and control. The NEO-M8N supplies continuous position data sufficient for waypoint tracking and mapping, while the Navio2 provides onboard computation, sensor management, and communication with motor controllers—all within a single, Linux-based platform. This hybrid setup maximizes affordability, accuracy, and ease of integration, aligning well with capstone project constraints. It ensures a stable and well-documented system backed by the ArduPilot and Emlid communities, reducing risk and setup time. Additionally, the design remains scalable for future upgrades, such as replacing the NEO-M8N with an RTK-capable receiver for centimeter-level precision.Overall, the Navio2 + NEO-M8N solution provides the most practical and dependable foundation for an autonomous boat navigation subsystem—balancing cost, technical feasibility, and project success potential.
+
 ## **High-Level Solution**
+
 The autonomous lake-mapping vessel integrates multiple coordinated subsystems to efficiently meet all stakeholder goals and project requirements while remaining within design constraints. The system combines a durable fiberglass-reinforced 3D-printed hull, efficient power management, and reliable communication to deliver accurate bathymetric mapping and autonomous navigation. High-precision sonar and water velocity sensors collect depth and location data, which are processed and transmitted via a wireless link to an on-shore computer for real-time monitoring. The modular battery configuration and optional solar backup ensure power reliability, while onboard SD storage prevents data loss in the event of communication failure. Lightweight materials, optimized control algorithms, and energy-efficient components reduce power consumption and maximize operational endurance. The design emphasizes safety, maintainability, and cost-effectiveness, achieving a balance between performance and resource optimization to provide a robust, autonomous, and user-friendly data collection platform.
 
 
 ## Hardware Block Diagram
 
+<img width="1948" height="978" alt="image" src="https://github.com/user-attachments/assets/47834625-ea62-41f9-8d7f-2753a1e648f7" />
+
 
 ## Operational Flow Chart
+
 <img width="515" height="343" alt="image" src="https://github.com/user-attachments/assets/3f387c0e-4f53-48b0-8423-2536365d000f" />
 
 
@@ -223,6 +288,10 @@ During startup, the power distribution board energizes the propulsion system, se
 
 ### Subsystem 3: (Navigation)
 
+### Function:
+
+Provides absolute position, time, and velocity data for real-time tracking, route following, and mission mapping. The u-blox NEO-M8N GNSS receiver supplies high-sensitivity multi-constellation positioning (GPS, GLONASS, Galileo, QZSS) and supports optional RTK correction for sub-meter accuracy.
+
 ### GPS Positioning System
 
 The GPS Positioning Subsystem provides absolute position, time, and velocity data to the navigation and autopilot subsystems. It determines the vessel’s precise location on the water and supports real-time tracking, route following, and mission mapping. The subsystem utilizes a high-sensitivity GNSS receiver with an integrated antenna and supports standard NMEA and vendor-specific protocols for data output.
@@ -268,25 +337,23 @@ For advanced accuracy, the subsystem optionally accepts RTK (Real-Time Kinematic
 
 #### Operation:
 
-The GPS Positioning Subsystem operates as the primary localization source for the vessel. The GNSS receiver continuously calculates latitude, longitude, altitude, and UTC time using signals from multiple satellite constellations. The module outputs NMEA sentences (e.g., GGA, RMC, VTG) or binary UBX messages at configurable update rates between 1–10 Hz.
-
-The navigation subsystem and autopilot receive these data through the UART/USB interface to maintain accurate localization and velocity estimation. When RTK corrections are available, the module applies differential data via the RTCM3 stream to improve accuracy to sub-meter levels.
-
-Each position message includes fixed quality, satellite count, and error dilution metrics (HDOP) to ensure reliability. If signal loss occurs, the module flags “no fix” and maintains the last known position with a timestamp.
-
-The GPS subsystem is powered by the main DC distribution line (5 V nominal) and is mechanically mounted with a waterproof antenna to ensure optimal satellite visibility and durability in marine conditions.
-
+- Calculates latitude, longitude, altitude, and UTC time from multiple constellations
+- Outputs NMEA or UBX messages at 1–10 Hz update rates
+- Sends satellite count, fix quality, and HDOP metrics to navigation computer
+- Accepts RTCM3 corrections for sub-meter accuracy
+- Maintains last known fix and timestamp during signal loss
+- Powered from 5 V DC, waterproof antenna ensures optimal satellite visibility
 
 #### Shall Statements:
 
-- The subsystem shall output latitude, longitude, altitude, and UTC time at a configurable rate between 1–10 Hz.
-- The subsystem shall provide a fixed-quality indicator and number of satellites with every position update.
-- The subsystem shall communicate over TTL UART (3.3 V logic) or USB virtual COM for host connection.
-- The subsystem shall accept configuration commands over its RX serial line to adjust output parameters.
-- The subsystem shall support optional RTK correction input using the RTCM3 protocol for sub-meter accuracy.
-- The subsystem shall operate within 3.3–5 V DC power input and include reverse-polarity protection.
-- The subsystem shall report stale data if no new fix is available within twice the update interval.
-- The subsystem shall integrate a waterproof external antenna with proper strain relief and isolation.
+- Shall output latitude, longitude, altitude, and UTC time at 1–10 Hz
+- Shall provide fix quality and satellite count with each update
+- Shall communicate via UART (3.3 V logic) or USB virtual COM
+- Shall accept configuration commands via RX line
+- Shall support RTCM3 RTK correction for sub-meter accuracy
+- Shall operate with 3.3–5 V DC and reverse-polarity protection
+- Shall flag stale data if no fix within twice the update interval
+- Shall include a waterproof antenna with strain relief
 
 ### Autopilot Subsystem
 
@@ -343,28 +410,26 @@ This subsystem executes mission management, guidance, and control algorithms, en
 
 #### Operation:
 
-The Autopilot Subsystem governs the vessel’s autonomous control loops and mission execution. It receives GPS and sensor data to estimate the vessel’s attitude, velocity, and position using an Extended Kalman Filter (EKF).
-
-Based on mission waypoints and path plans, the autopilot generates control commands for the propulsion and steering subsystems via PWM or CAN ESC interfaces. The system runs inner-loop attitude control at ≥50 Hz for stability and outer-loop navigation at 5–20 Hz for waypoint tracking.
-
-Telemetry data—including battery level, GPS fix, EKF health, and mission progress—are sent to the ground station through the communication subsystem. In case of telemetry or GPS loss, the autopilot triggers failsafe behaviors such as loiter, stop, or return-to-home.
-
-The subsystem integrates with a companion computer (Raspberry Pi 4) for high-level mission management and logging. Manual override capability is always available through the RC input or kill switch for safety.
-
+- Fuses GPS and onboard sensor data using an Extended Kalman Filter (EKF)
+- Generates PWM or CAN ESC commands for propulsion and steering
+- Runs attitude control loops ≥ 50 Hz and navigation loops 5–20 Hz
+- Sends telemetry and mission updates via MAVLink
+- Supports failsafe modes (loiter, stop, return-to-home)
+- Interfaces with Raspberry Pi 4 for high-level mission control
+- Allows manual override at any time via RC or kill switch
 
 #### Shall Statements:
 
-- The subsystem shall receive GPS data from the GPS subsystem via UART and incorporate it into its navigation estimator.
-- The subsystem shall fuse IMU, magnetometer, barometer, and GPS data using an EKF to estimate attitude, velocity, and position at ≥5 Hz.
-- The subsystem shall generate actuator outputs (PWM/DShot) at rates of 50–400 Hz to control propulsion and steering.
-- The subsystem shall communicate using MAVLink for telemetry, mission updates, and operator commands.
-- The subsystem shall implement mission management functions, including waypoint following, loiter, and return-to-home.
-- The subsystem shall provide failsafe responses for GPS loss, telemetry loss, and low battery conditions.
-- The subsystem shall allow manual override via RC input and immediately cease autonomous commands when activated.
-- The subsystem shall log all navigation and control data locally with timestamps for post-mission review.
-- The subsystem shall receive 5–12 V DC input and include integrated voltage/current sensing for power monitoring.
-- The subsystem shall maintain end-to-end control latency under 100 ms during normal operation.
-
+- Shall receive GPS data from the navigation subsystem via UART
+- Shall fuse IMU, magnetometer, barometer, and GPS data using EKF at ≥ 5 Hz
+- Shall generate actuator outputs (PWM/DShot) at 50–400 Hz
+- Shall communicate using MAVLink for telemetry and mission commands
+- Shall manage waypoint, loiter, and return-to-home functions
+- Shall trigger failsafe responses for GPS loss, telemetry loss, or low battery
+- Shall allow manual override via RC input
+- Shall log all navigation and control data with timestamps
+- Shall operate with 5–12 V DC and provide voltage/current sensing
+- Shall maintain < 100 ms control latency under normal operation
 
 ### Subsystem 4: (Communication)
 
