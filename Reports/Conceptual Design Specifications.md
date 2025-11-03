@@ -598,51 +598,131 @@ All sensors and modules are interconnected through the Arduino Uno, forming a un
 
 ## Resources
 
-- Hardware
-  - Boat Hull: Designed to provide structural support and room for mounting other hardware such as Raspberry pi, propulsion system, sensors, etc. Built to support 40-50 pounds in open water
-  - Battery/Charging: Batteries with charging support to last 2-4 hours of continuous operation.
-  - Microprocessor: Raspberry pi to process sensor data and interface with communication modules.
-  - Autopilot/GPS: Module for autonomous navigation and GPS tracking.
-  - Sonar/Transducer System: Primary sensor for depth measurement and underwater topography
-  - Current Velocity System: Sensor used for measuring current velocity under the hull
-  - Waterproof enclosure: Protection for electronics and sensors during operation.
-- Communication and Data Processing
-  - Telemetry Radio: Long-range communication for GPS and depth reading to reach data-processing system
-  - Data Processing System: Software to process incoming data in real time. It will integrate sonar, GPS, velocity, and depth measurements to produce a synchronized dataset and generate a two-dimensional map for immediate visualization during operation.
-- Software resources
-  - Hypack: Industry-standard hydrographic survey software used for sonar data processing and integration.
-  - QGIS: Free GIS platform for geospatial analysis, GPS point handling and mapping
-  - ArcGIS Pro: Advanced geospatial for professional mapping and visualization.
+
+1.	Hardware
+
+    a.	Boat Hull: Designed to provide structural support and buoyancy for all onboard equipment, including the propulsion system, Raspberry Pi, sensors, and power modules. The catamaran-style hull is 3D printed in modular sections and reinforced with fiberglass, supporting a total payload of 40–50 pounds for stable operation in open water.
+
+    b.	Propulsion Motor (T200 Thrusters): Dual brushless DC thrusters providing primary propulsion and steering through differential thrust.
+
+    c.	Servo Motor: Actuators used for rudder control or precise directional adjustments when operating with single-thruster setups.
+
+    d.	Waterproof enclosure: Housing for all electronics to provide durability and long-term moisture protection
+
+3.	Power
+   
+    a.	Battery and Charging System: Primary energy source consisting of 14.8 V Li-ion or LiFePO₄ batteries with an integrated Battery Management System (BMS). Provides 2–4 hours of continuous operation and supports recharging via shore charger or optional solar input.
+
+    b.	Power Distribution Board: Central hub that distributes regulated power from the main battery to all subsystems including control, sensors, and communication modules.
+
+    c.	Voltage Distribution Board: Supports multiple voltage outputs (e.g., 5 V, 12 V) to safely supply mixed-voltage devices.
+
+    d.	Voltage Regulation Chips: Provide clean, consistent DC power to sensitive components such as microcontrollers and radios.
+
+    e.	Solar Panels (optional): Renewable energy source to extend field operation time through trickle-charging.
+
+5.	Navigation
+
+    a.	Arduino: Functions as the sensor interface and data acquisition controller, directly managing low-level peripherals such as the YF-S201 flow sensor, IR proximity sensors, and relay modules. It communicates with the Raspberry Pi through serial connection for synchronized data logging and control feedback.
+
+    b.	Autopilot: Embedded navigation controller that interprets GPS and IMU data to autonomously adjust heading, maintain course, and perform survey paths.
+
+7.	Communication and Data Processing
+
+    a.	Base Station Computer: Ground-based control and monitoring system used for mission oversight, real-time telemetry, and post-processing visualization.
+
+    b.	Softlogic Power and Communication Module: Custom module that integrates power management with telemetry and data relay functions between vessel and operator.
+
+    c.	Raspberry Pi: Main onboard processing unit for data storage, sensor fusion, and wireless communication with the base station. Handles mission logic, navigation routines, and telemetry management.
+
+9.	Sensors and Data Acquisition
+
+    a.	YF-S201 Water Flow Sensor: Provides digital pulse output proportional to water velocity for current profiling.
+
+    b.	Data Processing System: Software and embedded routines that process sonar, GPS, velocity, and depth measurements into synchronized datasets and generate near-real-time bathymetric maps.
+
+    c.	Depth Finder (Lowrance Elite-5 DSI): Primary sonar system for depth and underwater topography acquisition.
+
+11.	Possible Software
+
+    a.	Hypack: Industry-standard hydrographic survey software used for sonar data processing and integration.
+
+    b.	QGIS: Open-source GIS platform for geospatial analysis, GPS point handling and mapping
+
+    c.	ArcGIS Pro: Advanced geospatial for professional mapping and visualization.
+
 
 ### Budget
 
-| Item/Material | Quantity | Cost (USD Estimates) |
-| --- | --- | --- |
-| Boat (Hull) | 1 | iMakerSpace fee |
-| Battery/Charger | 1 | $25.00-$50.00 |
-| Microprocessor | 2 | $80.00 |
-| Sonar/Transducer | 1 | $400.00-$600.00 |
-| Autopilot/GPS | 1 | $35.00 |
-| Communication system to process data (Telemetry radios) | 1-2 | $40.00-$90.00 |
-| Data Processing system | 1 | $0.00-100.00 |
-| Propulsion Motor System | 1-2 | $50.00-$75.00 |
-| yf-s201 water flow sensor | 1 | $10.00 |
-| Hypack license (Survey Software) | 1 | $0.00 |
-| QGIS license (GIS software) | 1 | $0.00 |
-| ArcGIS pro license (GIS software | 1 | $100.00 |
+| Subsystem	| Item/Material	| Quantity	| Cost (USD Estimates) |
+| --- | --- | --- | --- |
+| Hardware	| | | |
+|  | Hull |	1 |	iMakerSpace fee |
+|  | Propulsion Motor (T200 Thrusters) |	1-2 |	$100.00-$200.00 |
+|  | Servo Motor |	1-2	| $85.00 |
+|   | Waterproof Enclosure | 	1	| $0.00-$20.00 |
+|  | Electronic Speed Controllers (ESCs) | 2 | $35.00-$60.00 |
+| Power | | | |
+|   | Battery/Charger |	1-2 |	$25.00-$50.00 |
+|   | Power Distribution Board |	1 |	$25.00-$40.00 |
+|   | Voltage Distribution Board |	1 |	$40.00-$90.00 |
+|   | Voltage Regulation Chips |	2-4 |	$5.99-$8.99 |
+|   | ECO-WORTHY 130 Watt 12BB Flexible Solar Panel |	1-2 |	$69.99 |
+| Navigation | | |	|
+|  | Arduino | 1 | $25.00-$35.00 |
+|  | Autopilot | 1 | $100.00-$200.00 |
+| Communication | | | |	
+|  | Base Station Computer | 1 | Preowned  |
+|  | SonTek Power and Communication Module | 1 | Price to be requested |
+|  | Raspberry Pi | 1 | $80.00-$120.00 |
+|  | Telemetry Radio System | 1 | $40.00-$90.00 |
+| Sensors and Data Acquisition | | | |
+|  | YF-S201 Water Flow Sensor | 1 | $10.00 |
+|  | Data Processing System | 1 | $0.00-$100.00 |
+|  | Depth Finder (Lowrance Elite-5 DSI) | 1 | Preowned |
+|  | Current Velocity Sensor | 1 | Included with YF-S201 |
+|  | Sonar/Transducer System | 1 | Preowned |
+| Possible Software | | | |			
+|  | Hypack License (Survey Software) | 1 | $0.00 |
+|  | QGIS License (GIS Software) | 1 | $0.00 |
+|  | ArcGIS Pro License (GIS Software) | 1 | $100.00 |
+
+
 
 
 ### Division of Labor
 
 Ryan Thomas: Communication Subsystem
 
+-	Classes taken: Signals and Systems, Intro to Power Systems, Microcomputer Systems
+  
+-	Skills: C++, Assembly, Signal Processing
+
 Ian Hanna: Sensors Subsystem
 
+-	Classes taken: Microcomputer Systems, Digital System Design, Signals and Systems
+ 
+-	Skills: C++, Assembly
+  
 Jackson Hamblin: Hardware Subsystem
 
+-	Classes taken: Intro to Power, Signals and Systems, Microcomputer systems
+  
+-	Skills, Power Systems, CAD modeling, C++
+  
 Brady Nugent: Navigation Subsystem
 
+-	Classes taken: Signals and Systems, Controls, Microcomputer Systems
+  
+-	Skills: C++, Assembly, Control Analysis
+  
 Nathan Norris: Power Subsystem
+
+-	Classes taken: Intro to Power, Signals and Systems, Microcomputer Systems
+  
+-	Skills: Power systems, C++, Assembly, Control Analysis
+
+
 
 ### Timeline
 <img width="468" height="167" alt="image" src="https://github.com/user-attachments/assets/d1cf6f43-aa3b-422e-b40e-372691a27c62" />
