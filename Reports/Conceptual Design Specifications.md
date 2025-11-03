@@ -1,6 +1,7 @@
 # Conceptual Design
 
 ## Introduction
+
 Understanding the depth and terrain of lakes and other bodies of water is essential for environmental monitoring, infrastructure planning, and recreational management. The conventional method of underwater mapping relies on specialized boats, lots of manpower, and expensive sonar equipment. This makes it unattainable for smaller organizations and research groups. As a result, there is a growing need for affordable, autonomous systems capable of collecting and transmitting in-depth data to produce detailed underwater maps.
 
 ## Restating the Fully Formulated Problem
@@ -8,17 +9,20 @@ Understanding the depth and terrain of lakes and other bodies of water is essent
 This problem affects environmental and local governments who need accurate lakes and reservoir data. This data can then be used for environmental monitoring, flood management, and infrastructure planning. It also impacts fisheries, recreational, and conservation groups. The current lake mapping methods tend to be expensive and require well-trained operators. So, a low cost, autonomous solution would allow for more frequent and efficient data collection without the high cost and specialized skills. This would allow lake mapping to become more expandable and accessible. While commercial sonar and autonomous boats do exist, the cost and specific skill set needed to use them limit the availability greatly. Consumer sonar systems may provide depth readings but lack autonomy, data mapping, and integration capabilities. So, a custom-built solution can guarantee affordability, versatility in differing environments, and control over the capacity of the solution’s growth.
 
 ## Comparative Analysis of Potential Solutions
-The project requires reliable sensing for both **lake bottom depth mapping** and **water current flow measurement**. Selecting the proper technologies for sonar-based depth sensing and flow monitoring is essential to balance affordability, accuracy, integration complexity, and long-term adaptability.
 
+The project requires reliable sensing for both **lake bottom depth mapping** and **water current flow measurement**. Selecting the proper technologies for sonar-based depth sensing and flow monitoring is essential to balance affordability, accuracy, integration complexity, and long-term adaptability.
 
 ### **Depth Measurement Solutions (Sonar and Transducers)**
 
 - **1. Consumer Fish Finder/Depth Finder Transducers**
  These systems are widely available, often costing under $500, and provide basic point depth readings. While inexpensive and easy to operate, they lack research-quality accuracy, real-time mapping integration, and compatibility with GIS platforms.
+
 - **2. Single-Beam Echo Sounder with Transducer (e.g., Blue Robotics Ping2)**
  Costing approximately $400–$600, these sonar units deliver ±5–15 cm accuracy and support open-source integration with Raspberry Pi and autopilot modules. They are well-suited for proof-of-concept mapping, offering the best balance of affordability, accuracy, and adaptability.
+
 - **3. Survey-Grade Single-Beam Echo Sounders (e.g., CEESCOPE with RTK GNSS)**
  These professional systems achieve ±2–5 cm accuracy and integrate seamlessly into commercial hydrographic workflows. However, their cost exceeds $10,000, making them impractical for a budget-constrained student project.
+
 - **4. Multibeam Sonar Systems**
  Industry-standard for hydrography, multibeam systems provide swath coverage with ±1–2 cm precision. Yet, costs ($50,000–$100,000+) and required RTK-INS navigation systems render them infeasible for this project.
 
@@ -27,15 +31,19 @@ The project requires reliable sensing for both **lake bottom depth mapping** and
 
 - **1. YF-S201 Hall-Effect Flow Sensor**
  The YF-S201 is a low-cost (~$10–$20) sensor that uses a turbine and Hall-effect sensor to measure flow rate. It outputs digital pulses proportional to the water velocity. While not as precise as acoustic methods, it is extremely affordable, lightweight, and easy to integrate with microcontrollers such as Arduino or Raspberry Pi. Its accuracy is typically within ±10% after calibration, making it suitable for small-scale, student-built systems.
+
 - **2. Acoustic Doppler Current Profilers (ADCPs)**
  ADCPs represent the professional standard for water flow measurement, providing full velocity profiles and discharge calculations. They offer high accuracy and reliability but are expensive ($15,000–$30,000+) and require significant power and integration effort.
+
 - **3. Mechanical and Acoustic Flow Meters (e.g., OTT ****Hydromet****)**
  Commercial mechanical and acoustic meters provide accurate point-based velocity measurements. However, they are costly ($5,000–$15,000) and less adaptable for integration into an autonomous platform.
 
 ### **Non-Starters**
 
 - **Multibeam sonar** and **survey-grade single-beam** systems are eliminated due to prohibitive costs.
+  
 - **ADCPs and commercial flow meters** provide excellent accuracy but exceed budgetary and integration constraints.
+  
 - **Consumer fish finders** lack the precision and data interoperability required for research applications.
 
 
@@ -61,14 +69,14 @@ The autonomous lake-mapping vessel integrates multiple coordinated subsystems to
 
 
 ## Atomic Subsystem Specifications
+
 ### Subsystem 1: (Hardware)
 
-#### Function:
+### Function:
 
-The Hardware Subsystem serves as the structural and mechanical foundation of the autonomous vessel. It supports all other subsystems—power, propulsion, communication, and sensors—by providing buoyancy, stability, and mounting surfaces for equipment. The vessel features a catamaran-style hull to enhance stability and hydrodynamic performance. It is designed to accommodate a payload of approximately 40 to 50 pounds, including all electronic components, sensors, and power systems. The hull will be 3D printed in modular sections for ease of fabrication and assembly and then reinforced with a fiberglass coating to ensure durability, water resistance, and impact protection during operation.
-The subsystem also includes the primary onboard instruments, such as the Lowrance Elite-5 DSI depth finder and the main battery system, which together enable continuous operation and real-time data collection.
+The Hardware Subsystem serves as the structural and mechanical foundation of the autonomous vessel. It supports all other subsystems—power, propulsion, communication, and sensors—by providing buoyancy, stability, and mounting surfaces for equipment. The vessel features a catamaran-style hull to enhance stability and hydrodynamic performance. It is designed to accommodate a payload of approximately 40 to 50 pounds, including all electronic components, sensors, and power systems. The hull will be 3D printed in modular sections for ease of fabrication and assembly and then reinforced with a fiberglass coating to ensure durability, water resistance, and impact protection during operation. The subsystem also includes the primary onboard instruments, such as the Lowrance Elite-5 DSI depth finder and the main battery system, which together enable continuous operation and real-time data collection.
 
-#### Interfaces:
+### Interfaces:
 
 **1. Structural Interface**
 - **Connection Type:** Mechanical assembly
@@ -106,7 +114,7 @@ The subsystem also includes the primary onboard instruments, such as the Lowranc
 - **Protocol:** Dependent on connected system (NMEA, SPI, UART)
 - **Data Exchanged:** Sensor and control signals routed between modules while maintaining environmental sealing
 
-#### Operation:
+### Operation:
 
 The Hardware Subsystem operates as the physical base for all vessel systems.
 - The 3D printed catamaran hull provides stability and balance for smooth operation in variable water conditions.
@@ -117,7 +125,7 @@ The Hardware Subsystem operates as the physical base for all vessel systems.
 - The fiberglass coating ensures water resistance and enhances durability against environmental stress and minor impacts.
 This subsystem ensures the vessel maintains structural integrity, buoyancy, and reliability under all expected environmental conditions while supporting continuous data collection and transmission.
 
-#### Shall Statements:
+### Shall Statements:
 
 - The vessel **shall** feature a catamaran-style hull to maximize stability and hydrodynamic efficiency.
 - The vessel **shall** support a total payload capacity of 40–50 pounds, including all electronics, sensors, and batteries.
@@ -133,49 +141,76 @@ This subsystem ensures the vessel maintains structural integrity, buoyancy, and 
 
 ### Subsystem 2: (Power)
 
-#### Function:
+### Function:
 
 The Power Subsystem supplies, regulates, and distributes electrical power to all onboard components, including the propulsion motors, sensors, communication module, and control electronics. It ensures stable operation across all environmental and load conditions while incorporating safety mechanisms to prevent overcurrent, overvoltage, and thermal damage. The subsystem also manages power input from external charging sources such as AC adapters or solar panels when applicable.
 
-#### Power Supply Components:
+### Power Supply Components:
 
-Main Battery System
+### Main Battery System
+
 - **Type:** 12V Deep Cycle Marine Battery or Lithium Ion Battery encased in waterproof container
 - **Function:** Provides the primary power source for all onboard systems, offering high energy density and resistance to vibration and moisture.
 - **Capacity:** Sized to support a minimum of 2–4 hours of continuous operation under full load.
+  
+### Voltage Regulation Module
 
-Voltage Regulation Module
-- **Function:** Steps down or regulates power to required voltage levels for various subsystems (e.g., 12V → 5V for microcontrollers and sensors).
-- **Components:** Includes DC-DC buck converters and voltage regulators with thermal protection and efficiency >85%.
-Power Distribution Board (PDB)
-- **Function:** Distributes regulated power from the main battery to all subsystems via fused lines.
-- **Features:** Integrated current sensing for monitoring, reverse polarity protection, and master power switch for manual cutoff.
-Solar Backup Integration (Optional)
-- **Function:** Allows trickle-charging of the main battery via a solar panel to extend operational endurance during long-duration missions.
-- **Operation:** The solar charge controller prevents overcharging and backflow to ensure system safety.
+#### Function:
+
+Steps down or regulates power to required voltage levels for various subsystems (e.g., 12V → 5V for microcontrollers and sensors).
+
+#### Components:
+
+Includes DC-DC buck converters and voltage regulators with thermal protection and efficiency >85%.
+
+### Power Distribution Board (PDB)
+
+#### Function:
+
+Distributes regulated power from the main battery to all subsystems via fused lines.
+
+#### Features:
+
+Integrated current sensing for monitoring, reverse polarity protection, and master power switch for manual cutoff.
+
+### Solar Backup Integration (Optional)
+
+#### Function:
+
+Allows trickle-charging of the main battery via a solar panel to extend operational endurance during long-duration missions.
+
+#### Operation:
+
+The solar charge controller prevents overcharging and backflow to ensure system safety.
 - It can also serve as an emergency power source if battery gives out.
 
-Interfaces:
+#### Interfaces:
 
-**Connection Type:**
+Connection Type:
 - Direct wired power connections using marine-grade insulated cables
-**Signal Type:**
+  
+Signal Type:
 - DC electrical power distribution
-**Direction:**
+  
+Direction:
 - Output from Power Subsystem to all other subsystems
-**Protocol:**
+  
+Protocol:
 - None (power lines only)
-**Data Sent:**
+  
+Data Sent:
 - Voltage and current monitoring feedback (optional analog output from sensors to microcontroller)
-**Data Received:**
+  
+Data Received:
 - Power-on command signals (digital) from control subsystem
 - Charging input from solar or AC source
 
-Operation:
+### Overall Operation:
 
 During startup, the power distribution board energizes the propulsion system, sensors, and control electronics sequentially to prevent current surges. The voltage regulator ensures that all sensitive devices receive stable DC levels. Battery levels are monitored continuously through analog feedback to the microcontroller, which can alert the operator via the communication subsystem if voltage drops below the critical threshold. When docked, the system automatically switches to charging mode if an external power input is detected.
 
-Shall Statements:
+### Shall Statements:
+
 - The subsystem shall provide stable DC power to all connected subsystems within ±5% of nominal voltage.
 - The subsystem shall maintain at least 2 hours of full operational power under typical mission load.
 - The subsystem shall include voltage and current protection for all output lines.
@@ -187,18 +222,19 @@ Shall Statements:
 
 ### Subsystem 3: (Navigation)
 
-#### GPS Positioning System
+### GPS Positioning System
 
 The GPS Positioning Subsystem provides absolute position, time, and velocity data to the navigation and autopilot subsystems. It determines the vessel’s precise location on the water and supports real-time tracking, route following, and mission mapping. The subsystem utilizes a high-sensitivity GNSS receiver with an integrated antenna and supports standard NMEA and vendor-specific protocols for data output.
 For advanced accuracy, the subsystem optionally accepts RTK (Real-Time Kinematic) correction data to achieve sub-meter positional precision. The GPS continuously transmits satellite health, fix status, and position information to the onboard navigation computer and autopilot controller for real-time guidance and logging.
 
-Interfaces:
+#### Interfaces:
 
 - Power Input
   - Connection Type: Wired
   - Signal Type: DC Power (3.3–5 V nominal)
   - Direction: Input to GPS module
   - Data Exchanged: Power supply from the main power distribution system
+    
 - Primary Communication (UART/USB)
   - Connection Type: Serial (TTL UART or USB virtual COM)
   - Signal Type: Digital data
@@ -207,18 +243,21 @@ Interfaces:
   - Data Exchanged:
     - Output: Position, time, velocity, fix quality, satellite count
     - Input: Configuration commands (e.g., update rate, protocol select)
+      
 - Optional RTK Correction Input
   - Connection Type: Serial or UDP
   - Signal Type: Digital
   - Direction: Input to GPS
   - Protocol: RTCM3
   - Data Exchanged: Differential correction data for high-precision positioning
+    
 - Antenna Interface
   - Connection Type: SMA/MCX coaxial
   - Signal Type: RF input
   - Direction: Input to GPS receiver
   - Protocol: N/A
   - Data Exchanged: GNSS satellite RF signals
+    
 - Physical/Mechanical
   - Connection Type: Shielded cable with keyed connectors
   - Signal Type: Power, RF, and data
@@ -226,15 +265,18 @@ Interfaces:
   - Protocol: N/A
   - Data Exchanged: Environmental protection and mechanical connection integrity
 
-Operation:
+#### Operation:
 
 The GPS Positioning Subsystem operates as the primary localization source for the vessel. The GNSS receiver continuously calculates latitude, longitude, altitude, and UTC time using signals from multiple satellite constellations. The module outputs NMEA sentences (e.g., GGA, RMC, VTG) or binary UBX messages at configurable update rates between 1–10 Hz.
+
 The navigation subsystem and autopilot receive these data through the UART/USB interface to maintain accurate localization and velocity estimation. When RTK corrections are available, the module applies differential data via the RTCM3 stream to improve accuracy to sub-meter levels.
+
 Each position message includes fixed quality, satellite count, and error dilution metrics (HDOP) to ensure reliability. If signal loss occurs, the module flags “no fix” and maintains the last known position with a timestamp.
+
 The GPS subsystem is powered by the main DC distribution line (5 V nominal) and is mechanically mounted with a waterproof antenna to ensure optimal satellite visibility and durability in marine conditions.
 
 
-Shall Statements:
+#### Shall Statements:
 
 - The subsystem shall output latitude, longitude, altitude, and UTC time at a configurable rate between 1–10 Hz.
 - The subsystem shall provide a fixed-quality indicator and number of satellites with every position update.
@@ -245,15 +287,15 @@ Shall Statements:
 - The subsystem shall report stale data if no new fix is available within twice the update interval.
 - The subsystem shall integrate a waterproof external antenna with proper strain relief and isolation.
 
-#### Autopilot Subsystem
+### Autopilot Subsystem
 
-Function:
+#### Function:
 
 The Autopilot Subsystem fuses navigation data, onboard sensor measurements, and operator commands to autonomously guide the vessel along pre-defined routes. It maintains stable heading, speed, and position control through closed-loop feedback using an integrated IMU, magnetometer, barometer, and GPS input.
 This subsystem executes mission management, guidance, and control algorithms, ensuring the vessel follows planned waypoints and coverage paths while responding to environmental and system conditions. The autopilot communicates with the navigation and communication subsystems to exchange telemetry, mission updates, and safety alerts.
 
 
-### Interfaces:
+#### Interfaces:
 
 - Power Input
   - Connection Type: Wired
@@ -261,6 +303,7 @@ This subsystem executes mission management, guidance, and control algorithms, en
   - Direction: Input to autopilot
   - Protocol: N/A
   - Data Exchanged: Power supplied from the power distribution module
+    
 - Sensor Inputs
   - GPS Input: UART from GPS subsystem (NMEA or UBX data)
     - Direction: GPS → Autopilot
@@ -268,23 +311,27 @@ This subsystem executes mission management, guidance, and control algorithms, en
     - Direction: Sensors → Autopilot
   - Sonar / LiDAR: Serial or I²C interface for obstacle/altitude data
     - Direction: Sensor → Autopilot
+      
 - Actuator Outputs
   - Connection Type: PWM, DShot, or CAN ESC
   - Signal Type: Digital control signals
   - Direction: Autopilot → Thrusters and Rudder
   - Protocol: PWM (50–400 Hz) or digital ESC protocols
+    
 - Telemetry / Ground Station Communication
   - Connection Type: Wireless (2.4 GHz / 900 MHz) or USB/Ethernet
   - Signal Type: Digital
   - Direction: Bidirectional
   - Protocol: MAVLink
   - Data Exchanged: Telemetry, mission updates, status, and control commands
+    
 - Companion Computer Interface
   - Connection Type: Serial or UDP (Ethernet/Wi-Fi)
   - Signal Type: Digital
   - Direction: Bidirectional (Autopilot ↔ Raspberry Pi)
   - Protocol: MAVLink
   - Data Exchanged: Waypoints, state estimates, mission commands, and feedback
+    
 - Safety Inputs
   - Connection Type: Wired (kill switch, RC input)
   - Signal Type: Digital logic
@@ -293,15 +340,18 @@ This subsystem executes mission management, guidance, and control algorithms, en
   - Data Exchanged: Manual override and emergency stop signals
 
 
-Operation:
+#### Operation:
 
 The Autopilot Subsystem governs the vessel’s autonomous control loops and mission execution. It receives GPS and sensor data to estimate the vessel’s attitude, velocity, and position using an Extended Kalman Filter (EKF).
+
 Based on mission waypoints and path plans, the autopilot generates control commands for the propulsion and steering subsystems via PWM or CAN ESC interfaces. The system runs inner-loop attitude control at ≥50 Hz for stability and outer-loop navigation at 5–20 Hz for waypoint tracking.
+
 Telemetry data—including battery level, GPS fix, EKF health, and mission progress—are sent to the ground station through the communication subsystem. In case of telemetry or GPS loss, the autopilot triggers failsafe behaviors such as loiter, stop, or return-to-home.
+
 The subsystem integrates with a companion computer (Raspberry Pi 4) for high-level mission management and logging. Manual override capability is always available through the RC input or kill switch for safety.
 
 
-Shall Statements:
+#### Shall Statements:
 
 - The subsystem shall receive GPS data from the GPS subsystem via UART and incorporate it into its navigation estimator.
 - The subsystem shall fuse IMU, magnetometer, barometer, and GPS data using an EKF to estimate attitude, velocity, and position at ≥5 Hz.
@@ -318,33 +368,39 @@ Shall Statements:
 ### Subsystem 4: (Communication)
 
 The Communication and Data Processing Subsystem provides the primary link between the vessel’s onboard systems and the base station computer located on land. It manages both the transmission of collected sensor data—such as GPS coordinates, depth readings, and system status—and the reception of operator commands. The subsystem uses a wireless communication link, established through a Wi-Fi or RF telemetry module, to ensure reliable, real-time data transfer.
+
 The onboard controller, a Raspberry Pi 4, serves as the central processing unit for managing communication and local data handling. In the event of a loss of connection, data are automatically stored on an onboard SD card to ensure no information is lost. Additionally, the SonTek Power and Communication Module (PCM) may be used to interface the sonar system with the main communication link, ensuring synchronized and noise-free data exchange for accurate bathymetric mapping and velocity measurements.
 
-**Interfaces:**
+### Interfaces:
+
 **1. Base Station Computer**
 - **Connection Type:** Wireless (Wi-Fi / 2.4 GHz RF)
 - **Signal Type:** Digital data
 - **Direction:** Bidirectional
 - **Protocol:** TCP/IP or Serial over RF
 - **Data Exchanged:** GPS, depth, and system status data sent; control commands received
+
 **2. ****SonTek**** Power and Communication Module (PCM)**
 - **Connection Type:** Wired
 - **Signal Type:** Digital serial
 - **Direction:** Bidirectional
 - **Protocol:** USB / RS-232
 - **Data Exchanged:** Sonar depth and velocity data exchanged
+
 **3. Arduino System (Sensor and Data Acquisition Subsystem)**
 - **Connection Type:** Wired
 - **Signal Type:** Digital serial
 - **Direction:** Bidirectional
 - **Protocol:** UART @ 115200 bps
 - **Data Exchanged:** Aggregated sensor data sent; acknowledgment and timing signals received
+
 **4. SD Card Module (Onboard Storage)**
 - **Connection Type:** Wired
 - **Signal Type:** Digital SPI
 - **Direction:** Bidirectional
 - **Protocol:** SPI @ 8 MHz
 - **Data Exchanged:** Data logged and retrieved as backup
+
 **5. Power Subsystem (Battery Management System)**
 - **Connection Type:** Wired
 - **Signal Type:** DC power
@@ -352,8 +408,10 @@ The onboard controller, a Raspberry Pi 4, serves as the central processing unit 
 - **Protocol:** N/A
 - **Data Exchanged:** 5V regulated power input
 
-**Operation:**
+### Operation:
+
 The Communication and Data Processing Subsystem serves as the vessel’s central communication hub, ensuring all mission data and commands are exchanged accurately and efficiently between onboard systems and the operator.
+
 - Sensor and navigation data from the Arduino-based Data Acquisition Subsystem are transmitted to the Raspberry Pi 4.
 - The Raspberry Pi formats the incoming data into structured packets containing GPS position, water depth, and vessel system status.
 - These packets are transmitted over Wi-Fi or RF telemetry to the base station computer, allowing the operator to monitor the vessel’s progress in real time.
@@ -363,7 +421,8 @@ The Communication and Data Processing Subsystem serves as the vessel’s central
 - The subsystem continuously monitors communication health and provides feedback on link strength and data integrity to the operator interface.
 This operation ensures reliable, low-latency communication between the vessel and the control station throughout all mapping missions.
 
-**Shall Statements:**
+### Shall Statements:
+
 - The subsystem **shall** provide a continuous bidirectional communication link between the vessel and the base station computer.
 - The subsystem **shall** transmit GPS, depth, and system status data packets at a rate of at least one hertz (1 Hz).
 - The subsystem **shall** receive and process operator control commands, including mission start, stop, and return instructions.
@@ -379,13 +438,13 @@ This operation ensures reliable, low-latency communication between the vessel an
 ### Subsystem 5: (Sensors and Data Acquisition)
 The Sensors and Data Acquisition Subsystem is responsible for receiving and recording data from multiple onboard instruments to generate synchronized measurements of depth, flow rate, and geographical position. The subsystem processes input signals from the transducer, GPS receiver, and water flow sensor, then stores the resulting data on an SD card for later processing and analysis. All sensors are integrated through an Arduino Uno microcontroller, which serves as the core processing and control unit.
 
-- Transducer – Lowrance HDS-5 Fish Finding System
+### Transducer – Lowrance HDS-5 Fish Finding System
 
-Function:
+#### Function:
 
 The transducer provides underwater depth measurements and positional data via its built-in GPS receiver. It operates as the primary instrument for bathymetric data collection, transmitting sonar pings to determine water depth relative to the transducer's face.
 
-Interfaces:
+#### Interfaces:
 
 - Connection Type: NMEA 2000 network (differential CAN bus)
 - Signal Type: Digital data communication
@@ -396,54 +455,61 @@ Interfaces:
   - GPS position and time (PGN 129029)
 - Data Received: None (read-only connection)
 
-Operation:
+#### Operation:
 
 The Arduino Uno reads incoming NMEA 2000 messages through a CAN controller (MCP2515) and transceiver (TJA1050). The system extracts water depth, latitude, longitude, and time data, synchronizing them with other sensor inputs for unified data logging.
 
-Shall Statements:
+#### Shall Statements:
+
 - The subsystem shall receive depth and GPS data from the Lowrance HDS-5 via the NMEA 2000 network.
 - The subsystem shall extract and record latitude, longitude, and time from the GPS feed.
 - The subsystem shall operate in read-only mode to avoid interference with the NMEA 2000 backbone.
 - The subsystem shall store all received data to the SD card in a timestamped format.
 
-- Autonomous Water Flow Control and Monitoring System
+### Autonomous Water Flow Control and Monitoring System
 
-Function:
+#### Function:
 
 This subsystem measures the water’s flow rate and total volume using a YF-S201 Hall-effect flow sensor, while also utilizing an infrared sensor (LM393) for proximity detection. A relay module is available for controlling connected actuators or valves as needed for future automation features. The original design based on an ESP8266 microcontroller has been adapted to operate on the Arduino Uno platform.
 
-Interfaces:
+#### Interfaces:
+
 - Connection Type: Direct wired to Arduino
+  
 - Signal Types:
   - Digital pulse signal (YF-S201)
   - Digital logic (LM393)
   - Digital output control (Relay)
   - Direction: Inputs from sensors to Arduino; output from Arduino to relay.
   - Protocol: GPIO (digital pulse counting and logic control).
+    
 - Data Sent:
   - Flow rate pulses (proportional to water velocity)
   - Proximity detection flag (IR sensor)
+    
 - Data Received:
   - Control signal to toggle relay module (if applicable).
 
-Operation:
+#### Operation:
 
 The Arduino counts pulses from the YF-S201 sensor using an interrupt routine to compute real-time flow rate and cumulative volume. The LM393 IR sensor provides an obstacle or fluid presence signal, while the relay module can be activated for flow control or safety response.
 
-Shall Statements:
+#### Shall Statements:
+
 - The subsystem shall measure flow rate using the YF-S201 Hall-effect sensor.
 - The subsystem shall compute and log both instantaneous flow rate (L/min) and total volume (L).
 - The subsystem shall detect nearby objects or changes using the LM393 IR sensor.
 - The subsystem shall provide control signals to a relay module for optional actuation.
 - The subsystem shall transmit all processed data to the Arduino data logger at a frequency of one record per second.
 
-- Obstacle Avoidance Subsystem
+### Obstacle Avoidance Subsystem
 
-Function:
+#### Function:
 
 The obstacle avoidance subsystem ensures safe navigation by detecting nearby physical obstacles above or below the waterline. It utilizes a combination of infrared (IR) proximity sensors and a sonar transducer to provide short- and mid-range detection.
 
-Interfaces:
+#### Interfaces:
+
 - Connection Type: Wired to Arduino digital I/O pins
 - Signal Type:
   - Digital (IR sensor trigger)
@@ -452,24 +518,26 @@ Interfaces:
 - Protocol: Trigger/echo timing and TTL logic signals
 - Data Sent: Distance measurement (cm), obstacle detection flag
 
-Operation:
+#### Operation:
 
 When the sonar sensor emits a pulse, the reflected echo is timed by the Arduino to calculate the distance to the nearest obstacle. Simultaneously, the IR sensor detects close-range obstacles and sends a binary high/low signal. The system flags potential hazards in real time and includes obstacle data in the logged dataset.
 
-Shall Statements:
+#### Shall Statements:
+
 - The subsystem shall measure obstacle distance using ultrasonic sonar.
 - The subsystem shall detect close-range objects with the LM393 IR sensor.
 - The subsystem shall flag obstacles within one meter as potential hazards.
 - The subsystem shall provide an obstacle flag output to the Arduino logger.
 - The subsystem shall operate continuously during all mapping missions.
 
-- Data Logging and Control Integration
+### Data Logging and Control Integration
 
-Function:
+#### Function:
 
 All sensor subsystems interface through the Arduino Uno, which acts as the central processor and data logger. The Arduino aggregates data from the transducer, flow, and obstacle sensors, synchronizes it with GPS timestamps, and writes it to an SD card in a structured CSV format.
 
-Interfaces:
+#### Interfaces:
+
 - Connection Type: SPI for SD card, UART for communication
 - Signal Type: Digital serial
 - Direction: Bi-directional (read/write)
@@ -477,23 +545,25 @@ Interfaces:
 - Data Sent: Combined dataset of all measurements
 - Data Received: System commands (start/stop, calibration)
 
-Operation:
+#### Operation:
 
 During operation, the Arduino performs a one-second logging cycle that gathers all active sensor readings. Each record contains timestamped data for depth, position, flow rate, and obstacle detection. The system also handles error detection and performs safe data flushing on power loss.
 
-Shall Statements:
+#### Shall Statements:
+
 - The subsystem shall record synchronized sensor data at least once per second.
 - The subsystem shall store data in CSV format with fields for time, GPS coordinates, depth, flow rate, and obstacle status.
 - The subsystem shall perform SD card write verification and flush data upon shutdown.
 - The subsystem shall communicate summary data to the onboard communication module.
 
-- System Integration Summary
+### System Integration Summary
+
 All sensors and modules are interconnected through the Arduino Uno, forming a unified sensing and acquisition platform. The system collectively enables real-time environmental measurement, data synchronization, and onboard storage for subsequent processing and visualization.
 
 
-** Ethical, Professional, and Standards Considerations**
+## Ethical, Professional, and Standards Considerations
 
-## **Specifications and Constraints**
+### Specifications and Constraints
 
 - The vessel shall be user-friendly and straightforward to operate in both autonomous and RC (manual) modes.
 - The vessel shall include a fail-safe system in both autonomous and RC modes to prevent loss of the boat in case of system error or communication failure.
@@ -507,7 +577,7 @@ All sensors and modules are interconnected through the Arduino Uno, forming a un
 - The vessel shall not cause harm to the surrounding environment, including water quality, aquatic plants, or fish populations.
 
 
-## **IEEE, TWRA, etc. Regulations and Constraints**
+### **IEEE, TWRA, etc. Regulations and Constraints**
 
 - 11. Battery Safety (UL 2054 – Household and Commercial Batteries)
  • The vessel’s battery systems shall comply with UL 2054 to ensure safe design, assembly, and operation, providing protection against fire, explosion, and electrolyte leakage.
@@ -526,6 +596,7 @@ All sensors and modules are interconnected through the Arduino Uno, forming a un
 
 
 ## Resources
+
 - Hardware
   - Boat Hull: Designed to provide structural support and room for mounting other hardware such as Raspberry pi, propulsion system, sensors, etc. Built to support 40-50 pounds in open water
   - Battery/Charging: Batteries with charging support to last 2-4 hours of continuous operation.
@@ -561,10 +632,15 @@ All sensors and modules are interconnected through the Arduino Uno, forming a un
 
 
 ### Division of Labor
+
 Ryan Thomas: Communication Subsystem
+
 Ian Hanna: Sensors Subsystem
+
 Jackson Hamblin: Hardware Subsystem
+
 Brady Nugent: Navigation Subsystem
+
 Nathan Norris: Power Subsystem
 
 ### Timeline
