@@ -669,47 +669,47 @@ All sensors and modules are interconnected through the Arduino Uno, forming a un
 
 1.	Hardware
 
-    a.	Boat Hull: Designed to provide structural support and buoyancy for all onboard equipment, including the propulsion system, Raspberry Pi, sensors, and power modules. The catamaran-style hull is 3D printed in modular sections and reinforced with fiberglass, supporting a total payload of 40–50 pounds for stable operation in open water.
+    -- Boat Hull: Designed to provide structural support and buoyancy for all onboard equipment, including the propulsion system, Raspberry Pi, sensors, and power modules. The catamaran-style hull is 3D printed in modular sections and reinforced with fiberglass, supporting a total payload of 40–50 pounds for stable operation in open water.
 
-    b.	Propulsion Motor (T200 Thrusters): Dual brushless DC thrusters providing primary propulsion and steering through differential thrust.
+    -- Propulsion Motor (T200 Thrusters): Dual brushless DC thrusters providing primary propulsion and steering through differential thrust.
 
-    c.	Servo Motor: Actuators used for rudder control or precise directional adjustments when operating with single-thruster setups.
+    -- Servo Motor: Actuators used for rudder control or precise directional adjustments when operating with single-thruster setups.
 
-    d.	Waterproof enclosure: Housing for all electronics to provide durability and long-term moisture protection
+    -- Waterproof enclosure: Housing for all electronics to provide durability and long-term moisture protection
 
 3.	Power
    
-    a.	Battery and Charging System: Primary energy source consisting of 14.8 V Li-ion or LiFePO₄ batteries with an integrated Battery Management System (BMS). Provides 2–4 hours of continuous operation and supports recharging via shore charger or optional solar input.
+    -- Battery and Charging System: Primary energy source consisting of 14.8 V Li-ion or LiFePO₄ batteries with an integrated Battery Management System (BMS). Provides 2–4 hours of continuous operation and supports recharging via shore charger or optional solar input.
 
-    b.	Power Distribution Board: Central hub that distributes regulated power from the main battery to all subsystems including control, sensors, and communication modules.
+    -- Power Distribution Board: Central hub that distributes regulated power from the main battery to all subsystems including control, sensors, and communication modules.
 
-    c.	Voltage Distribution Board: Supports multiple voltage outputs (e.g., 5 V, 12 V) to safely supply mixed-voltage devices.
+    -- Voltage Distribution Board: Supports multiple voltage outputs (e.g., 5 V, 12 V) to safely supply mixed-voltage devices.
 
-    d.	Voltage Regulation Chips: Provide clean, consistent DC power to sensitive components such as microcontrollers and radios.
+    --	Voltage Regulation Chips: Provide clean, consistent DC power to sensitive components such as microcontrollers and radios.
 
-    e.	Solar Panels (optional): Renewable energy source to extend field operation time through trickle-charging.
+    -- Solar Panels (optional): Renewable energy source to extend field operation time through trickle-charging.
 
-5.	Navigation
+4.	Navigation
 
-    a.	Arduino: Functions as the sensor interface and data acquisition controller, directly managing low-level peripherals such as the YF-S201 flow sensor, IR proximity sensors, and relay modules. It communicates with the Raspberry Pi through serial connection for synchronized data logging and control feedback.
+    -- Arduino: Functions as the sensor interface and data acquisition controller, directly managing low-level peripherals such as the YF-S201 flow sensor, IR proximity sensors, and relay modules. It communicates with the Raspberry Pi through serial connection for synchronized data logging and control feedback.
 
-    b.	Autopilot: Embedded navigation controller that interprets GPS and IMU data to autonomously adjust heading, maintain course, and perform survey paths.
+    -- Autopilot: Embedded navigation controller that interprets GPS and IMU data to autonomously adjust heading, maintain course, and perform survey paths.
 
-7.	Communication and Data Processing
+5.	Communication and Data Processing
 
-    a.	Base Station Computer: Ground-based control and monitoring system used for mission oversight, real-time telemetry, and post-processing visualization.
+    -- Base Station Computer: Ground-based control and monitoring system used for mission oversight, real-time telemetry, and post-processing visualization.
 
-    b.	Softlogic Power and Communication Module: Custom module that integrates power management with telemetry and data relay functions between vessel and operator.
+    -- Softlogic Power and Communication Module: Custom module that integrates power management with telemetry and data relay functions between vessel and operator.
 
-    c.	Raspberry Pi: Main onboard processing unit for data storage, sensor fusion, and wireless communication with the base station. Handles mission logic, navigation routines, and telemetry management.
+    -- Raspberry Pi: Main onboard processing unit for data storage, sensor fusion, and wireless communication with the base station. Handles mission logic, navigation routines, and telemetry management.
 
-9.	Sensors and Data Acquisition
+6.	Sensors and Data Acquisition
 
-    a.	YF-S201 Water Flow Sensor: Provides digital pulse output proportional to water velocity for current profiling.
+    -- YF-S201 Water Flow Sensor: Provides digital pulse output proportional to water velocity for current profiling.
 
-    b.	Data Processing System: Software and embedded routines that process sonar, GPS, velocity, and depth measurements into synchronized datasets and generate near-real-time bathymetric maps.
+    -- Data Processing System: Software and embedded routines that process sonar, GPS, velocity, and depth measurements into synchronized datasets and generate near-real-time bathymetric maps.
 
-    c.	Depth Finder (Lowrance Elite-5 DSI): Primary sonar system for depth and underwater topography acquisition.
+    -- Depth Finder (Lowrance Elite-5 DSI): Primary sonar system for depth and underwater topography acquisition.
 
 11.	Possible Software
 
