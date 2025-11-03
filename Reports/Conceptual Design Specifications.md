@@ -66,6 +66,7 @@ The autonomous lake-mapping vessel integrates multiple coordinated subsystems to
 
 
 ## Operational Flow Chart
+<img width="515" height="343" alt="image" src="https://github.com/user-attachments/assets/3f387c0e-4f53-48b0-8423-2536365d000f" />
 
 
 ## Atomic Subsystem Specifications
@@ -644,6 +645,7 @@ Brady Nugent: Navigation Subsystem
 Nathan Norris: Power Subsystem
 
 ### Timeline
+<img width="468" height="167" alt="image" src="https://github.com/user-attachments/assets/d1cf6f43-aa3b-422e-b40e-372691a27c62" />
 
 
 ## References
