@@ -14,31 +14,30 @@ The project requires reliable sensing for both lake bottom depth mapping and **w
 
 ### **Depth Measurement Solutions (Sonar and Transducers)**
 
-**1. Consumer Fish Finder/Depth Finder Transducers**
- These systems are widely available, often costing under $500, and provide basic point depth readings. While inexpensive and easy to operate, they lack research-quality accuracy, real-time mapping integration, and compatibility with GIS platforms.
+**1. Lowrance Elite-5 DSI (consumer fish finder):**
+
+Uses a downward-looking sonar (single-beam/DownScan Imaging) that emits acoustic pulses and measures echo return times to compute depth relative to the transducer face. Includes a built-in GPS for position and waypointing. The Elite-5 DSI supports NMEA serial communications (documented as NMEA-0183 / data port options) for exporting position and depth information. Typical depth ranges depend on frequency/mode (e.g., DownScan & CHIRP/83–200 kHz families) and listed max depths in consumer specs.
 
 <img width="152" height="229" alt="image" src="https://github.com/user-attachments/assets/9dfb326e-636b-459f-9f45-c1f6cd724837" />
 
+**2. SonTek RiverSurveyor (S5 / M9) + PCM:**
 
-**2. Single-Beam Echo Sounder with Transducer (e.g., Blue Robotics Ping2)**
- Costing approximately $400–$600, these sonar units deliver ±5–15 cm accuracy and support open-source integration with Raspberry Pi and autopilot modules. They are well-suited for proof-of-concept mapping, offering the best balance of affordability, accuracy, and adaptability.
+SonTek instruments are professional acoustic systems that can operate as ADCP-based or multi-frequency single/multiple beam profiler/echo sounder devices. They measure depth and (optionally) water-column velocities using acoustic pulses and Doppler processing. The PCM supplies power, 2.4 GHz telemetry (or RTK GPS options), and a communications interface (USB/serial or radio telemetry) to a base computer. SonTek systems produce survey-grade bathymetric data and can be configured with RTK GNSS for centimeter-level positioning.
 
 <img width="153" height="192" alt="image" src="https://github.com/user-attachments/assets/69a171ef-f707-49f9-99a8-1368420c9afd" />
 
 
-**3. Survey-Grade Single-Beam Echo Sounders (e.g., CEESCOPE with RTK GNSS)**
- These professional systems achieve ±2–5 cm accuracy and integrate seamlessly into commercial hydrographic workflows. However, their cost exceeds $10,000, making them impractical for a budget-constrained student project.
+**3. Single-Beam Echo Sounder with Transducer (e.g., Blue Robotics Ping2)**
+
+The Blue Robotics Ping2 is a single-beam echosounder that measures water depth by emitting a pulse of ultrasonic sound downward and then recording the time it takes for the sound to reflect off the bottom and return to the transducer. By multiplying this time delay by the speed of sound in water, the Ping2 accurately calculates the distance to the lakebed or seafloor. Operating at a frequency of 115 kHz, it provides a balance between depth range and resolution while avoiding interference with common fish-finder frequencies. The Ping2 integrates a built-in bottom-tracking algorithm that helps it maintain reliable readings even when water conditions or bottom compositions vary.  
 
 <img width="186" height="186" alt="image" src="https://github.com/user-attachments/assets/0bf1edf6-9356-4631-b518-15340b7d9377" />
 
 
-**4. Multibeam Sonar Systems**
- Industry-standard for hydrography, multibeam systems provide swath coverage with ±1–2 cm precision. Yet, costs ($50,000–$100,000+) and required RTK-INS navigation systems render them infeasible for this project.
-
-
 ### Flow Measurement Solutions (Including YF-S201 Sensor)
 
-**1. YF-S201 Hall-Effect Flow Sensor: 
+**1. YF-S201 Hall-Effect Flow Sensor:**
+
  The YF-S201 is a low-cost (~$10–$20) sensor that uses a turbine and Hall-effect sensor to measure flow rate. It outputs digital pulses proportional to the water velocity. While not as precise as acoustic methods, it is extremely affordable, lightweight, and easy to integrate with microcontrollers such as Arduino or Raspberry Pi. Its accuracy is typically within ±10% after calibration, making it suitable for small-scale, student-built systems.
 
 <img width="214" height="143" alt="image" src="https://github.com/user-attachments/assets/2030f3d8-07c6-4a10-a374-97cbc60a4b11" />
@@ -46,7 +45,8 @@ The project requires reliable sensing for both lake bottom depth mapping and **w
 
 ### Vessel Propulsion and Turning Solutions:
 
-**1.	HPI SF‑50WP Servomotor
+**1.	HPI SF‑50WP Servomotor**
+
 The HPI SF‑50WP is a waterproof servo motor designed for wet environments, capable of providing precise rotational control with moderate torque suitable for small autonomous vessels. In a propulsion application, the servo can be mechanically coupled to a rotor or propeller shaft to generate forward and reverse thrust. When controlled via standard PWM signals from a microcontroller or autopilot system, the pulse width determines the servo shaft’s rotation, which drives the propeller to propel the vessel. For improved maneuverability, two servos mounted on opposite sides of a catamaran hull can operate differentially, spinning in opposing directions or modulating speed to enable turning without a traditional rudder. The servo’s integrated electronics simplify interfacing with onboard control systems, while its waterproof design ensures reliable operation in wet or splashing conditions. This setup provides a compact, low-cost, and easily controllable propulsion and steering solution for lightweight autonomous boats.
 
 <img width="204" height="163" alt="image" src="https://github.com/user-attachments/assets/8d39f1f4-2166-4bfb-ab3c-3663c35432d5" />
@@ -54,19 +54,22 @@ The HPI SF‑50WP is a waterproof servo motor designed for wet environments, cap
 
 ### Power Systems Solutions:
 
-**1. 12 V Deep-Cycle Marine Battery
+**1. 12 V Deep-Cycle Marine Battery**
+
 The 12 V deep-cycle marine battery serves as a robust primary power source for the vessel, providing sustained energy for propulsion, sensors, and control electronics. Designed to handle repeated deep discharges, it delivers consistent voltage under load and is well-suited for marine environments due to its sealed, spill-resistant construction. Power is drawn from the battery via the distribution system to all subsystems, and its capacity ensures several hours of continuous operation before recharge is required.
 
 <img width="120" height="79" alt="image" src="https://github.com/user-attachments/assets/6022f2b9-43d4-42c2-a418-2d7e65ce5e98" />
 
 
-**2. 14.8 V Lithium-Ion Battery Encased in Waterproof Container
+**2. 14.8 V Lithium-Ion Battery Encased in Waterproof Container**
+
  The 14.8 V lithium-ion battery provides a higher energy density alternative for extended mission duration while maintaining a lightweight form factor. Encased in a waterproof container, it is protected from splashes and accidental immersion. The battery supplies regulated DC power to propulsion, navigation, and sensor systems, while integrated protection circuitry prevents overvoltage, overcurrent, and thermal issues, ensuring safe operation in varying environmental conditions.
 
 <img width="220" height="220" alt="image" src="https://github.com/user-attachments/assets/8792f29b-2838-4075-ba41-eb9b3fddcae5" />
 
 
-**3. Solar Backup Integration (ECO-WORTHY 130 Watt 12BB Flexible Solar Panel)
+**3. Solar Backup Integration (ECO-WORTHY 130 Watt 12BB Flexible Solar Panel)**
+
  The solar backup integration supplements the main battery system by trickling the onboard battery through a solar panel and charge controller. The controller regulates incoming energy to prevent overcharging or reverse current flow, ensuring safe and efficient energy transfer. During operation, the solar panel can extend mission endurance or provide emergency power in case of battery depletion, enabling longer deployments without external charging.
 
 <img width="256" height="256" alt="image" src="https://github.com/user-attachments/assets/21d0d77c-8664-47e2-9410-9654d6876bac" />
@@ -85,26 +88,26 @@ This hybrid approach balances technical feasibility with project constraints and
 
 ### Navigation Subsystem Solutions (Including GPS and Autopilot Options)
 
-**1. u-blox NEO-M8N GPS Module 
+**1. u-blox NEO-M8N GPS Module**
  
 The NEO-M8N is a cost-effective (~$20–$80) GNSS receiver that provides position accuracy within 2–5 meters under open-sky conditions. It communicates using standard serial (UART) NMEA or UBX protocols, making it easy to interface with Arduino, Raspberry Pi, or Pixhawk controllers. While not RTK-capable, it is lightweight, power-efficient, and widely supported by the ArduPilot and PX4 ecosystems. This makes it ideal for student-level autonomous boats requiring basic waypoint navigation and mapping.
 
 <img width="209" height="149" alt="image" src="https://github.com/user-attachments/assets/297cba03-1134-4448-884d-1b8b819682a6" />
 
 
-**2. u-blox ZED-F9P RTK GNSS Receiver
+**2. u-blox ZED-F9P RTK GNSS Receiver**
  
 The ZED-F9P offers high-precision dual-band GNSS positioning with centimeter-level accuracy when paired with RTK correction data. Typical cost ranges from $170–$300, with ready-to-use evaluation boards such as the SparkFun GPS-RTK2 or simpleRTK2B. It supports UART, I2C, and USB interfaces and can act as either a base or rover in RTK configurations. This module is well-suited for research or capstone-level autonomous boats requiring precise mapping and navigation performance.
 
 <img width="229" height="174" alt="image" src="https://github.com/user-attachments/assets/5e209067-cf9d-484b-ae02-406f0b714442" />
 
-**3. Pixhawk Autopilot Controller
+**3. Pixhawk Autopilot Controller**
  
 Pixhawk autopilots (~$120–$300) are open-source flight controllers compatible with ArduPilot and PX4 firmware. They include onboard IMUs, magnetometers, barometers, and multiple serial ports for GPS and telemetry integration. When configured with “Rover/Boat” firmware, Pixhawk can handle waypoint missions, motor control, and path-following surface vehicles. It is a proven, reliable option for small autonomous boats and integrates seamlessly with u-blox GPS modules.
 
 <img width="198" height="183" alt="image" src="https://github.com/user-attachments/assets/8d49b93e-ec82-482d-80fa-a991f5886ddb" />
 
-**4. Navio2 (Raspberry Pi-Based Autopilots)
+**4. Navio2 (Raspberry Pi-Based Autopilots)**
  
 The Navio2 (~$199) can expand Raspberry Pi boards into full-featured autopilots with integrated IMUs, GPS interfaces, and PWM outputs. They allow for more flexible software control using Linux and companion programs like BlueOS or ROS. These solutions are excellent for teams wanting real-time data processing, networking, and camera or sensor integration alongside navigation. 
 
