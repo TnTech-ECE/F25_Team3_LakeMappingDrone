@@ -151,7 +151,8 @@ The autonomous lake-mapping vessel integrates multiple coordinated subsystems to
 
 ## Hardware Block Diagram
 
-<img width="1948" height="978" alt="image" src="https://github.com/user-attachments/assets/47834625-ea62-41f9-8d7f-2753a1e648f7" />
+<img width="1830" height="914" alt="image" src="https://github.com/user-attachments/assets/736d325e-ea98-4fd0-aafd-6e59fbdfc65a" />
+
 
 
 ## Operational Flow Chart
