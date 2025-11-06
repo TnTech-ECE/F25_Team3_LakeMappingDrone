@@ -24,7 +24,6 @@ Uses a downward-looking sonar (single-beam/DownScan Imaging) that emits acoustic
 
 <img width="152" height="229" alt="image" src="https://github.com/user-attachments/assets/9dfb326e-636b-459f-9f45-c1f6cd724837" />
 
-Navico/Lowrance, LOWRANCE Elite-5 DSI – Installation & Operation Manual, Rev 06-2013. [Online]. Available: https://www.ssbilbehor.se/pub_docs/files/Lowrance/Lowrance_Elite-4_DSI_Mark-4_DSI_Maual.pdf
 
 **2. SonTek RiverSurveyor (S5 / M9) + PCM:**
 
@@ -32,7 +31,6 @@ SonTek instruments are professional acoustic systems that can operate as ADCP-ba
 
 <img width="153" height="192" alt="image" src="https://github.com/user-attachments/assets/69a171ef-f707-49f9-99a8-1368420c9afd" />
 
-Xylem/SonTek, RiverSurveyor S5/M9 Specification Sheet, Xylem Inc. [Online]. Available: https://www.xylem.com/siteassets/brand/sontek/resources/specification/sontek-riversurveyor-spec-sheet.pdf
 
 **3. Single-Beam Echo Sounder with Transducer (e.g., Blue Robotics Ping2)**
 
@@ -40,7 +38,6 @@ The Blue Robotics Ping2 is a single-beam echosounder that measures water depth b
 
 <img width="186" height="186" alt="image" src="https://github.com/user-attachments/assets/0bf1edf6-9356-4631-b518-15340b7d9377" />
 
- Blue Robotics, Ping Sonar Altimeter & Echosounder Technical Manual. [Online]. Available: https://bluerobotics.com/learn/ping-sonar-technical-guide/
 
 ### Flow Measurement Solutions (Including YF-S201 Sensor)
 
@@ -49,8 +46,6 @@ The Blue Robotics Ping2 is a single-beam echosounder that measures water depth b
  The YF-S201 is a low-cost (~$10–$20) sensor that uses a turbine and Hall-effect sensor to measure flow rate. It outputs digital pulses proportional to the water velocity. While not as precise as acoustic methods, it is extremely affordable, lightweight, and easy to integrate with microcontrollers such as Arduino or Raspberry Pi. Its accuracy is typically within ±10% after calibration, making it suitable for small-scale, student-built systems.
 
 <img width="214" height="143" alt="image" src="https://github.com/user-attachments/assets/2030f3d8-07c6-4a10-a374-97cbc60a4b11" />
-
-DATAQ Instruments, “Flow Sensor, part no. 2000362,” DATAQ Instruments. [Online]. Available: https://www.dataq.com/products/accessories/flow-sensor/2000362.html. Accessed: Nov. 5, 2025.
 
 
 ### Vessel Propulsion and Turning Solutions:
@@ -61,8 +56,6 @@ The HPI SF‑50WP is a waterproof servo motor designed for wet environments, cap
 
 <img width="204" height="163" alt="image" src="https://github.com/user-attachments/assets/8d39f1f4-2166-4bfb-ab3c-3663c35432d5" />
 
-HPI Racing, “#105366 – HPI SF-50WP Servo (Waterproof / 12.0 kg·cm @ 6.0 V),” HPI Racing A/S. [Online]. Available: https://www.hpiracing.com/en/part/105366. Accessed: Nov. 5, 2025.
-
 ### Power Systems Solutions:
 
 **1. 12 V Deep-Cycle Marine Battery**
@@ -71,16 +64,12 @@ The 12 V deep-cycle marine battery serves as a robust primary power source for t
 
 <img width="120" height="79" alt="image" src="https://github.com/user-attachments/assets/6022f2b9-43d4-42c2-a418-2d7e65ce5e98" />
 
-LiTime, “12 V 6 Ah LiFePO₄ Lithium Battery,” LiTime. [Online]. Available: https://www.litime.com/products/12v-6ah-lithium-battery?variant=46704399155420. Accessed: Nov. 5, 2025.
-
 
 **2. 14.8 V Lithium-Ion Battery Encased in Waterproof Container**
 
  The 14.8 V lithium-ion battery provides a higher energy density alternative for extended mission duration while maintaining a lightweight form factor. Encased in a waterproof container, it is protected from splashes and accidental immersion. The battery supplies regulated DC power to propulsion, navigation, and sensor systems, while integrated protection circuitry prevents overvoltage, overcurrent, and thermal issues, ensuring safe operation in varying environmental conditions.
 
 <img width="220" height="220" alt="image" src="https://github.com/user-attachments/assets/8792f29b-2838-4075-ba41-eb9b3fddcae5" />
-
-Dantona Batteries, “L148A68-8-12-2W,” Dantona, Wantagh, NY. [Online]. Available: https://dantona.com/products/l148a68-8-12-2w/. Accessed: Nov. 5, 2025.
 
 **3. Solar Backup Integration (ECO-WORTHY 130 Watt 12BB Flexible Solar Panel)**
 
@@ -108,8 +97,6 @@ The NEO-M8N is a cost-effective (~$20–$80) GNSS receiver that provides positio
 
 <img width="209" height="149" alt="image" src="https://github.com/user-attachments/assets/297cba03-1134-4448-884d-1b8b819682a6" />
 
-u-blox AG, “NEO-M8: u-blox M8 concurrent GNSS modules – Data sheet,” Document No. UBX-15031086, Revision R12, 16 Dec. 2022. Available: https://content.u-blox.com/sites/default/files/NEO-M8-FW3_DataSheet_UBX-15031086.pdf
-
 
 **2. u-blox ZED-F9P RTK GNSS Receiver**
  
@@ -117,23 +104,17 @@ The ZED-F9P offers high-precision dual-band GNSS positioning with centimeter-lev
 
 <img width="229" height="174" alt="image" src="https://github.com/user-attachments/assets/5e209067-cf9d-484b-ae02-406f0b714442" />
 
-u-blox AG, “ZED-F9P-04B High precision GNSS module – Data sheet,” Document No. UBX-21044850, Revision R05, 21 Mar. 2024. Available: https://content.u-blox.com/sites/default/files/ZED-F9P-04B_DataSheet_UBX-21044850.pdf
-
 **3. Pixhawk Autopilot Controller**
  
 Pixhawk autopilots (~$120–$300) are open-source flight controllers compatible with ArduPilot and PX4 firmware. They include onboard IMUs, magnetometers, barometers, and multiple serial ports for GPS and telemetry integration. When configured with “Rover/Boat” firmware, Pixhawk can handle waypoint missions, motor control, and path-following surface vehicles. It is a proven, reliable option for small autonomous boats and integrates seamlessly with u-blox GPS modules.
 
 <img width="198" height="183" alt="image" src="https://github.com/user-attachments/assets/8d49b93e-ec82-482d-80fa-a991f5886ddb" />
 
-“Pixhawk 4 | PX4 User Guide,” PX4 Autopilot, accessed November 5 2025. [Online]. Available: https://docs.px4.io/main/en/flight_controller/pixhawk4
-
 **4. Navio2 (Raspberry Pi-Based Autopilots)**
  
 The Navio2 (~$199) can expand Raspberry Pi boards into full-featured autopilots with integrated IMUs, GPS interfaces, and PWM outputs. They allow for more flexible software control using Linux and companion programs like BlueOS or ROS. These solutions are excellent for teams wanting real-time data processing, networking, and camera or sensor integration alongside navigation. 
 
 <img width="192" height="160" alt="image" src="https://github.com/user-attachments/assets/39c6406b-dca6-4db4-8590-be5d908cbde8" />
-
-EML NAV2 Autopilot Shield for Raspberry Pi – Data Sheet, “EML NAV2,” Pimoroni Ltd., Document dated Nov. 7 2018. Available: https://media.digikey.com/pdf/Data%20Sheets/Pimoroni%20PDFs/EML_NAV2_Web.pdf
 
 
 #### Benefits vs. Costs
@@ -822,29 +803,73 @@ Nathan Norris: Power Subsystem
 
 ## References
 
-[1] Z. Li, Y. Gao, M. Xu, J. Liu, Y. Yang, and J. He, “Exploring modern bathymetry: A comprehensive review of methods, limitations, and future directions,” Frontiers in Marine Science, vol. 10, Apr. 2023. [Online]. Available: https://doi.org/10.3389/fmars.2023.1178845, ,
+[1] Navico/Lowrance, LOWRANCE Elite-5 DSI – Installation & Operation Manual, Rev. 06-2013. [Online]. Available: https://www.ssbilbehor.se/pub_docs/files/Lowrance/Lowrance_Elite-4_DSI_Mark-4_DSI_Maual.pdf
+. Accessed: Oct. 27, 2025.
 
-[2] F. Gerlotto, S. Gauthier, and B. Masse, “The application of multibeam sonar technology for quantitative estimates of fish density in shallow water acoustic surveys,” Aquatic Living Resources, vol. 13, no. 5, pp. 385–393, 2000. [Online]. Available: https://doi.org/10.1016/S0990-7440(00)01094-4
+[2] Xylem/SonTek, RiverSurveyor S5/M9 Specification Sheet, Xylem Inc. [Online]. Available: https://www.xylem.com/siteassets/brand/sontek/resources/specification/sontek-riversurveyor-spec-sheet.pdf
+. Accessed: Oct. 28, 2025.
 
-[3] DIY sonar transducer
-[3] Teledyne Marine, “StreamPro ADCP,” Teledyne RD Instruments, 2023. [Online]. Available: https://www.teledynemarine.com
+[3] Blue Robotics, Ping Sonar Altimeter & Echosounder Technical Manual. [Online]. Available: https://bluerobotics.com/learn/ping-sonar-technical-guide/
+. Accessed: Oct. 29, 2025.
 
-[4] SonTek, “RiverSurveyor RS5,” Xylem Inc., 2023. [Online]. Available: https://www.ysi.com/riversurveyor
+[4] DATAQ Instruments, “Flow Sensor, part no. 2000362,” DATAQ Instruments. [Online]. Available: https://www.dataq.com/products/accessories/flow-sensor/2000362.html
+. Accessed: Nov. 5, 2025.
 
-[5] Blue Robotics, “Ping2 Echosounder and Altimeter,” Blue Robotics Inc., 2023. [Online]. Available: https://bluerobotics.com/store/sensors-sonars-cameras/sonar/ping-sonar-r2-rp
+[5] HPI Racing, “#105366 – HPI SF-50WP Servo (Waterproof / 12.0 kg·cm @ 6.0 V),” HPI Racing A/S. [Online]. Available: https://www.hpiracing.com/en/part/105366
+. Accessed: Nov. 5, 2025.
 
-[6] CEESCOPE, “Integrated GNSS and single-beam echosounder for hydrographic surveys,” CEE Hydrosystems, 2023. [Online]. Available: https://www.ceehydrosystems.com
+[6] LiTime, “12 V 6 Ah LiFePO₄ Lithium Battery,” LiTime. [Online]. Available: https://www.litime.com/products/12v-6ah-lithium-battery?variant=46704399155420
+. Accessed: Nov. 5, 2025.
 
-[7] Seafloor Systems Inc., “EchoBoat-160 Autonomous Survey Vessel,” Seafloor Systems, 2023. [Online]. Available: https://www.seafloorsystems.com
+[7] Dantona Batteries, “L148A68-8-12-2W,” Dantona, Wantagh, NY. [Online]. Available: https://dantona.com/products/l148a68-8-12-2w/
+. Accessed: Nov. 5, 2025.
 
-[8] Tersus GNSS, “TheDuck Autonomous Survey Boat,” Tersus GNSS Inc., 2023. [Online]. Available: https://www.tersus-gnss.com
+[8] u-blox AG, NEO-M8: u-blox M8 Concurrent GNSS Modules – Data Sheet, Doc. UBX-15031086, Rev. R12, Dec. 16, 2022. [Online]. Available: https://content.u-blox.com/sites/default/files/NEO-M8-FW3_DataSheet_UBX-15031086.pdf
+. Accessed: Oct. 30, 2025.
 
-[9] OTT Hydromet, “Qliner2: Mobile Doppler system for discharge measurements,” OTT Hydromet GmbH, 2023. [Online]. Available: https://www.ott.com
+[9] u-blox AG, ZED-F9P-04B High Precision GNSS Module – Data Sheet, Doc. UBX-21044850, Rev. R05, Mar. 21, 2024. [Online]. Available: https://content.u-blox.com/sites/default/files/ZED-F9P-04B_DataSheet_UBX-21044850.pdf
+. Accessed: Oct. 31, 2025.
 
-[10] ResearchGate, “Low-cost autonomous surface vehicles for inland water monitoring,” ResearchGate Publications, 2023. [Online]. Available: https://www.researchgate.net
+[10] PX4 Autopilot, “Pixhawk 4 | PX4 User Guide.” [Online]. Available: https://docs.px4.io/main/en/flight_controller/pixhawk4
+. Accessed: Nov. 1, 2025.
 
-[4] How to Connect, Read, and Process Sensor Data on Microcontrollers – A Beginner's Guide
-[11] U.S. Geological Survey, Use of Acoustic Doppler Current Profilers for Streamflow Measurements, U.S. Dept. of the Interior, Reston, VA, USA. [Online]. Available: https://pubs.usgs.gov
+[11] Pimoroni Ltd., EML NAV2 Autopilot Shield for Raspberry Pi – Data Sheet, Nov. 7, 2018. [Online]. Available: https://media.digikey.com/pdf/Data%20Sheets/Pimoroni%20PDFs/EML_NAV2_Web.pdf
+. Accessed: Nov. 2, 2025.
+
+[12] Z. Li, Y. Gao, M. Xu, J. Liu, Y. Yang, and J. He, “Exploring modern bathymetry: A comprehensive review of methods, limitations, and future directions,” Frontiers in Marine Science, vol. 10, Apr. 2023. [Online]. Available: https://doi.org/10.3389/fmars.2023.1178845
+. Accessed: Nov. 3, 2025.
+
+[13] F. Gerlotto, S. Gauthier, and B. Massé, “The application of multibeam sonar technology for quantitative estimates of fish density in shallow water acoustic surveys,” Aquatic Living Resources, vol. 13, no. 5, pp. 385–393, 2000. [Online]. Available: https://doi.org/10.1016/S0990-7440(00)01094-4
+. Accessed: Nov. 3, 2025.
+
+[14] Teledyne Marine, “StreamPro ADCP,” Teledyne RD Instruments, 2023. [Online]. Available: https://www.teledynemarine.com
+. Accessed: Nov. 4, 2025.
+
+[15] SonTek, “RiverSurveyor RS5,” Xylem Inc., 2023. [Online]. Available: https://www.ysi.com/riversurveyor
+. Accessed: Nov. 4, 2025.
+
+[16] Blue Robotics, “Ping2 Echosounder and Altimeter,” Blue Robotics Inc., 2023. [Online]. Available: https://bluerobotics.com/store/sensors-sonars-cameras/sonar/ping-sonar-r2-rp
+. Accessed: Nov. 4, 2025.
+
+[17] CEE Hydrosystems, “CEESCOPE: Integrated GNSS and single-beam echosounder for hydrographic surveys,” 2023. [Online]. Available: https://www.ceehydrosystems.com
+. Accessed: Nov. 4, 2025.
+
+[18] Seafloor Systems Inc., “EchoBoat-160 Autonomous Survey Vessel,” 2023. [Online]. Available: https://www.seafloorsystems.com
+. Accessed: Nov. 5, 2025.
+
+[19] Tersus GNSS, “TheDuck Autonomous Survey Boat,” Tersus GNSS Inc., 2023. [Online]. Available: https://www.tersus-gnss.com
+. Accessed: Nov. 5, 2025.
+
+[20] OTT Hydromet, “Qliner2: Mobile Doppler System for Discharge Measurements,” OTT Hydromet GmbH, 2023. [Online]. Available: https://www.ott.com
+. Accessed: Nov. 5, 2025.
+
+[21] ResearchGate, “Low-cost autonomous surface vehicles for inland water monitoring,” ResearchGate Publications, 2023. [Online]. Available: https://www.researchgate.net
+. Accessed: Nov. 6, 2025.
+
+[22] U.S. Geological Survey, Use of Acoustic Doppler Current Profilers for Streamflow Measurements, U.S. Dept. of the Interior, Reston, VA, USA. [Online]. Available: https://pubs.usgs.gov
+. Accessed: Nov. 6, 2025.
+
+[23] How to Connect, Read, and Process Sensor Data on Microcontrollers – A Beginner’s Guide. [Online]. https://www.freecodecamp.org/news/connect-read-process-sensor-data-on-microcontrollers-for-beginners/. Accessed: Nov. 6, 2025.
 
 
 ## Statement of Contributions
