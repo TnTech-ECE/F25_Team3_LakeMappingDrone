@@ -68,6 +68,14 @@ The HPI SF‑50WP is a waterproof servo motor designed for wet environments, cap
 
 <img width="204" height="163" alt="image" src="https://github.com/user-attachments/assets/8d39f1f4-2166-4bfb-ab3c-3663c35432d5" />
 
+**2. T200 Thruster**
+
+The Blue Robotics T200 is a high-performance underwater thruster designed for small autonomous surface or submersible vehicles. Priced at approximately $230 per unit, it delivers up to 5.1 kgf (≈ 50 N) of thrust at 16 V while drawing a maximum of 25–30 A. The thruster uses a brushless DC motor with a sealed, water-cooled design, providing excellent efficiency and corrosion resistance in both fresh and saltwater environments. Its lightweight 10 oz (≈ 280 g) construction and plug-and-play compatibility with standard electronic speed controllers (ESCs) make it ideal for compact autonomous vessels requiring reliable propulsion and precise speed control.
+
+<img width="300" height="300" alt="image" src="https://github.com/user-attachments/assets/b941ef88-85f3-418d-9a03-3750f245fc6a" />
+
+
+
 ### Power Systems Solutions:
 
 **1. 12 V Deep-Cycle Marine Battery**
