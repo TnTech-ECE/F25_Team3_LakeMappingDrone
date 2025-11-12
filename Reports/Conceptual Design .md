@@ -842,61 +842,67 @@ Nathan Norris: Power Subsystem
 [4] DATAQ Instruments, “Flow Sensor, part no. 2000362,” DATAQ Instruments. [Online]. Available: https://www.dataq.com/products/accessories/flow-sensor/2000362.html
 . Accessed: Nov. 5, 2025.
 
-[5] HPI Racing, “#105366 – HPI SF-50WP Servo (Waterproof / 12.0 kg·cm @ 6.0 V),” HPI Racing A/S. [Online]. Available: https://www.hpiracing.com/en/part/105366
+[5] GEMS Sensors & Controls, FT-110 Series Flow Sensor Datasheet, 2023. [Online]. Available: https://www.gemssensors.com/docs/default-source/resource-files/catalog-pages/catalog-f_ft110-series.pdf
+
+[6] DFRobot, Water Flow Sensor – 1/8” (SKU: SEN0216) Product Wiki, 2022. [Online]. Available: https://wiki.dfrobot.com/Water_Flow_Sensor_-_1_8__SKU__SEN0216
+
+[7] HPI Racing, “#105366 – HPI SF-50WP Servo (Waterproof / 12.0 kg·cm @ 6.0 V),” HPI Racing A/S. [Online]. Available: https://www.hpiracing.com/en/part/105366
 . Accessed: Nov. 5, 2025.
 
-[6] LiTime, “12 V 6 Ah LiFePO₄ Lithium Battery,” LiTime. [Online]. Available: https://www.litime.com/products/12v-6ah-lithium-battery?variant=46704399155420
+[8] Blue Robotics, T200 Thruster (R2), 2024. [Online]. Available: https://bluerobotics.com/store/thrusters/t100-t200-thrusters/t200-thruster-r2-rp/
+
+[9] LiTime, “12 V 6 Ah LiFePO₄ Lithium Battery,” LiTime. [Online]. Available: https://www.litime.com/products/12v-6ah-lithium-battery?variant=46704399155420
 . Accessed: Nov. 5, 2025.
 
-[7] Dantona Batteries, “L148A68-8-12-2W,” Dantona, Wantagh, NY. [Online]. Available: https://dantona.com/products/l148a68-8-12-2w/
+[10] Dantona Batteries, “L148A68-8-12-2W,” Dantona, Wantagh, NY. [Online]. Available: https://dantona.com/products/l148a68-8-12-2w/
 . Accessed: Nov. 5, 2025.
 
-[8] u-blox AG, NEO-M8: u-blox M8 Concurrent GNSS Modules – Data Sheet, Doc. UBX-15031086, Rev. R12, Dec. 16, 2022. [Online]. Available: https://content.u-blox.com/sites/default/files/NEO-M8-FW3_DataSheet_UBX-15031086.pdf
+[11] u-blox AG, NEO-M8: u-blox M8 Concurrent GNSS Modules – Data Sheet, Doc. UBX-15031086, Rev. R12, Dec. 16, 2022. [Online]. Available: https://content.u-blox.com/sites/default/files/NEO-M8-FW3_DataSheet_UBX-15031086.pdf
 . Accessed: Oct. 30, 2025.
 
-[9] u-blox AG, ZED-F9P-04B High Precision GNSS Module – Data Sheet, Doc. UBX-21044850, Rev. R05, Mar. 21, 2024. [Online]. Available: https://content.u-blox.com/sites/default/files/ZED-F9P-04B_DataSheet_UBX-21044850.pdf
+[12] u-blox AG, ZED-F9P-04B High Precision GNSS Module – Data Sheet, Doc. UBX-21044850, Rev. R05, Mar. 21, 2024. [Online]. Available: https://content.u-blox.com/sites/default/files/ZED-F9P-04B_DataSheet_UBX-21044850.pdf
 . Accessed: Oct. 31, 2025.
 
-[10] PX4 Autopilot, “Pixhawk 4 | PX4 User Guide.” [Online]. Available: https://docs.px4.io/main/en/flight_controller/pixhawk4
+[13] PX4 Autopilot, “Pixhawk 4 | PX4 User Guide.” [Online]. Available: https://docs.px4.io/main/en/flight_controller/pixhawk4
 . Accessed: Nov. 1, 2025.
 
-[11] Pimoroni Ltd., EML NAV2 Autopilot Shield for Raspberry Pi – Data Sheet, Nov. 7, 2018. [Online]. Available: https://media.digikey.com/pdf/Data%20Sheets/Pimoroni%20PDFs/EML_NAV2_Web.pdf
+[14] Pimoroni Ltd., EML NAV2 Autopilot Shield for Raspberry Pi – Data Sheet, Nov. 7, 2018. [Online]. Available: https://media.digikey.com/pdf/Data%20Sheets/Pimoroni%20PDFs/EML_NAV2_Web.pdf
 . Accessed: Nov. 2, 2025.
 
-[12] Z. Li, Y. Gao, M. Xu, J. Liu, Y. Yang, and J. He, “Exploring modern bathymetry: A comprehensive review of methods, limitations, and future directions,” Frontiers in Marine Science, vol. 10, Apr. 2023. [Online]. Available: https://doi.org/10.3389/fmars.2023.1178845
+[15] Z. Li, Y. Gao, M. Xu, J. Liu, Y. Yang, and J. He, “Exploring modern bathymetry: A comprehensive review of methods, limitations, and future directions,” Frontiers in Marine Science, vol. 10, Apr. 2023. [Online]. Available: https://doi.org/10.3389/fmars.2023.1178845
 . Accessed: Nov. 3, 2025.
 
-[13] F. Gerlotto, S. Gauthier, and B. Massé, “The application of multibeam sonar technology for quantitative estimates of fish density in shallow water acoustic surveys,” Aquatic Living Resources, vol. 13, no. 5, pp. 385–393, 2000. [Online]. Available: https://doi.org/10.1016/S0990-7440(00)01094-4
+[16] F. Gerlotto, S. Gauthier, and B. Massé, “The application of multibeam sonar technology for quantitative estimates of fish density in shallow water acoustic surveys,” Aquatic Living Resources, vol. 13, no. 5, pp. 385–393, 2000. [Online]. Available: https://doi.org/10.1016/S0990-7440(00)01094-4
 . Accessed: Nov. 3, 2025.
 
-[14] Teledyne Marine, “StreamPro ADCP,” Teledyne RD Instruments, 2023. [Online]. Available: https://www.teledynemarine.com
+[17] Teledyne Marine, “StreamPro ADCP,” Teledyne RD Instruments, 2023. [Online]. Available: https://www.teledynemarine.com
 . Accessed: Nov. 4, 2025.
 
-[15] SonTek, “RiverSurveyor RS5,” Xylem Inc., 2023. [Online]. Available: https://www.ysi.com/riversurveyor
+[18] SonTek, “RiverSurveyor RS5,” Xylem Inc., 2023. [Online]. Available: https://www.ysi.com/riversurveyor
 . Accessed: Nov. 4, 2025.
 
-[16] Blue Robotics, “Ping2 Echosounder and Altimeter,” Blue Robotics Inc., 2023. [Online]. Available: https://bluerobotics.com/store/sensors-sonars-cameras/sonar/ping-sonar-r2-rp
+[19] Blue Robotics, “Ping2 Echosounder and Altimeter,” Blue Robotics Inc., 2023. [Online]. Available: https://bluerobotics.com/store/sensors-sonars-cameras/sonar/ping-sonar-r2-rp
 . Accessed: Nov. 4, 2025.
 
-[17] CEE Hydrosystems, “CEESCOPE: Integrated GNSS and single-beam echosounder for hydrographic surveys,” 2023. [Online]. Available: https://www.ceehydrosystems.com
+[20] CEE Hydrosystems, “CEESCOPE: Integrated GNSS and single-beam echosounder for hydrographic surveys,” 2023. [Online]. Available: https://www.ceehydrosystems.com
 . Accessed: Nov. 4, 2025.
 
-[18] Seafloor Systems Inc., “EchoBoat-160 Autonomous Survey Vessel,” 2023. [Online]. Available: https://www.seafloorsystems.com
+[21] Seafloor Systems Inc., “EchoBoat-160 Autonomous Survey Vessel,” 2023. [Online]. Available: https://www.seafloorsystems.com
 . Accessed: Nov. 5, 2025.
 
-[19] Tersus GNSS, “TheDuck Autonomous Survey Boat,” Tersus GNSS Inc., 2023. [Online]. Available: https://www.tersus-gnss.com
+[22] Tersus GNSS, “TheDuck Autonomous Survey Boat,” Tersus GNSS Inc., 2023. [Online]. Available: https://www.tersus-gnss.com
 . Accessed: Nov. 5, 2025.
 
-[20] OTT Hydromet, “Qliner2: Mobile Doppler System for Discharge Measurements,” OTT Hydromet GmbH, 2023. [Online]. Available: https://www.ott.com
+[23] OTT Hydromet, “Qliner2: Mobile Doppler System for Discharge Measurements,” OTT Hydromet GmbH, 2023. [Online]. Available: https://www.ott.com
 . Accessed: Nov. 5, 2025.
 
-[21] ResearchGate, “Low-cost autonomous surface vehicles for inland water monitoring,” ResearchGate Publications, 2023. [Online]. Available: https://www.researchgate.net
+[24] ResearchGate, “Low-cost autonomous surface vehicles for inland water monitoring,” ResearchGate Publications, 2023. [Online]. Available: https://www.researchgate.net
 . Accessed: Nov. 6, 2025.
 
-[22] U.S. Geological Survey, Use of Acoustic Doppler Current Profilers for Streamflow Measurements, U.S. Dept. of the Interior, Reston, VA, USA. [Online]. Available: https://pubs.usgs.gov
+[25] U.S. Geological Survey, Use of Acoustic Doppler Current Profilers for Streamflow Measurements, U.S. Dept. of the Interior, Reston, VA, USA. [Online]. Available: https://pubs.usgs.gov
 . Accessed: Nov. 6, 2025.
 
-[23] How to Connect, Read, and Process Sensor Data on Microcontrollers – A Beginner’s Guide. [Online]. https://www.freecodecamp.org/news/connect-read-process-sensor-data-on-microcontrollers-for-beginners/. Accessed: Nov. 6, 2025.
+[26] How to Connect, Read, and Process Sensor Data on Microcontrollers – A Beginner’s Guide. [Online]. https://www.freecodecamp.org/news/connect-read-process-sensor-data-on-microcontrollers-for-beginners/. Accessed: Nov. 6, 2025.
 
 
 ## Statement of Contributions
