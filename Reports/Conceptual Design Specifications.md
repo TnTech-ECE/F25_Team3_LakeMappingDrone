@@ -39,7 +39,7 @@ The Blue Robotics Ping2 is a single-beam echosounder that measures water depth b
 <img width="186" height="186" alt="image" src="https://github.com/user-attachments/assets/0bf1edf6-9356-4631-b518-15340b7d9377" />
 
 
-### Flow Measurement Solutions (Including YF-S201 Sensor)
+### Flow Measurement Solutions 
 
 **1. YF-S201 Hall-Effect Flow Sensor:**
 
