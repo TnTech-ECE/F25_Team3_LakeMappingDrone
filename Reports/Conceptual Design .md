@@ -657,6 +657,18 @@ All sensors and modules are interconnected through the Arduino Uno, forming a un
 
 ## Ethical, Professional, and Standards Considerations
 
+Implementing the depth sensor will have several economic, environmental, and societal impacts:
+
+- **Global and Economic:** The device lowers costs and democratizes hydrographic technology for small research groups and developing regions, though it may disrupt existing commercial markets.
+  
+- **Environmental:** Accurate depth data supports sustainable water management and habitat monitoring, but deployment must minimize habitat disturbance through low-noise, environmentally conscious design.
+  
+- **Societal:** Affordable, accessible depth mapping improves safety, fisheries management, and community resilience, but equity must be ensured so benefits extend beyond well-funded institutions.
+  
+- **Ethical Responsibility:** Each team member must ensure accuracy, transparency, and sustainability, while upholding public welfare and taking personal responsibility for the societal and environmental impacts of their work.
+  
+These implications emphasize the importance of designing our project within the context of the impacts it will have on the world. Doing so will enable long term sustainability of accessible depth mapping.
+
 ### Specifications and Constraints
 
 - The vessel shall be user-friendly and straightforward to operate in both autonomous and RC (manual) modes.
