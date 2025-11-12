@@ -60,14 +60,14 @@ The HPI SF‑50WP is a waterproof servo motor designed for wet environments, cap
 
 **1. 12 V Deep-Cycle Marine Battery**
 
-The 12 V deep-cycle marine battery serves as a robust primary power source for the vessel, providing sustained energy for propulsion, sensors, and control electronics. Designed to handle repeated deep discharges, it delivers consistent voltage under load and is well-suited for marine environments due to its sealed, spill-resistant construction. Power is drawn from the battery via the distribution system to all subsystems, and its capacity ensures several hours of continuous operation before recharge is required.
+The 12 V deep-cycle marine battery serves as a robust primary power source for the vessel, providing sustained energy for propulsion, sensors, and control electronics. Rated at 100 Ah (≈ 1.2 kWh), it is capable of supplying 8–10 A of continuous current for propulsion and up to 20 A peak draw during full-load operation. Designed to handle repeated deep discharges (up to 80% depth of discharge), it delivers consistent voltage under load and is well-suited for marine environments due to its sealed AGM construction, offering vibration resistance and spill-proof design. Power is drawn from the battery via the distribution system to all subsystems, including thrusters, sensors, and onboard processors, and its capacity ensures atleast 2-3 hours of continuous operation before recharge is required.
 
 <img width="120" height="79" alt="image" src="https://github.com/user-attachments/assets/6022f2b9-43d4-42c2-a418-2d7e65ce5e98" />
 
 
 **2. 14.8 V Lithium-Ion Battery Encased in Waterproof Container**
 
- The 14.8 V lithium-ion battery provides a higher energy density alternative for extended mission duration while maintaining a lightweight form factor. Encased in a waterproof container, it is protected from splashes and accidental immersion. The battery supplies regulated DC power to propulsion, navigation, and sensor systems, while integrated protection circuitry prevents overvoltage, overcurrent, and thermal issues, ensuring safe operation in varying environmental conditions.
+The 14.8 V lithium-ion battery pack provides a high-energy-density alternative to the marine battery, extending mission duration while minimizing total system weight. Rated at 10 Ah (≈ 148 Wh), it can deliver up to 15–20 A of continuous discharge current, supporting propulsion, navigation, and sensor operations for approximately 2–4 hours of sustained runtime depending on load. The pack is housed within a IP67-rated waterproof polycarbonate enclosure, protecting it from splashes and short-term immersion. Integrated battery management system (BMS) circuitry safeguards against overvoltage (> 16.8 V), overcurrent (> 25 A), and thermal excursions (> 60 °C), ensuring stable performance across variable environmental conditions and repeated charge-discharge cycles
 
 <img width="220" height="220" alt="image" src="https://github.com/user-attachments/assets/8792f29b-2838-4075-ba41-eb9b3fddcae5" />
 
