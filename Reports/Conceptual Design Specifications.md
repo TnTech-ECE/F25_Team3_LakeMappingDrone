@@ -47,6 +47,18 @@ The Blue Robotics Ping2 is a single-beam echosounder that measures water depth b
 
 <img width="214" height="143" alt="image" src="https://github.com/user-attachments/assets/2030f3d8-07c6-4a10-a374-97cbc60a4b11" />
 
+**2. DFROBOT SEN0216 Liquid Flow Sensor (Hall-Effect Type)**
+
+The DFROBOT SEN0216 is a durable, mid-range alternative to entry-level turbine sensors like the YF-S201. Priced around $20, it features a reinforced plastic housing, threaded connectors, and silicone sealing for improved resistance to leaks and corrosion. The sensor measures flow rates from 1 to 30 L/min with typical accuracy of ±5%, offering tighter calibration and smoother pulse output. Designed for long-term use in field conditions, it integrates directly with Arduino or Raspberry Pi platforms through a digital pulse output. This makes it a practical choice for small autonomous boats that require greater reliability and environmental protection without a major cost increase.
+
+<img width="300" height="300" alt="image" src="https://github.com/user-attachments/assets/bcd7a411-c851-467e-969b-5fcd94b0bf0a" />
+
+**3. Ultrasonic Flow Sensor (DFRobot Gravity or GEMS FT-110)**
+
+The ultrasonic flow sensor provides a non-intrusive, solid-state alternative for measuring water velocity. Priced around $80–$150, it uses time-of-flight ultrasonic pulses to detect flow rates between 0.5 and 10 m/s with a typical accuracy of ±1–3%. Because it has no moving parts, it offers excellent reliability and minimal maintenance in clean-water environments. The sensor outputs either analog or serial data and can be easily interfaced with embedded systems for real-time monitoring. Its higher precision and robustness make it a suitable upgrade for research-grade or long-duration autonomous missions.
+
+<img width="300" height="225" alt="image" src="https://github.com/user-attachments/assets/c4cb7e0f-01cb-4aa1-aed6-b044a1db1755" />
+
 
 ### Vessel Propulsion and Turning Solutions:
 
