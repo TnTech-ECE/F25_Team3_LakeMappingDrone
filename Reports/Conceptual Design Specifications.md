@@ -47,6 +47,16 @@ The Blue Robotics Ping2 is a single-beam echosounder that measures water depth b
 
 <img width="214" height="143" alt="image" src="https://github.com/user-attachments/assets/2030f3d8-07c6-4a10-a374-97cbc60a4b11" />
 
+### **Benefits vs. Costs**
+
+The **Blue Robotics Ping2 single-beam sonar** offers the best balance for depth mapping: affordable, accurate within ±5–15 cm, and open-source friendly.
+ For flow measurement, the **YF-S201 sensor** provides a budget-conscious alternative. Although less precise than ADCPs, it offers sufficient accuracy (±10%) for a capstone project, particularly when validated against reference datasets. Its ease of integration and extremely low cost make it highly attractive.
+
+
+### **Most Likely to Succeed**
+
+The chosen configuration combines a **single-beam sonar transducer (Ping2 or equivalent)** for depth measurement with a **YF-S201 Hall-effect flow sensor** for current velocity monitoring. Together, these solutions maximize affordability, accuracy, and ease of integration. The sonar system achieves the project’s bathymetric goals within a reasonable budget, while the YF-S201 enables basic flow monitoring without requiring costly acoustic Doppler systems.
+This hybrid approach balances technical feasibility with project constraints and provides a scalable platform that can be expanded with more advanced sensors in the future.
 
 ### Vessel Propulsion and Turning Solutions:
 
@@ -77,17 +87,20 @@ The 14.8 V lithium-ion battery provides a higher energy density alternative for 
 
 <img width="256" height="256" alt="image" src="https://github.com/user-attachments/assets/21d0d77c-8664-47e2-9410-9654d6876bac" />
 
+### Communications Solutions:
 
-### **Benefits vs. Costs**
+**1. GL.iNet Travel Router (e.g., GL-MT300N-V2 or GL-SFT1200)**
 
-The **Blue Robotics Ping2 single-beam sonar** offers the best balance for depth mapping: affordable, accurate within ±5–15 cm, and open-source friendly.
- For flow measurement, the **YF-S201 sensor** provides a budget-conscious alternative. Although less precise than ADCPs, it offers sufficient accuracy (±10%) for a capstone project, particularly when validated against reference datasets. Its ease of integration and extremely low cost make it highly attractive.
+ The GL.iNet travel router is a compact, energy-efficient networking device designed to create reliable wireless and wired connections in mobile or remote environments. Operating on both 2.4 GHz and 5 GHz frequency bands, it delivers stable data transfer with minimal interference while maintaining low power consumption—typically under 2 W from a 5 V DC source. Built on the open-source OpenWrt platform, the router supports advanced network customization, including static IP configuration, VPN tunneling, and data routing through UDP or TCP protocols. Its lightweight design, simple web-based interface, and flexible mounting options make it well-suited for portable or embedded communication applications that require dependable connectivity without the bulk or cost of larger networking hardware.
 
+<img width="256" height="256" alt="image" src="https://github.com/user-attachments/assets/f489983f-fd83-47d7-8210-b899b339dd52" />
 
-### **Most Likely to Succeed**
+**2. 3DR SiK Telemetry Radio 915 MHz Kit**
 
-The chosen configuration combines a **single-beam sonar transducer (Ping2 or equivalent)** for depth measurement with a **YF-S201 Hall-effect flow sensor** for current velocity monitoring. Together, these solutions maximize affordability, accuracy, and ease of integration. The sonar system achieves the project’s bathymetric goals within a reasonable budget, while the YF-S201 enables basic flow monitoring without requiring costly acoustic Doppler systems.
-This hybrid approach balances technical feasibility with project constraints and provides a scalable platform that can be expanded with more advanced sensors in the future.
+The 3DR SiK Telemetry Radio 915 MHz Kit is a compact dual-unit wireless telemetry system that creates a bi-directional serial communication link between a vehicle and a ground station. Operating in the 915 MHz ISM band, it provides robust data transfer with low latency and reliable performance over distances of several hundred meters (and potentially kilometers) depending on antenna configuration. The system uses open-source SiK firmware optimized for MAVLink communication, enabling seamless integration with autopilot platforms and ground control software. With a small power draw and straightforward serial interface (TX, RX, +5 V, GND), it is well-suited for embedding in mobile or vehicle-based systems that require real-time telemetry, command uplinks, and data logging.
+
+<img width="256" height="270" alt="image" src="https://github.com/user-attachments/assets/d0483295-bd84-45e4-b495-a6f4be4c7df5" />
+
 
 ### Navigation Subsystem Solutions (Including GPS and Autopilot Options)
 
