@@ -673,20 +673,26 @@ All sensors and modules are interconnected through the Arduino Uno, forming a un
 
 ### **IEEE, TWRA, etc. Regulations and Constraints**
 
-- 11. Battery Safety (UL 2054 – Household and Commercial Batteries)
- • The vessel’s battery systems shall comply with UL 2054 to ensure safe design, assembly, and operation, providing protection against fire, explosion, and electrolyte leakage.
-- 12. Ingress Protection (IEC 60529 – IP Ratings)**
- • All electronic enclosures, sensors, and control modules shall meet an appropriate IEC 60529 IP rating to prevent ingress of dust and water under expected operating conditions.
-- 13. Radio Frequency Compliance (FCC 47 CFR Part 15 – Radio Frequency Devices)
- • All wireless communication systems, including RC transmitters, receivers, and autonomous control modules, shall comply with FCC 47 CFR Part 15 to prevent harmful interference and ensure safe RF operation.
-- 14. Hull Stability (ISO 8383:1985 – Ships and Marine Technology: Small Craft Stability)
- • The vessel’s hull design shall conform to ISO 8383:1985 to ensure adequate stability, buoyancy, and safety during operation in various load and environmental conditions.
-- 15. Boating Regulations (Tennessee Wildlife Resources Agency – TWRA)
- • Operation of the vessel on public waterways shall comply with all applicable TWRA boating regulations, including safety, registration (if required), and operational conduct.
-- 16. Waterway Use (Tennessee Valley Authority – TVA Waterway Regulations)
- • When operating within TVA-managed waters, the vessel shall comply with TVA waterway navigation and use regulations to ensure lawful and safe operation.
-- 17. Environmental Protection (EPA Clean Water Act Compliance)
- • The vessel shall comply with the EPA Clean Water Act, ensuring that no pollutants, fuels, or chemicals are discharged into waterways during operation, maintenance, or testing.
+[11] Battery Safety (UL 2054 – Household and Commercial Batteries)
+This standard was adopted to mitigate risks of fire, explosion, and electrolyte leakage within the power subsystem. Compliance with UL 2054 ensures that all onboard lithium-based and marine batteries maintain proper cell containment, electrical isolation, and protection circuits, promoting safe charge and discharge cycles during operation.
+
+[12] Ingress Protection (IEC 60529 – IP Ratings)
+This regulation addresses the risk of water intrusion and corrosion in electrical and electronic assemblies. Ensuring that all enclosures meet a minimum IP65 rating prevents moisture-related failures during splash exposure or brief submersion, thereby enhancing long-term reliability in marine environments.
+
+[13] Radio Frequency Compliance (FCC 47 CFR Part 15 – Radio Frequency Devices)
+To mitigate interference and communication faults, all wireless components, including the RC transmitter, receiver, and telemetry modules, will comply with FCC Part 15. This ensures that signal emissions remain within authorized frequency bands and power limits, maintaining safe and interference-free communication with external control systems.
+
+[14] Hull Stability (ISO 8383:1985 – Ships and Marine Technology: Small Craft Stability)
+This international standard was included to prevent capsizing and instability under variable environmental conditions. Compliance with ISO 8383:1985 ensures that the vessel’s buoyancy, mass distribution, and metacentric height remain within acceptable design thresholds, improving operational safety.
+
+[15] Boating Regulations (Tennessee Wildlife Resources Agency – TWRA)
+TWRA boating regulations were applied to ensure legal operation on public waterways. These requirements mitigate potential safety and compliance issues by defining registration procedures, operator conduct, and navigational rules applicable to unmanned surface vessels.
+
+[16] Waterway Use (Tennessee Valley Authority – TVA Waterway Regulations)
+TVA waterway regulations were adopted to mitigate operational conflicts and navigation hazards on TVA-managed lakes and reservoirs. Adhering to these constraints ensures that the vessel operates within authorized regions, maintaining lawful navigation and environmental responsibility.
+
+[17] Environmental Protection (EPA Clean Water Act Compliance)
+This constraint was incorporated to address potential environmental contamination during vessel operation and maintenance. Compliance with the EPA Clean Water Act ensures that no pollutants, fuels, or chemicals are released into water bodies, supporting sustainable field operations and ecological protection.
 
 
 ## Resources
