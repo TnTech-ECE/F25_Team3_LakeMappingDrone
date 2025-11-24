@@ -446,10 +446,12 @@ The following schematic provides all wiring details for the Sensors and Data Acq
 
 <div style="text-align:center;">
 
-![System Level Schematic](<Sensors_Subsystem (dragged)-1.png>)  
+<img width="841" height="595" alt="Sensors_Subsystem (dragged)-1" src="https://github.com/user-attachments/assets/51bafc94-dc5e-4a3e-9a97-bfb50af61b0d" />
+ 
 **Figure 3.1 – System-Level Interface Schematic**
 
-![Detailed Electrical Schematic](<Sensors_Subsystem (dragged) 2.png>)  
+<img width="841" height="595" alt="Sensors_Subsystem (dragged) 2" src="https://github.com/user-attachments/assets/de29bc44-2432-4e44-b28e-bf1e78b573d0" />
+
 **Figure 3.2 – Detailed Electrical Schematic**
 
 </div>
@@ -476,7 +478,7 @@ The following flowchart illustrates the high-level decision-making process execu
 
 <div style="text-align:center;">
 
-![Arduino Flowchart](<Sensors Flowchart.png>)
+<img width="614" height="795" alt="Sensors Flowchart" src="https://github.com/user-attachments/assets/d77f119d-a70d-4091-a0c9-837aaf11f83e" />
 
 **Figure 5.1 — Arduino Sensor Subsystem Flowchart**
 
