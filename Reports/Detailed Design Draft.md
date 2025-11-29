@@ -446,11 +446,12 @@ The following schematic provides all wiring details for the Sensors and Data Acq
 
 <div style="text-align:center;">
 
-<img width="841" height="595" alt="Sensors_Subsystem (dragged)-1" src="https://github.com/user-attachments/assets/51bafc94-dc5e-4a3e-9a97-bfb50af61b0d" />
+<img width="595" height="419" alt="Sensors_Subsystem (dragged) Rev 2" src="https://github.com/user-attachments/assets/ceb704ac-85c8-489b-b80b-246f893c55fa" />
  
 **Figure 3.1 – System-Level Interface Schematic**
 
-<img width="841" height="595" alt="Sensors_Subsystem (dragged) 2" src="https://github.com/user-attachments/assets/de29bc44-2432-4e44-b28e-bf1e78b573d0" />
+<img width="595" height="419" alt="Sensors_Subsystem (dragged) 2 Rev2" src="https://github.com/user-attachments/assets/17e6949e-a3c1-4e4f-a6ff-f0d6879288c5" />
+
 
 **Figure 3.2 – Detailed Electrical Schematic**
 
@@ -478,7 +479,8 @@ The following flowchart illustrates the high-level decision-making process execu
 
 <div style="text-align:center;">
 
-<img width="614" height="795" alt="Sensors Flowchart" src="https://github.com/user-attachments/assets/d77f119d-a70d-4091-a0c9-837aaf11f83e" />
+<img width="612" height="792" alt="Sensors_Flowchart_V2" src="https://github.com/user-attachments/assets/cc5b706c-4af7-4bdc-8431-17131821d613" />
+
 
 **Figure 5.1 — Arduino Sensor Subsystem Flowchart**
 
@@ -486,25 +488,26 @@ The following flowchart illustrates the high-level decision-making process execu
 
 This loop executes continuously (“loop forever”) as part of the Arduino’s main control cycle until the system is powered off. The diagram provides an overview-level representation appropriate for detailed design documentation and avoids unnecessary implementation details, focusing instead on subsystem behavior and data movement.
 
-## BOM
+## Bill of Materials
 
-| Ref Des | Manufacturer | Part Number | Distributor | Dist. Part Number | Qty | Unit Price | Total Price | URL |
-|---|---|---|---|---|---|---|---|---|
-| U1 | Arduino | A000066  | Arduino / Digi-Key | 1050-A000066-ND | 1 | $28.50 | $28.50 | https://store.arduino.cc/products/arduino-uno-rev3 |
-| J4 | Blue Robotics | BR-110 | Blue Robotics | BR-110 | 1 | $299.00 | $299.00 | https://bluerobotics.com/store/sensors-sonars-cameras/sensors/ping1d-r2/ |
-| J5 | Generic | LM393 IR Module | Amazon / Adafruit | N/A | 1 | $2.50 | $2.50 | https://www.amazon.com/dp/B07QCP2452 |
-| J6 | Generic | LM393 IR Module | Amazon / Adafruit | N/A | 1 | $2.50 | $2.50 | https://www.amazon.com/dp/B07QCP2452 |
-| J7 | Generic | LM393 IR Module | Amazon / Adafruit | N/A | 1 | $2.50 | $2.50 | https://www.amazon.com/dp/B07QCP2452 |
-| J8 | Generic | MicroSD SPI Module | HiLetgo / Amazon | N/A | 1 | $6.49 | $6.49 | https://www.amazon.com/dp/B014TGHGE8 |
-| C1 | Murata | GRM188R71C104KA01D (0.1uF) | Digi-Key | 490-1591-1-ND | 1   | $0.10 | $0.10 | https://www.digikey.com/en/products/detail/murata-electronics/GRM188R71C104KA01D/587012 |
-| C2 | Panasonic | EEU-FR1A100 (10uF/10V) | Digi-Key | P12472-ND | 1 | $0.40 | $0.40 | https://www.digikey.com/en/products/detail/panasonic-electronic-components/EEU-FR1A100/2688678 |
-| C3 | Murata | GRM188R71C104KA01D (0.1uF) | Digi-Key | 490-1591-1-ND | 1 | $0.10 | $0.10 | https://www.digikey.com/en/products/detail/murata-electronics/GRM188R71C104KA01D/587012 |
-| J1 | Generic | 2-Pin Power Connector | Amazon | N/A | 1   | $0.50 | $0.50 | https://www.amazon.com/dp/B01M7Z9Z1N |
-| J2 | Generic | USB Type A/B Breakout | Adafruit | 1764 | 1 | $1.95 | $1.95 | https://www.adafruit.com/product/1764 |
-| J3 | JST | JST-GH 4-Pin (Pixhawk UART) | Digi-Key | 455-1802-ND | 1 | $1.20 | $1.20 | https://www.digikey.com/en/products/detail/jst-sales-america-inc/GH-B04B-PH-K/620211 |
-| — | Misc. Wiring | Hook-up wire + Header Pins | Amazon | — | 1 | $4.00 | $4.00 | https://www.amazon.com/ |
+| Ref Des | Manufacturer / Brand | Part Number | Description | Distributor | Dist. Part Number | Qty | Unit Price | Total | URL |
+|--------|------------------------|-------------|-------------|-------------|--------------------|-----|------------|--------|-----|
+| U1 | Arduino | A000066 | Arduino Uno R3 Microcontroller Board | Arduino / Digi-Key | 1050-A000066-ND | 1 | $28.50 | $28.50 | https://store.arduino.cc/products/arduino-uno-rev3 |
+| J4 | Blue Robotics | BR-110 (Ping Sonar) | Ping Sonar Altimeter / Echosounder (successor to Ping1D) | Blue Robotics | BR-110 | 1 | $430.00 | $430.00 | https://bluerobotics.com/store/sonars/echosounders/ping-sonar-r2-rp/ |
+| J5 | Aexit | LM393-AEXIT | IR Obstacle Avoidance Module (Front) | Amazon | B07DDB6NMN | 1 | $6.79 | $6.79 | https://www.amazon.com/Aexit-Infrared-Obstacle-Avoidance-Vibration/dp/B07DDB6NMN |
+| J6 | Aexit | LM393-AEXIT | IR Obstacle Avoidance Module (Starboard) | Amazon | B07DDB6NMN | 1 | $6.79 | $6.79 | https://www.amazon.com/Aexit-Infrared-Obstacle-Avoidance-Vibration/dp/B07DDB6NMN |
+| J7 | Aexit | LM393-AEXIT | IR Obstacle Avoidance Module (Port) | Amazon | B07DDB6NMN | 1 | $6.79 | $6.79 | https://www.amazon.com/Aexit-Infrared-Obstacle-Avoidance-Vibration/dp/B07DDB6NMN |
+| J8 | KEYESTUDIO / Generic | KS0068 | MicroSD SPI Storage Module w/ Logic-Level Shifting | Amazon | B07PFDFPPC | 1 | $5.99 | $5.99 | https://www.amazon.com/Module-Storage-Adapter-Interface-Arduino/dp/B07PFDFPPC |
+| C1 | Murata | GRM188R71C104KA01D | 0.1 µF (100 nF), 16 V MLCC Bypass Capacitor | Digi-Key | 490-1591-1-ND | 1 | $0.10 | $0.10 | https://www.digikey.com/en/products/detail/murata-electronics/GRM188R71C104KA01D/587012 |
+| C2 | Panasonic | EEU-FR1A100 | 10 µF, 10 V Electrolytic Capacitor | Digi-Key | P12472-ND | 1 | $0.40 | $0.40 | https://www.digikey.com/en/products/detail/panasonic-electronic-components/EEU-FR1A100/2688678 |
+| C3 | Murata | GRM188R71C104KA01D | 0.1 µF (100 nF), 16 V MLCC Bypass Capacitor | Digi-Key | 490-1591-1-ND | 1 | $0.10 | $0.10 | https://www.digikey.com/en/products/detail/murata-electronics/GRM188R71C104KA01D/587012 |
+| J1 | JST / SparkFun | PRT-09914 | JST-PH 2-Pin Connector Kit (Power Connector) | SparkFun | PRT-09914 | 1 | $1.50 | $1.50 | https://www.sparkfun.com/products/9914 |
+| J2 | Adafruit | 1764 | USB Type B Breakout Board | Adafruit | 1764 | 1 | $1.95 | $1.95 | https://www.adafruit.com/product/1764 |
+| J3 | JST | GH-B04B-PH-K | 4-Pin JST-GH Connector (Pixhawk UART) | Digi-Key | 455-1802-ND | 1 | $1.20 | $1.20 | https://www.digikey.com/en/products/detail/jst-sales-america-inc/GH-B04B-PH-K/620211 |
+| — | Adafruit | 1957 | 22 AWG Silicone Hook-Up Wire Kit (High-Flex, 6-color) | Adafruit | 1957 | 1 | $9.95 | $9.95 | https://www.adafruit.com/product/1957 |
 
-##### Total Cost = $349.74
+### **Total Cost = $513.56**
+
 
 ## Analysis
 
