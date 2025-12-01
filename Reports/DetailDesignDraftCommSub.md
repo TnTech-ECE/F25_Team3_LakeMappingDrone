@@ -1,5 +1,3 @@
-
-
 # Detailed Design of Communication Subsystem
 
 ## Function of the Subsystem
@@ -139,6 +137,11 @@ The 915 MHz signal is a legal, low bandwidth signal that is accepted for un-lisc
 Mission Planner interprets joystick input and sends RC override commands via MAVLink. These commands travel through the 915 MHz link, and the Pixhawk forwards the resulting PWM signals to the Arduino motor controller.
 
 ### Live Bathymetry Data Transmission
+The Communications Subsystem enables the creation of a live bathymetric map on the shore computer by formatting, transmitting, and synchronizing depth and GPS data obtained onboard. The Raspberry Pi receives depth measurements from the Ping1D sonar and positional data from the Pixhawk autopilot over MAVLink. The Pi combines these inputs into timestamped data packets that include latitude, longitude, depth, system time, and status flags. These packets are transmitted once per second over the 915 MHz telemetry link to the shore computer.
+
+On the ground station, Mission Planner (or custom visualization software) receives these MAVLink-formatted messages and plots each depth reading as a point on a real-time map. As the vessel moves, Mission Planner continuously updates the graphical display, interpolating depth points into a contour or color-graded bathymetric image. This live rendering allows the operator to observe lake bottom features, verify path coverage, and detect shallow or unexpected regions during operation.
+
+Simultaneously, the Raspberry Pi logs the raw, high-rate depth and GPS data to the onboard SD card. After the mission, this dataset can be imported into GIS or bathymetric-processing software (e.g., QGIS, MATLAB, ReefMaster) to produce a higher-resolution and more detailed final bathymetric map. Thus, the subsystem supports both real-time situational awareness and high-accuracy post-processing.
 
 ##### The Raspberry Pi reads:
 -Depth from Ping1D sonar (UART)
@@ -275,6 +278,97 @@ The Communications Subsystem serves as the **central exchange point** for all mi
 ###### The Communications Subsystem does not require a traditional electrical schematic because it is composed entirely of pre-designed, off-the-shelf modules that interface using standardized connectors. Instead, a detailed block-level interconnection diagram is used to define all electrical and data pathways between the Pixhawk, onboard sensors, Raspberry Pi, telemetry radio, and the shore-based ground station. This format is the clearest and most appropriate method for representing the subsystem because no discrete circuitry, PCB-level routing, or component-level design is present within this subsystem. The block diagram shows each major module — the Pixhawk flight controller, the 3DR SiK 915 MHz telemetry radio, the Ping1D sonar, the Raspberry Pi companion computer, and the regulated 5 V power supply — as isolated functional blocks. Each block is labeled with its interface types (USB, UART, 5 V input, ground, RF link) and connected with clearly defined signal paths. Directional labels identify communication roles, such as TELEM1 TX/RX, SERIALx TX/RX, and USB MAVLink, ensuring that anyone assembling the system can reproduce the exact wiring configuration. Power distribution is also defined at the block level. A fused 5 V line protects the telemetry radio from overcurrent events, while separate regulated 5 V feeds power the Pixhawk, Ping1D sensor, and Raspberry Pi. Ground is treated as a shared common bus, illustrated clearly in the diagram so that installers maintain correct grounding practices across all modules. Finally, the block diagram includes the shore computer and wireless 915 MHz RF link, showing how the ground-side radio interfaces with Mission Planner. This provides a complete end-to-end view from sensors and control hardware onboard the vessel to the operator’s workstation.
 <img width="1640" height="833" alt="image" src="https://github.com/user-attachments/assets/b5fb85dd-9392-4386-8ca4-0528930307ac" />
 
+### Buildable Implementation (Pseudocode and Libraries)
+
+Because the Communications Subsystem is implemented primarily in software running on a Raspberry Pi and interacts with off-the-shelf hardware (Pixhawk, 3DR SiK radio, Ping1D sonar, shore computer), a software-oriented “buildable” description is more appropriate than a traditional circuit schematic. This section specifies the required libraries and provides structured pseudocode that defines the behavior of the subsystem. A developer can directly translate this pseudocode into Python 3 on the Raspberry Pi to reproduce the intended functionality.
+
+#### Required Software Environment and Libraries
+
+**Target platform**
+
+- Raspberry Pi 4 running a recent Raspberry Pi OS (Linux)
+- Python 3.x (e.g., Python 3.10+)
+
+**Python libraries**
+
+- `pymavlink` – MAVLink protocol handling (decode GPS, depth, status, heartbeats from Pixhawk).
+- `pyserial` – Serial port access (used internally by `pymavlink.mavutil` but can be used directly if needed).
+- `datetime` (standard library) – Timestamps for logging.
+- `csv` or `json` (standard library) – Writing structured log files to the SD card.
+- *Optional:* `ping-python` (Blue Robotics Ping library) – Only required if the Ping1D is ever read directly by the Pi instead of via Pixhawk.
+- *Optional:* `matplotlib`, `numpy` – Used for offline plotting/verification of bathymetric data, not required for onboard operation.
+
+Mission Planner on the shore computer does not require custom code for this subsystem; it natively consumes MAVLink messages from the 3DR radio and renders a live map.
+
+#### High-Level Responsibilities (Software Summary)
+
+The Communications Subsystem software on the Raspberry Pi must:
+
+1. Open a MAVLink connection to the Pixhawk over USB.
+2. Continuously read MAVLink messages (GPS, depth, battery, heartbeats, etc.).
+3. Package key fields into a structured record for:
+   - Real-time transmission to shore (already handled by Pixhawk + 3DR radio), and  
+   - Onboard logging to the SD card.
+4. Monitor link health and record when telemetry fails or recovers.
+5. Support the live bathymetric mapping pipeline by ensuring each depth measurement is paired with a GPS position and timestamp.
+
+**Psuedocode**
+
+```
+#Initialization snippet
+# Establish MAVLink connection and prepare SD logging
+mav = mavlink_connect("/dev/ttyACM0", baud=115200)
+wait_for_heartbeat(mav)
+
+log = open_csv("bathy_log.csv")
+write_header(log, fields=["timestamp","lat","lon","depth","battery","mode"])
+
+# Read messages and perform periodic actions
+while True:
+    msg = mav.read_message()
+
+    if msg:
+        update_state_from_message(msg)
+
+    if 1 second has passed:
+        write_log_entry(log, state)
+
+    if no heartbeat for >3 seconds:
+        state.link_ok = False
+```
+```
+# Extract relevant fields from incoming messages
+if msg.type == "GLOBAL_POSITION_INT":
+    state.lat = msg.lat / 1e7
+    state.lon = msg.lon / 1e7
+
+elif msg.type == "DISTANCE_SENSOR":
+    state.depth_m = msg.current_distance / 100.0
+
+elif msg.type == "SYS_STATUS":
+    state.batt_voltage = msg.voltage_battery / 1000.0
+```
+```
+# Build a synchronized record at 1 Hz
+record = {
+    "timestamp": now(),
+    "lat": state.lat,
+    "lon": state.lon,
+    "depth": state.depth_m,
+    "battery": state.batt_voltage,
+    "mode": state.flight_mode
+}
+
+write_csv_row(log, record)
+```
+```
+# Mission Planner receives GPS + depth via 3DR radio
+# and updates the live depth map automatically.
+send_over_mavlink("GPS_POSITION", state.lat, state.lon)
+send_over_mavlink("DEPTH_DATA", state.depth_m)
+
+# The Pi ensures data is synchronized and logged.
+```
 
 ## Flowchart
 <img width="1795" height="1302" alt="image" src="https://github.com/user-attachments/assets/fe803813-ab72-4cf3-b468-0e804182e491" />
