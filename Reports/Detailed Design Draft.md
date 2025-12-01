@@ -446,12 +446,11 @@ The following schematic provides all wiring details for the Sensors and Data Acq
 
 <div style="text-align:center;">
 
-<img width="595" height="419" alt="Sensors_Subsystem (dragged) Rev 2" src="https://github.com/user-attachments/assets/ceb704ac-85c8-489b-b80b-246f893c55fa" />
+<img width="928" height="654" alt="Screenshot 2025-12-01 at 1 20 32 PM" src="https://github.com/user-attachments/assets/678aa5d6-c425-4b49-9a00-c112b7c09f98" />
  
 **Figure 3.1 – System-Level Interface Schematic**
 
-<img width="595" height="419" alt="Sensors_Subsystem (dragged) 2 Rev2" src="https://github.com/user-attachments/assets/17e6949e-a3c1-4e4f-a6ff-f0d6879288c5" />
-
+<img width="992" height="700" alt="Screenshot 2025-12-01 at 1 20 01 PM" src="https://github.com/user-attachments/assets/10ec2578-07ba-4612-a87b-8dd081ba5726" />
 
 **Figure 3.2 – Detailed Electrical Schematic**
 
@@ -479,8 +478,7 @@ The following flowchart illustrates the high-level decision-making process execu
 
 <div style="text-align:center;">
 
-<img width="612" height="792" alt="Sensors_Flowchart_V2" src="https://github.com/user-attachments/assets/cc5b706c-4af7-4bdc-8431-17131821d613" />
-
+<img width="493" height="701" alt="Screenshot 2025-12-01 at 1 23 01 PM" src="https://github.com/user-attachments/assets/f7c582f5-9d95-4acc-8229-7bb9a37817cf" />
 
 **Figure 5.1 — Arduino Sensor Subsystem Flowchart**
 
