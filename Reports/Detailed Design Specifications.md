@@ -140,8 +140,6 @@ Within the overall system, the hardware subsystem is the foundation that the nav
 - Waterproof enclosure on central deck
 - Standoffs and strain relief built in
 
-<img width="557" height="332" alt="image" src="https://github.com/user-attachments/assets/12a88cd1-e19d-44ca-b8bf-9917f8913183" />
-
 ## 6. Buildable Schematic
 
 ## Power Input
@@ -163,6 +161,9 @@ Within the overall system, the hardware subsystem is the foundation that the nav
 - Serial (Pi ↔ Ping1D)
 - I²C/UART (Arduino ↔ Pi/Pixhawk)
 - IR Sensors (Analog/Digital → Arduino)
+
+  <img width="557" height="332" alt="image" src="https://github.com/user-attachments/assets/12a88cd1-e19d-44ca-b8bf-9917f8913183" />
+
 
 ## 7. PCB Layout
 - High-current zones isolated
@@ -249,3 +250,62 @@ Within the overall system, the hardware subsystem is the foundation that the nav
 | F1   | Fuse / Breaker                   | 40–60 A main protection                                 | Various             | Auto Fuse                                  | 1   | $10             | $10      | Auto Stores |
 
 
+## 11. Refrences
+
+## Hardware & Component Documentation
+- Blue Robotics – T200 Thruster
+https://bluerobotics.com/store/thrusters/t100-t200/thruster-t200-r2/
+- Blue Robotics – Basic ESC / BlueROV2 ESC
+https://bluerobotics.com/store/thrusters/speed-controllers/besc-r3-rp/
+- Blue Robotics – Ping1D Sonar
+https://bluerobotics.com/store/sensors-sonars-cameras/sound/ping-sonar-r2-rp/
+- Pixhawk Flight Controller Hardware Documentation
+https://docs.px4.io/main/en/
+- ArduPilot – ArduRover Documentation
+https://ardupilot.org/rover/
+- Raspberry Pi 4 Model B Hardware Specification
+https://www.raspberrypi.com/products/raspberry-pi-4-model-b/
+- Arduino Uno Technical Specification
+https://docs.arduino.cc/hardware/uno-rev3/
+- Sharp IR Distance Sensor (GP2Y0A21YK0F) Datasheet
+https://global.sharp/products/device/lineup/data/pdf/datasheet/gp2y0a21yk0f_e.pdf
+
+## Power, Electronics, & Safety
+- Texas Instruments – DC-DC Buck Converter Design Guide
+https://www.ti.com/power-management/dc-dc-converters/buck-converters/overview.html
+- UL 1642 – Lithium Battery Safety Standard (Summary)
+https://standardscatalog.ul.com/standards/en/standard_1642
+- IEC 62133 – Safety Requirements for Portable Sealed Cells
+https://webstore.iec.ch/publication/24684
+- NOAA Small Craft Standards – Hull Loads & Stability (Informal Reference)
+https://www.noaa.gov/
+
+## Sonar, Sensors, & Navigation
+- Blue Robotics Ping Protocol Specification
+https://docs.bluerobotics.com/ping-protocol/
+- Principles of Sonar Depth Measurement
+Engineering Acoustics Textbook (commonly referenced in sonar papers)
+- Object Avoidance Using IR Sensors – Sharp Application Notes
+https://www.sharp-ne.com/products/sensors/
+
+## Software Protocols & APIs
+- MAVLink Protocol Documentation
+https://mavlink.io/en/
+- ArduPilot Companion Computer Integration Guide
+https://ardupilot.org/dev/docs/companion-computers.html
+- Linux Serial Communication for Embedded Systems
+Raspberry Pi Documentation: https://www.raspberrypi.com/documentation/computers/
+
+## Fabrication & Materials
+- PLA 3D Printing Material Properties – Simplify3D
+https://www.simplify3d.com/support/materials-guide/pla/
+- Fiberglass Reinforcement Techniques – West System Epoxy
+https://www.westsystem.com/instruction-manuals/
+
+## General Engineering & Design Practices
+- IEEE Guide for Documentation of Hardware Systems
+IEEE Std 1063
+- Marine Robotics Fundamentals – MIT OpenCourseWare
+https://ocw.mit.edu/courses/2-680-unmanned-marine-vehicle-autonomy-sensing-and-communications-2012/
+- Small Autonomous Surface Craft Design Surveys (Academic Literature)
+Collection of open-source ASV research papers (NSF, IEEE, arXiv).
