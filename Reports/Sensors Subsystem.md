@@ -123,7 +123,7 @@ Overall, the Sensors and Data Acquisition Subsystem ensures that the autonomous 
 #### 6. Socio-Economic Constraints
 
 ##### SDS-SOC-01 — Cost Limitation
-- Total subsystem cost shall not exceed $400.
+- Total subsystem cost shall not exceed $530.
 - Rationale: Ensures affordability for academic replication and meets overall project budgeting requirements.
 
 ##### SDS-SOC-02 — Reliance on Accessible Hardware
@@ -506,6 +506,174 @@ This loop executes continuously (“loop forever”) as part of the Arduino’s 
 
 ### **Total Cost = $513.56**
 
+## Subsystem Testing and Verification Plan
+
+This section defines the procedures used to verify that the Sensors and Data Acquisition Subsystem satisfies all functional, electrical, environmental, and integration requirements. Testing is performed in three stages: bench-level component testing, integrated system testing, and field validation. Each test maps directly to one or more subsystem specifications (SDS-F, SDS-E, SDS-ENV, SDS-SYS) to ensure traceability between requirements and verification.
+
+
+#### 1. Verification Strategy
+
+Testing is divided into three phases:
+
+##### Phase A — Bench Testing
+Individual sensors and electronics are verified independently to confirm correct electrical operation and basic functionality before integration.
+
+##### Phase B — Integration Testing
+Subsystem components (Ping1D, Arduino, SD module, Pixhawk, Raspberry Pi) are connected together to validate data flow, synchronization, and communication reliability.
+
+##### Phase C — Field Testing
+On-water testing validates real-world performance, environmental robustness, and mission readiness under realistic operating conditions.
+
+
+#### 2. Functional Verification Tests
+
+##### SDS-T-01 — Ping1D Depth Measurement Verification  
+**Requirement Coverage:** SDS-F-01, SDS-SYS-01  
+- Connect Ping1D directly to Pixhawk UART/TELEM port.  
+- Place the transducer at known distances from a flat surface or bottom reference.  
+- Compare measured depth values reported through MAVLink with actual distances.  
+
+**Pass Criteria:**  
+- Depth readings appear continuously in Pixhawk logs  
+- No communication dropouts  
+- Measurements track known distance changes with reasonable accuracy  
+
+
+##### SDS-T-02 — Depth Update Rate  
+**Requirement Coverage:** SDS-F-03  
+- Log depth messages for 10 seconds using MAVLink telemetry.  
+- Count total samples received.  
+
+**Pass Criteria:**  
+- ≥ 10 samples per second (≥ 100 samples in 10 s)
+
+
+##### SDS-T-03 — IR Obstacle Detection Range  
+**Requirement Coverage:** SDS-F-04  
+- Present an object at incremental distances (2–30 cm).  
+- Adjust LM393 sensitivity potentiometer as needed.  
+
+**Pass Criteria:**  
+- Sensor reliably toggles HIGH/LOW within specified range  
+- Minimal false triggers under indoor and outdoor lighting  
+
+
+##### SDS-T-04 — IR Logging Frequency  
+**Requirement Coverage:** SDS-F-05  
+- Run Arduino logging routine for 5–10 minutes.  
+- Inspect timestamps in SD card file.  
+
+**Pass Criteria:**  
+- Logged frequency ≥ 5 Hz  
+- No missing or corrupted records  
+
+
+##### SDS-T-05 — Data Output Formatting  
+**Requirement Coverage:** SDS-F-06  
+- Inspect serial output and SD logs.  
+- Confirm CSV or JSON format is readable by analysis tools.  
+
+**Pass Criteria:**  
+- Files parse correctly  
+- Numeric values preserved  
+- UTF-8 encoding maintained  
+
+
+#### 3. Electrical Verification Tests
+
+##### SDS-T-06 — Voltage Compliance  
+**Requirement Coverage:** SDS-E-01  
+- Measure supply rails with a multimeter during operation.  
+
+**Pass Criteria:**  
+- 5 V rail remains within 4.75–5.25 V  
+- 3.3 V SD interface stable  
+
+
+##### SDS-T-07 — Current Draw  
+**Requirement Coverage:** SDS-E-02  
+- Measure total subsystem current using inline ammeter.  
+
+**Pass Criteria:**  
+- Total current ≤ 1.5 A  
+
+
+##### SDS-T-08 — Logic-Level Compatibility  
+**Requirement Coverage:** SDS-E-03, SDS-E-04  
+- Inspect wiring and verify level shifting where required.  
+
+**Pass Criteria:**  
+- No 5 V signals directly applied to 3.3 V-only devices  
+- No overheating or unstable communication  
+
+
+#### 4. Environmental and Mechanical Verification
+
+##### SDS-T-09 — Enclosure and Water Protection  
+**Requirement Coverage:** SDS-ENV-02  
+- Inspect enclosure seals and cable glands.  
+- Perform light spray test.  
+
+**Pass Criteria:**  
+- No water ingress  
+- Electronics remain dry  
+
+
+##### SDS-T-10 — Sensor Mount Stability  
+**Requirement Coverage:** SDS-ENV-03, SDS-ENV-04  
+- Verify Ping1D vertical alignment.  
+- Check cable strain relief and mounting rigidity.  
+
+**Pass Criteria:**  
+- Transducer remains vertical  
+- No looseness or cable stress  
+
+
+#### 5. Integration Verification
+
+##### SDS-T-11 — Arduino → Raspberry Pi Communication  
+**Requirement Coverage:** SDS-SYS-02  
+- Stream USB serial data for extended duration.  
+- Log and parse on Raspberry Pi.  
+
+**Pass Criteria:**  
+- No dropped packets  
+- Continuous synchronized timestamps  
+
+
+##### SDS-T-12 — End-to-End System Logging  
+**Requirement Coverage:** SDS-SYS-01, SDS-ETH-02  
+- Run full system (Pixhawk + Arduino + Raspberry Pi) for ≥ 15 minutes.  
+- Confirm combined logs contain depth, GPS, and IR data.  
+
+**Pass Criteria:**  
+- All data streams recorded  
+- Time alignment achievable  
+- Logs unmodified and complete  
+
+
+#### 6. Verification Artifacts
+
+For each test, the following shall be recorded:
+- Date and configuration  
+- Firmware versions  
+- Measured results  
+- Pass/Fail outcome  
+- Notes and corrective actions  
+
+Maintaining these records ensures repeatability, supports troubleshooting, and demonstrates compliance with subsystem specifications.
+
+
+#### Summary
+
+This testing and verification plan confirms that:
+- Depth sensing operates accurately and reliably  
+- IR obstacle detection functions within required range  
+- Electrical systems remain stable under load  
+- Environmental protections are sufficient  
+- Data flows correctly to higher-level subsystems  
+
+Successful completion of these tests validates that the Sensors and Data Acquisition Subsystem is ready for safe field deployment and mission use.
 
 ## Analysis
 
