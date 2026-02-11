@@ -1,4 +1,4 @@
-# Capstone Team 3 meeting minutes 2
+# Capstone Team 3 meeting minutes 3
 ## Location:	Ashraf Islam Engineering Building
 ## Date:	2/11/2025 
 ### Time:	2:30 – 3:30
