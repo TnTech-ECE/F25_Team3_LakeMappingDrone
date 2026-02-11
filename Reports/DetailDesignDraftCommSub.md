@@ -420,6 +420,168 @@ The communications hardware is powered from the regulated 5 V rail supplied by t
 
 The Communications Subsystem supports both autonomous and manual operational modes, enabling real-time visualization of depth data, vessel location, and system health while preserving complete logs for post-mission bathymetric processing. Its architecture is modular, scalable, and compatible with existing marine robotics frameworks, ensuring seamless integration with the Navigation, Power, Hardware, and Sensor subsystems. The design’s reliability, resilience, and safety protections enable the vessel to meet its performance goals and mission objectives effectively.
 
+### 8. Link Budget Estimate (915 MHz Telemetry Radio)
+
+This estimate demonstrates that the specified **300–500 m line-of-sight range** is feasible for the 915 MHz telemetry link using representative SiK-class radio parameters and conservative assumptions.
+
+#### Assumed / Representative Radio Parameters
+
+The following parameters are representative of common 915 MHz SiK telemetry radios and are used to verify feasibility rather than optimize performance:
+
+- Transmit power: 20 dBm (100 mW)
+- Receiver sensitivity: −105 dBm (typical at moderate RF data rates)
+- Transmit antenna gain: 2 dBi
+- Receive antenna gain: 2 dBi
+- Miscellaneous losses: 2 dB (connectors, mounting, minor cable losses)
+
+These values demonstrate that the required range is achievable with commercially available telemetry radios and standard antennas.
+
+#### Free-Space Path Loss at 500 m
+
+The free-space path loss (FSPL) is calculated using:
+
+$$
+\mathrm{FSPL(dB)} = 32.44 + 20\log_{10}\!\left(f_{\mathrm{MHz}}\right) + 20\log_{10}\!\left(d_{\mathrm{km}}\right)
+$$
+
+For a carrier frequency of 915 MHz and a distance of 0.5 km:
+
+$$
+\mathrm{FSPL(dB)} = 32.44 + 20\log_{10}(915) + 20\log_{10}(0.5)
+$$
+
+$$
+\mathrm{FSPL(dB)} \approx 85.65
+$$
+
+#### Received Power Estimate
+
+The received power is estimated using:
+
+$$
+P_{\mathrm{RX}} = P_{\mathrm{TX}} + G_{\mathrm{TX}} + G_{\mathrm{RX}} - L - \mathrm{FSPL}
+$$
+
+Substituting assumed values:
+
+$$
+P_{\mathrm{RX}} = 20 + 2 + 2 - 2 - 85.65
+$$
+
+$$
+P_{\mathrm{RX}} \approx -63.65 \ \mathrm{dBm}
+$$
+
+#### Link Margin
+
+The link margin is defined as the difference between received power and receiver sensitivity:
+
+$$
+\mathrm{Link\ Margin} = P_{\mathrm{RX}} - S_{\mathrm{RX}}
+$$
+
+$$
+\mathrm{Link\ Margin} = -63.65 - (-105)
+$$
+
+$$
+\mathrm{Link\ Margin} \approx 41.35 \ \mathrm{dB}
+$$
+
+**Conclusion:**  
+A link margin of approximately **41 dB** at **500 m LOS** provides significant headroom for multipath effects, antenna misalignment, and environmental losses. This confirms that the **300–500 m range requirement is achievable**.
+
+---
+
+### 9. MAVLink Bandwidth Estimate (Proof of Non-Saturation)
+
+To validate the telemetry throughput requirement (≤ 20 kbps), MAVLink bandwidth usage is estimated using:
+
+$$
+\mathrm{Bitrate\ (bps)} = \sum \left(\mathrm{messages/sec} \times \mathrm{bytes/message} \times 8\right)
+$$
+
+A conservative framing overhead of **12 bytes per MAVLink packet** is included to account for headers, CRC, and protocol overhead.
+
+#### Nominal Telemetry and Mapping Traffic
+
+| Message Type | Rate (Hz) | Payload (Bytes) |
+|-------------|-----------|-----------------|
+| HEARTBEAT | 1 | 17 |
+| SYS_STATUS | 1 | 39 |
+| GLOBAL_POSITION_INT | 5 | 36 |
+| ATTITUDE | 10 | 36 |
+| VFR_HUD | 2 | 28 |
+| DISTANCE_SENSOR | 5 | 22 |
+| RADIO_STATUS | 1 | 17 |
+
+Payload-only data rate:
+
+$$
+\begin{aligned}
+\mathrm{Payload\ Bytes/sec} &= (1)(17) + (1)(39) + (5)(36) + (10)(36) \\
+&\quad + (2)(28) + (5)(22) + (1)(17) \\
+&= 779 \ \mathrm{bytes/sec}
+\end{aligned}
+$$
+
+$$
+\mathrm{Payload\ Bitrate} = 779 \times 8 \approx 6{,}232 \ \mathrm{bps}
+$$
+
+#### Framing Overhead
+
+Total packets per second:
+
+$$
+\mathrm{Packets/sec} = 1 + 1 + 5 + 10 + 2 + 5 + 1 = 25
+$$
+
+Overhead contribution:
+
+$$
+\mathrm{Overhead\ Bytes/sec} = 25 \times 12 = 300
+$$
+
+Total telemetry data rate:
+
+$$
+\mathrm{Total\ Bytes/sec} = 779 + 300 = 1{,}079
+$$
+
+$$
+\mathrm{Total\ Bitrate} = 1{,}079 \times 8 \approx 8{,}632 \ \mathrm{bps}
+$$
+
+#### Manual Override Worst-Case Load
+
+During manual override, assume a conservative worst-case scenario:
+
+$$
+\mathrm{Override\ Bytes/sec} = 62 \times 20 = 1{,}240
+$$
+
+$$
+\mathrm{Override\ Bitrate} = 1{,}240 \times 8 \approx 9{,}920 \ \mathrm{bps}
+$$
+
+#### Combined Worst-Case Bandwidth
+
+$$
+\mathrm{Total\ Worst\text{-}Case\ Bitrate} \approx 8.6 \ \mathrm{kbps} + 9.9 \ \mathrm{kbps}
+$$
+
+$$
+\mathrm{Total\ Worst\text{-}Case\ Bitrate} \approx 18.5 \ \mathrm{kbps}
+$$
+
+**Conclusion:**  
+Even under conservative assumptions, total MAVLink traffic remains below **20 kbps**, confirming that the telemetry link will not saturate under normal or manual override conditions.
+
+---
+
+### 10. Verification and Test Cases
+
 
 ## References
 
