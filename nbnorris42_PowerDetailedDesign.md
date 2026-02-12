@@ -235,7 +235,7 @@ The 16Ah 4S LiPo battery connects through:
 - Short wiring runs to reduce voltage drop  
 
 ## 3. Regulated 5 V Electronics Bus
-- 5 V / 10 A buck converter  
+- 5 V / 15 A buck converter  
 - Filters: LC input + ceramic/bulk output decoupling  
 - Multiple branches for sensitive loads  
 - Ferrite filtering for sonar, GPS, radio  
@@ -402,7 +402,7 @@ The Power Subsystem contains no embedded software, decision-making logic, or mic
 |--------------------------------|--------------|-------------------|------------|---------------------|-----|------------|-----|
 | Liperior 16000mAh 4S LiPo      | Liperior     | LP-16000-4S-12C   | RCBattery  | LP-16000-4S-12C     | 1   | $114.99    | https://rcbattery.com/liperior-16000mah-4s-12c-14-8v-lipo-battery-with-xt90-plug.html |
 | XT90 Connectors (pairs)        | Amass        | XT90              | Amazon     | Same as Mfr P/N     | 2 sets | $14.99  | https://www.amazon.com/Amass-Female-Bullet-Connectors-Battery/dp/B06ZY34369?th=1 |
-| 5 V 10 A Buck Converter        | DROK         | 5V-10A            | Amazon     | Same as Mfr P/N     | 1   | $17.49 | [https://www.amazon.com/](https://www.amazon.com/DROK-Converter-5-3V-32V-Regulator-Transformer/dp/B078Q1624B/ref=sr_1_1_sspa?dib=eyJ2IjoiMSJ9.cKfwTrlAJh7wRVi5JMftbdF1j19UIxiKRCgAj6Dbb239w02Sz20OrDlTUBJRvMn8Ayv8srllGoDqDb56aj6QN4kxiMylhlQcrlHGD6Qbpzn-fmrnvPeHxqpHS16NOKZsLi2ymDf_w9sr7Omury6bclfZGdoHlz_iqf9C8JIwuj2YrbcoOtmQUxab9hD-8svzOM2Hb4ecMJuVzS7dpl2xbPTsEGVh6fmc_YD8lxdiOgk.O7brV1fXevM-OeOs6yuLmxxhrY3OoofALSrpcwFfVgE&dib_tag=se&keywords=drok%2Bbuck%2Bconverter&qid=1764783882&sr=8-1-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1) |
+| 5 V 15 A Buck Converter        | DROK         | 5V-15A            | DROK     | Same as Mfr P/N     | 1   | $15.75 | [[https://www.amazon.com/](https://www.amazon.com/DROK-Converter-5-3V-32V-Regulator-Transformer/dp/B078Q1624B/ref=sr_1_1_sspa?](https://www.droking.com/DC-Voltage-Step-Down-Regulator-ACC-Power-Supply-Module?utm_source=chatgpt.com)dib=eyJ2IjoiMSJ9.cKfwTrlAJh7wRVi5JMftbdF1j19UIxiKRCgAj6Dbb239w02Sz20OrDlTUBJRvMn8Ayv8srllGoDqDb56aj6QN4kxiMylhlQcrlHGD6Qbpzn-fmrnvPeHxqpHS16NOKZsLi2ymDf_w9sr7Omury6bclfZGdoHlz_iqf9C8JIwuj2YrbcoOtmQUxab9hD-8svzOM2Hb4ecMJuVzS7dpl2xbPTsEGVh6fmc_YD8lxdiOgk.O7brV1fXevM-OeOs6yuLmxxhrY3OoofALSrpcwFfVgE&dib_tag=se&keywords=drok%2Bbuck%2Bconverter&qid=1764783882&sr=8-1-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1) |
 | 14 AWG Silicone Wire           | BNTECHGO     | —                 | Amazon     | BNTECHGO 14AWG      | 1   | $0.58 / feet   | [https://www.amazon.com/](https://www.amazon.com/BNTECHGO-Silicone-Flexible-Resistant-Insulation/dp/B075VQ4G2Y?ref_=ast_sto_dp&th=1) |
 | 18 AWG Silicone Wire           | BNTECHGO     | —                 | Amazon     | BNTECHGO 18AWG      | 1   | $1.40 / feet   | [https://www.amazon.com/ ](https://www.amazon.com/BNTECHGO-Silicone-Flexible-Strands-Stranded/dp/B01708AYYQ?ref_=ast_sto_dp&th=1)|
 | Inline Fuse Holder             | Littelfuse   | FHAC0001          | Amazon     | FHAC0001            | 2   | $5–$10     | [https://www.amazon.com/](https://www.littelfuse.com/products/fuses-overcurrent-protection/fuse-holders-fuse-blocks-accessories/fuse-holders/in-line-fuse-holders/ato-fhac/fhac0001xp) |
