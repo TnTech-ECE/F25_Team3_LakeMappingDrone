@@ -112,16 +112,17 @@ Within the overall system, the hardware subsystem is the foundation that the nav
 - Safety messages sent to Pi/Pixhawk
 
 ## 4.2 Mechanical Interfaces 
-- Thrusters mounted at stern on reinforced mounts.
-- Ping1D mounted beneath hull or on strut.
+- Thrusters mounted at stern on reinforced brackets with through-bolts and backing plate.
+- Ping1D mounted on pole with a bracket connecting to bow of boat to minimize interference with other electronics and turbulance
 - IR sensors mounted at bow, optionally angled left/right for field-of-view coverage.
 - Waterproof gland seals for IR sensor cabling.
-- Electronics enclosure vibration-isolated.
+- Electronics enclosure mounted to the bridge deck with vibration-damping pads
+  
 
 ## 5. 3D Model Components
 
 ## Hull Segments
-- PLA with fiberglass wrap
+- 3D printed PLA with ~20% infill. Printed in segments to fit build volume and bonded using epoxy and fiberglass wrap
 - Cable channels
 - Ping1D recessed mount
 - IR sensor front brackets
@@ -195,7 +196,7 @@ Within the overall system, the hardware subsystem is the foundation that the nav
 - Loss of comms → halt
 - Shallow water (Ping1D) → reverse or stop
 - Obstacle detected (IR sensors) → reverse/turn/stop
-- Kill switch → cut thrusters
+- Kill switch →https://github.com/TnTech-ECE/F25_Team3_LakeMappingDrone/pulls cut thrusters
 ## Shutdown
 - Thrusters disarmed
 - Logs saved
@@ -204,9 +205,16 @@ Within the overall system, the hardware subsystem is the foundation that the nav
 ## 9. Analysis
 
 ## Buoyancy
-- Catamaran reduces drag and increases stability
-- PLA + fiberglass increases durability
-- Freeboard meets requirements
+- Vessel must support approximately 50 pounds total mass
+- Archimedes Principle states for static float equilibrium in freshwater: W_total = γfw * Vdisp
+- where γfw is freshwater weight density approx. 0.03611 lb/in^3
+- Minimum displaced volume to support 50 pounds is W_total / γfw = 50/0.03611 = 1385 in^3
+- To account for small waves, turns, and loading uncertainty, we target 20% margin making our target displacement 1662 in^3
+- Approximate submerged volume / draft estimate for both hulls:
+- Hull length ~3ft and draft requirement is < 5ft
+- Average total cross-sectional area ~ 1385/35 ~ 39 in^2 or 19 in^2 per hull
+- If the stern hull width is ~4.75 in per hull the average draft needed is 19/4.75 ~ 4 in
+- Note: The actual hill shape tapers and is not rectangular so actual values are approximated
 ## Propulsion
 - T200 thrusters supply ample thrust
 - Differential steering removes need for rudder
@@ -225,7 +233,23 @@ Within the overall system, the hardware subsystem is the foundation that the nav
 - Eco-friendly electric propulsion
 - Fits within $1,100 budget (component selection dependent)
 
-## 10. Bill of Materials (BOM) - Hardware Subsystem (with Ping1D & IR Sensors)
+## 10. Test and Verification Plan
+
+## Bouyancy and Freeboard
+- Float test in calm freshwater anding weight in increments up to the total system wieght
+- Measure draft at bow/stern and freeboard. Compareto CAD predicted displaced volume
+
+## Propulsion 
+- Demonstrate total static thrust comfortably exceeds the estimated cruise thrust requirement
+
+## Runtime
+- Run a straight-line or closed-loop mission at ~0.5 m/s for 60 minutes while monitorung battery voltage, current draw, and GPS speed
+
+## Sensor Mount Verification
+- Verify Ping1D maintains clear depth readings and standstill and while moving; confirm mount does not fail.
+- Verify IR sensors detection rang and false-trigger rate as planned; adjust angles/pockets as needed
+
+## 11. Bill of Materials (BOM) - Hardware Subsystem (with Ping1D & IR Sensors)
 
 | Ref. | Component                        | Description / Role                                      | Manufacturer        | Example Part Number                       | Qty | Est. Unit Price | Subtotal | Example Vendor |
 |------|----------------------------------|---------------------------------------------------------|---------------------|-------------------------------------------|-----|------------------|----------|----------------|
