@@ -36,6 +36,72 @@
   providing real-time depth measurements for lake mapping. This sensor data is integrated
   into navigation decisions to ensure accurate mapping and obstacle avoidance. [3]
 
+##  Project Specific Navigation Requirements and Control Strategy
+
+ ## Operating Modes
+
+The system shall support multiple operating modes to allow safe testing and autonomous operation:
+
+• Manual – direct operator control for launch and recovery
+• Stabilize – assisted heading stabilization
+• Guided – commands from Raspberry Pi via MAVLink
+• Auto – fully autonomous waypoint execution
+• Hold/Loiter – maintain position during depth sampling
+• Return‑To‑Launch (RTL) – automatic return during failsafe
+
+## Waypoint Tracking Requirements
+
+The navigation subsystem shall:
+
+• Maintain cross‑track error ≤ 2 m
+• Maintain heading error ≤ 5°
+• Support repeatable grid (“lawnmower”) paths for mapping
+• Accept dynamic waypoint updates during runtime
+• Operate at cruise speeds of 1–2 m/s
+
+## Control Architecture
+
+Navigation control is hierarchical:
+
+Raspberry Pi – mission planning, sonar processing, adaptive routing
+
+Pixhawk – waypoint tracking, velocity/heading control, stabilization
+
+Thrusters/servos – PWM actuation
+
+This separation ensures real‑time stability while allowing flexible high‑level behavior.
+
+## Ping1D Depth Integration
+
+The Blue Robotics Ping1D sonar provides depth data that is used for both mapping and safety decisions.
+
+Depth measurements are used to:
+
+• Log bathymetry for lake mapping
+• Detect shallow water or obstacles
+• Reduce speed in shallow regions
+• Trigger avoidance waypoint generation
+• Initiate Hold or RTL if unsafe depth persists
+
+
+##  Interfaces and Communication
+
+ Serial Interfaces and Baud Rates
+
+• Pixhawk ↔ Raspberry Pi (MAVLink): 57600–115200 baud
+• GNSS (M8N): 38400–115200 baud
+• Ping1D sonar: 115200 baud
+
+All interfaces use 8N1 UART format.
+
+GPS Wiring
+
+• 5V → VCC
+• GND → GND
+• Pixhawk RX → GPS TX
+• Pixhawk TX → GPS RX
+• I²C SDA/SCL → compass lines
+
 ##  Specifications and Constraints
 
 ## Specifications
@@ -67,7 +133,6 @@ buses. [6]
 
 (aluminum case) or 34.6 g (plastic case). [1]
 
-10. The subsystem shall operate within a temperature range of -40 °C to 85 °C.
 
 ## Constraints
 
@@ -173,15 +238,72 @@ Figure 1 Pixhawk datasheet
 
 Figure 3 Operational Flowchart
 
+##  Configuration Parameters
+
+ Initial ArduPilot parameters:
+
+• GPS_TYPE = 1
+• GPS_AUTO_CONFIG = 1
+• WP_RADIUS = 2 m
+• LOIT_RADIUS = 2–3 m
+• CRUISE_SPEED = 1–2 m/s
+• FS_BATT_ENABLE = enabled
+• FS_GCS_ENABLE = enabled
+
+These parameters will be tuned during testing.
+
+##  Verification and Testing Plan
+
+## Bench Testing
+
+• Verify GNSS communication and satellite lock
+• Confirm correct coordinates in Mission Planner
+• Validate UART links
+• Calibrate compass
+• Verify thruster outputs
+
+## Simulation Testing
+
+• ArduPilot SITL waypoint tracking
+• Cross‑track error evaluation
+• Failsafe testing
+
+## Field Testing
+
+Static hold test (≤ 3 m drift)
+
+Straight‑line waypoint test (≤ 2 m error)
+
+Grid mapping mission
+
+Shallow water avoidance test
+
+RTL failsafe verification
+
+## Acceptance Criteria
+
+• ≥ 8 satellites
+• HDOP ≤ 2.5
+• Waypoint accuracy within ±2 m
+• Successful autonomous mission completion
+
 ##  BOM
 
-Item – Pixhawk 6C Autopilot Controller w/ PM02 
+Item – Pixhawk 6C Autopilot Controller  
  Part Number – SKU 20179 
  Distributor – Holybro 
  Distributor Part Number – SKU 20179 
  Quantity – 1 
- Price ($) – $169.98 
+ Price ($) – $150.99
  Link – Pixhawk 6C – Holybro Store (https://holybro.com/products/pixhawk-6c?variant=42783569903805) 
+
+Item – QWinOut Mini NEO-M8N GPS Module with Compass
+ Part Number – NEO-M8N
+ Distributor – QWinOut (Amazon)
+ Distributor Part Number – Mini M8N GPS w/ Compass
+ Quantity – 1
+ Price ($) – ~$30–40
+ Link – https://www.amazon.com/dp/B07P8YMVNT
 
 ##  Analysis
 
