@@ -61,9 +61,6 @@ The subsystem shall operate within the following power budgets:
 #### Environmental Requirements  
 All components shall operate within **0–40°C**, housed in a splash-resistant enclosure with protection against condensation.
 
-#### Electromagnetic Compatibility (EMC)  
-Wiring and device placement shall minimize interference with GPS or Pixhawk sensors. Antennas and serial cables shall be routed to reduce EMI.
-
 #### Startup Time  
 The subsystem shall establish the telemetry link and begin logging within **60 seconds** of power-on.
 
@@ -101,6 +98,10 @@ Telemetry radio network IDs and MAVLink channel settings shall be configured to 
 #### Ethical Environmental Data Handling  
 Collected environmental data shall be logged and transmitted accurately to avoid misrepresentation of water depth or terrain.
 
+#### Environmental Contamination Prevention Constraint
+
+The Communications Subsystem shall not introduce hazardous materials into the aquatic environment during normal operation or foreseeable failure conditions. In particular, the subsystem shall not allow leaded solder, exposed conductive materials, loose electronic components, or degraded insulation to enter the lake.
+ 
 ---
 
 ### Subsystem Design Constraints
@@ -335,6 +336,7 @@ while True:
 
     if no heartbeat for >3 seconds:
         state.link_ok = False
+//if heartbeat returns, restart loop
 ```
 ```
 # Extract relevant fields from incoming messages
