@@ -201,7 +201,10 @@ If the Raspberry Pi consistently creates readable CSV files with valid data, the
 
 ## Overall Conclusions
 
-*WILL ADD OVERALL CONCLUSION WHEN FINAL TESTS HAD BEEN MADE*
+Overall, the experimental analysis shows that the autonomous lake-mapping vessel is capable of collecting useful depth, GPS, and system-performance data while supporting the main goals of the project. The testing confirmed that the sensor and communication setup can record depth values, associate them with location data, and store the results in a format that can be used for mapping in software such as QGIS. The results also showed that the system architecture is practical because the Pixhawk, Raspberry Pi, sonar, telemetry link, and onboard logging can work together as a complete data collection platform.
+The experiments also helped identify important real-world design considerations. Sensor mounting depth, rangefinder calibration, GPS reliability, telemetry connection quality, and power stability all affect the accuracy and usefulness of the final bathymetric map. Because of this, the testing process was not only used to verify performance, but also to guide improvements to the final design. For example, correcting the sonar depth reading based on sensor placement improves the accuracy of the logged data, while onboard SD-card logging helps protect the dataset if the wireless connection is lost.
+Although the vessel still has areas that can be improved, the completed testing demonstrates that the system meets the main purpose of the project: creating a low-cost autonomous platform that can collect lake-mapping data in a usable and repeatable way. The experimental results support the feasibility of the design and provide a strong foundation for future improvements, including better route automation, improved waterproofing, more field testing, and higher-resolution bathymetric map generation.
+I’ll include that after the Experimental Analysis section when I combine the reports. I can also make it sound more formal or more like a college-student final report depending on what your professor expects. I see the uploaded proposal, conceptual design, detailed design sections, and subsystem reports too. 
 
 ## Future Experiments After Speed Controllers Arrive
 
