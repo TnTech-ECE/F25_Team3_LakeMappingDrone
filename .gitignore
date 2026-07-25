@@ -1,0 +1,18 @@
+# macOS
+.DS_Store
+
+# LaTeX generated files
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.nav
+*.out
+*.snm
+*.synctex.gz
+*.toc
+
+# Editor and backup files
+*.bak
+*.swp
+*~
