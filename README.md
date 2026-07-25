@@ -1,60 +1,96 @@
-# {Name of the Project} - Your project should have a catchy and functional name
+# Lake Mapping Drone
 
-The descriptions and information in all readme files in the starter repo (including this one) must be edited. All section descriptions must be deleted. Any failure to remove the description information (like the statement that you are currently reading) will be heavily penalized!
+An autonomous surface vessel developed by Tennessee Technological University
+ECE Capstone Team 3 to collect depth, GPS, proximity, and vehicle-status data
+for low-cost bathymetric mapping.
 
-## Executive Summary
+## Project overview
 
-Give the elevator pitch and abstract for the project. It should allow interested visitors to broadly understand the motivation for the project and what the project has accomplished.
+Commercial hydrographic survey platforms can be prohibitively expensive for
+small research groups and local organizations. This project explores a modular
+alternative built around a catamaran-style hull, a Pixhawk flight controller,
+a Raspberry Pi, a Blue Robotics Ping1D sonar, proximity sensors, and a MAVLink
+telemetry link.
 
+The system is designed to associate depth measurements with position and time,
+store a detailed onboard record, and transmit a simplified live data stream to
+a shore-based ground station.
 
-## Capabilities
+## System capabilities
 
-Here explain in more detail (though not as much as will be given in the datasheet) what the version of this project in this repo is capable of doing.
+- Measures water depth with a Ping1D single-beam sonar
+- Associates depth readings with Pixhawk GPS and vehicle telemetry
+- Logs timestamped mission data on a Raspberry Pi in CSV format
+- Transmits live position and velocity information to a ground station
+- Monitors three short-range proximity sensors
+- Supports ArduPilot/MAVLink integration and downstream mapping in QGIS
+- Preserves onboard data when the wireless link is interrupted
 
+## Validation results
 
-## Salient Outcomes
+Subsystem testing produced the following results:
 
-Projects often have some outcomes that are more interesting than others. Here, highlight those things that you found interesting!
+- **Depth sensing:** three controlled measurements showed absolute errors of
+  0.0100-0.0304 m, corresponding to 0.83-4.99% error
+- **Telemetry:** successful connections were demonstrated at approximately
+  5 m, 100 m, and 150 m; one observed interruption was traced to a disconnected
+  ground-station antenna
+- **Data logging:** the Raspberry Pi recorded UTC time, position, depth,
+  battery state, speed, operating mode, GPS fix, heading, proximity states,
+  and message-age information without a reported logging failure
 
+The delayed arrival of propulsion speed controllers prevented full motion,
+autonomous waypoint, and on-water bathymetric survey testing during the
+documented test phase. Those items remain future validation work and are not
+presented as completed capabilities.
 
-## Project Demonstration & Images
+See the
+[Experimental Analysis Report](Reports/Experimental%20Analysis%20Specifications.md)
+for procedures, measurements, limitations, and conclusions.
 
-Give a link to a video of the project being demonstrated. The video should be hosted on the capstone youtube.
+## System architecture
 
-Below the video link show some well-taken, appropriately sized images of the project.
+The project is organized into five primary subsystems:
 
+1. **Sensors and data acquisition** - sonar, proximity sensing, time-aligned
+   data collection, and verification planning
+2. **Navigation** - Pixhawk, GPS, ArduPilot configuration, and mission control
+3. **Communication** - Raspberry Pi processing, MAVLink telemetry, onboard
+   logging, and ground-station data
+4. **Power** - battery protection, regulation, distribution, and monitoring
+5. **Mechanical hardware** - catamaran hull, payload integration, waterproofing,
+   and component mounting
 
-## About Us
+## Team
 
-### Team
+| Team member | Primary responsibility |
+| --- | --- |
+| Ryan Thomas | Team coordination and communication subsystem |
+| Ian Hanna | Sensors and data-acquisition subsystem and hardware block diagram |
+| Brady Nugent | Navigation subsystem and operational flow |
+| Nathan Norris | Power subsystem; team recorder and meeting-minutes coordinator |
+| Jackson Hamblin | Mechanical hardware and comparative analysis |
 
-Give a brief bio for each team member and their broad contribution to the project (no need to be terribly specifc).
+**Faculty supervisor:** Dr. Christopher Johnson
 
-### Faculty Supervisor
+**Project stakeholder:** Dr. Kalyanapu
 
-Tell who the faculty supervisor was for the project
+## Repository guide
 
-### Stakeholders
+- [Project proposal](Reports/Project%20Proposal.md)
+- [Conceptual design](Reports/Conceptual%20Design.md)
+- [Final report](Reports/Final%20Report.md)
+- [Sensors and data-acquisition design](Reports/Sensors%20Subsystem.md)
+- [Experimental analysis](Reports/Experimental%20Analysis%20Specifications.md)
+- [Meeting minutes](Documentation/Meeting%20Minutes)
+- [Poster](Reports/Poster%20Template/poster.pdf)
 
-Tell a bit about the customer for the project. Also discuss any other groups (specific or general) that are expected to be impacted by the project.
+The `Reports` directory contains the major design and validation documents.
+`Documentation` contains subsystem references and meeting records retained for
+project traceability.
 
-### Recognitions
+## Project status
 
-Use this space to recognize anyone that you feel has had an impact on the project. Be sure to recognize the work of previous teams if you referenced it for style or content. 
-
-## Repo Organization
-
-Give the layout of the repo and what can be found where. Make it easy on those who are interested by making the headings of the various things in this section clickable links to the relevant folder or file in the repo.
-
-
-### Reports
-
-In the reports section of this repository information about the individual expectations for the reports and how they should be housed is provided.
-
-### Documentation
-
-In the documentaion section information regarding the documentation that is required and how it should be organized is given.
-
-### Software
-
-In the software directory of the repo information regarding how each team is expected to document software can be found.
+The sensing, telemetry, and logging chain was validated at the subsystem level.
+Full propulsion, autonomous navigation, and end-to-end on-water mapping remain
+outside the completed test scope documented in this repository.
